@@ -133,14 +133,59 @@ sudo -u postgres psql
 In PostgreSQL shell:
 ```sql
 CREATE DATABASE chatbot_db;
-CREATE USER chatbot_user WITH PASSWORD 'your-secure-password';
+CREATE USER chatbot_user WITH PASSWORD '1q2w3e4r!';
 GRANT ALL PRIVILEGES ON DATABASE chatbot_db TO chatbot_user;
+ALTER USER chatbot_user CREATEDB;
+
+-- Grant schema permissions (IMPORTANT for PostgreSQL 15+)
+\c chatbot_db
+GRANT ALL ON SCHEMA public TO chatbot_user;
+ALTER SCHEMA public OWNER TO chatbot_user;
 \q
+```
+
+**Configure PostgreSQL authentication (IMPORTANT!):**
+
+Edit the PostgreSQL configuration to allow password authentication:
+
+**For Amazon Linux:**
+```bash
+sudo nano /var/lib/pgsql/data/pg_hba.conf
+```
+
+**For Ubuntu:**
+```bash
+sudo nano /etc/postgresql/*/main/pg_hba.conf
+```
+
+Find the line:
+```
+host    all             all             127.0.0.1/32            ident
+```
+
+Change it to:
+```
+host    all             all             127.0.0.1/32            md5
+```
+
+Also change:
+```
+host    all             all             ::1/128                 ident
+```
+
+To:
+```
+host    all             all             ::1/128                 md5
+```
+
+Restart PostgreSQL:
+```bash
+sudo systemctl restart postgresql
 ```
 
 Update `.env`:
 ```env
-DATABASE_URL=postgresql://chatbot_user:your-secure-password@localhost:5432/chatbot_db
+DATABASE_URL=postgresql://chatbot_user:1q2w3e4r!@localhost:5432/chatbot_db
 ```
 
 Update `config/settings.py`:
@@ -220,6 +265,13 @@ if not DEBUG:
 
 ## Step 10: Run Migrations
 
+**Before running migrations, make sure you completed Step 8 and configured PostgreSQL authentication!**
+
+If you get "Ident authentication failed" error, go back to Step 8 and make sure you:
+1. Changed `ident` to `md5` in `pg_hba.conf`
+2. Restarted PostgreSQL with `sudo systemctl restart postgresql`
+
+Then run:
 ```bash
 source venv/bin/activate
 python manage.py makemigrations
@@ -258,10 +310,11 @@ After=network.target
 [Service]
 User=ec2-user
 Group=ec2-user
-WorkingDirectory=/home/ec2-user/eugeny_be
-Environment="PATH=/home/ec2-user/eugeny_be/venv/bin"
-ExecStart=/home/ec2-user/eugeny_be/venv/bin/gunicorn \
+WorkingDirectory=/home/ec2-user/site_project/land_site
+Environment="PATH=/home/ec2-user/site_project/land_site/venv/bin"
+ExecStart=/home/ec2-user/site_project/land_site/venv/bin/gunicorn \
     --workers 3 \
+    --timeout 120 \
     --bind 0.0.0.0:8234 \
     --access-logfile /var/log/chatbot/access.log \
     --error-logfile /var/log/chatbot/error.log \
@@ -270,6 +323,9 @@ ExecStart=/home/ec2-user/eugeny_be/venv/bin/gunicorn \
 [Install]
 WantedBy=multi-user.target
 ```
+
+**IMPORTANT:** Update the paths above to match your actual project directory:
+- If your project is at `/home/ec2-user/site_project/land_site`, change all `/home/ec2-user/site_project/land_site` to `/home/ec2-user/site_project/land_site`
 
 Create log directory:
 ```bash
@@ -320,11 +376,11 @@ server {
     }
 
     location /static/ {
-        alias /home/ec2-user/eugeny_be/staticfiles/;
+        alias /home/ec2-user/site_project/land_site/staticfiles/;
     }
 
     location /media/ {
-        alias /home/ec2-user/eugeny_be/media/;
+        alias /home/ec2-user/site_project/land_site/media/;
     }
 }
 ```
@@ -419,7 +475,7 @@ sudo systemctl restart chatbot
 ### Update Code
 
 ```bash
-cd /home/ec2-user/eugeny_be
+cd /home/ec2-user/site_project/land_site
 git pull  # or upload new files
 source venv/bin/activate
 pip install -r requirements.txt
@@ -444,18 +500,77 @@ sudo systemctl restart chatbot
 ## Troubleshooting
 
 ### Service won't start
+
+**"Failed to locate executable" error:**
+Your systemd service file has wrong paths. Update `/etc/systemd/system/chatbot.service`:
+```bash
+sudo nano /etc/systemd/system/chatbot.service
+```
+
+Change the paths to match your actual project directory. For example:
+- Old: `/home/ec2-user/site_project/land_site`
+- New: `/home/ec2-user/site_project/land_site` (your actual path)
+
+Also add `--timeout 120` to handle OpenAI API delays:
+```ini
+ExecStart=/home/ec2-user/site_project/land_site/venv/bin/gunicorn \
+    --workers 3 \
+    --timeout 120 \
+    --bind 0.0.0.0:8234 \
+    config.wsgi:application
+```
+
+Then restart:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart chatbot
+```
+
+**Check service logs:**
 ```bash
 sudo journalctl -u chatbot -n 50
 ```
 
 ### Permission errors
 ```bash
-sudo chown -R ec2-user:ec2-user /home/ec2-user/eugeny_be
+sudo chown -R ec2-user:ec2-user /home/ec2-user/site_project/land_site
 ```
 
 ### Database connection issues
+
+**"permission denied for schema public" error:**
+This happens with PostgreSQL 15+. Fix it by granting schema permissions:
+```bash
+sudo -u postgres psql
+```
+```sql
+\c chatbot_db
+GRANT ALL ON SCHEMA public TO chatbot_user;
+ALTER SCHEMA public OWNER TO chatbot_user;
+\q
+```
+
+**Check database connectivity:**
 ```bash
 sudo -u postgres psql -c "\l"  # List databases
+```
+
+**"importlib.metadata has no attribute 'packages_distributions'" warning:**
+This is a compatibility issue with Python 3.9. Quick fix: install the backport:
+```bash
+pip install importlib-metadata>=6.0.0
+```
+
+Or upgrade to Python 3.11:
+```bash
+# On Amazon Linux
+sudo yum install -y python3.11 python3.11-pip python3.11-devel
+
+# Recreate venv with Python 3.11
+python3.11 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
 ### Port already in use
@@ -498,7 +613,7 @@ mkdir -p $BACKUP_DIR
 pg_dump -U chatbot_user chatbot_db > $BACKUP_DIR/db_$DATE.sql
 
 # Backup media files
-tar -czf $BACKUP_DIR/media_$DATE.tar.gz /home/ec2-user/eugeny_be/media/
+tar -czf $BACKUP_DIR/media_$DATE.tar.gz /home/ec2-user/site_project/land_site/media/
 
 # Keep only last 7 days
 find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
