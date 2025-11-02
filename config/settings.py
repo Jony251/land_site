@@ -6,6 +6,9 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+import os
+from urllib.parse import urlparse
+
 # Load environment variables
 load_dotenv()
 
@@ -159,3 +162,16 @@ TELEGRAM_CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID')
 # Google OAuth Credentials
 GOOGLE_CREDENTIALS_FILE = os.getenv('GOOGLE_CREDENTIALS_FILE', 'credentials.json')
 
+# Database configuration
+if os.getenv('DATABASE_URL'):
+    db_url = urlparse(os.getenv('DATABASE_URL'))
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': db_url.path[1:],
+            'USER': db_url.username,
+            'PASSWORD': db_url.password,
+            'HOST': db_url.hostname,
+            'PORT': db_url.port,
+        }
+    }
