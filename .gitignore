@@ -51,5 +51,6 @@ Thumbs.db
 # Credentials
 credentials.json
 token.json
+client_secret*.json
 
 evgeny_site.pem
