@@ -48,9 +48,11 @@ const ContactForm = () => {
         config.serviceId,
         config.templateId,
         {
-          from_name: formData.name,
-          reply_to: formData.email,
-          message: formData.message
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          title: 'Blue Cat Contact Form',
+          Email_JS_Blue_Cat_Proj: 'Blue Cat Website'
         },
         {
           publicKey: config.publicKey
@@ -105,6 +107,7 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             className="form-textarea"
+            style={{ resize: 'none' }}
           />
         </div>
 
@@ -112,14 +115,18 @@ const ContactForm = () => {
           <div className={`form-status ${status.state}`}>{status.message}</div>
         )}
 
-        <button className="btn primary" type="submit" disabled={status.state === 'sending'}>
-          {status.state === 'sending' ? t('contact.form.sending') : t('contact.form.send')}
-        </button>
+        <div className="form-buttons">
+          <button className="btn primary" type="submit" disabled={status.state === 'sending'}>
+            {status.state === 'sending' ? t('contact.form.sending') : t('contact.form.send')}
+          </button>
+          <button className="btn secondary" type="button" onClick={() => setFormData({ name: '', email: '', message: '' })}>
+            {t('contact.form.reset')}
+          </button>
+        </div>
 
         {!isConfigured && (
           <div className="form-hint">
-            {/*TODO: change the hint info + add the key*/}
-            {t('contact.form.hint')} <code>.env</code>
+            {t('contact.form.hint')}
           </div>
         )}
       </form>
