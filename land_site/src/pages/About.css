@@ -1,0 +1,20 @@
+.about-page {
+  max-width: 800px;
+}
+
+.about-bio {
+  margin-bottom: 2rem;
+}
+
+.about-bio p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.about-bio .about-cta {
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 1.5rem;
+}

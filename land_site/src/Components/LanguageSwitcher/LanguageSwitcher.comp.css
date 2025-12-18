@@ -1,0 +1,25 @@
+.lang-switch {
+  display: inline-flex;
+  gap: 0.35rem;
+  padding: 0.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.lang-btn {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0.35rem 0.55rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.lang-btn.active {
+  background: rgba(124, 131, 255, 0.22);
+  opacity: 1;
+}

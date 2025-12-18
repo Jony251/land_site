@@ -1,6 +1,6 @@
 .info-section {
   padding: 5rem 0;
-  background-color: #a6c8ea;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -16,7 +16,7 @@
 .info-section h2 {
   text-align: center;
   margin-bottom: 3rem;
-  color: #333;
+  color: var(--text);
   font-size: 2.5rem;
   position: relative;
   padding-bottom: 1rem;
@@ -30,7 +30,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: #646cff;
+  background-color: var(--accent);
 }
 
 .services-grid {
@@ -41,32 +41,34 @@
 }
 
 .service-card {
-  background: white;
+  background: var(--surface);
   border-radius: 10px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(202, 209, 241, 0.1);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
 .service-card h3 {
-  color: #333;
+  color: var(--text);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
 .service-card p {
-  color: #666;
+  color: var(--muted);
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
 .price {
-  color: #646cff;
+  color: var(--accent);
   font-weight: 600;
   font-size: 1.1rem;
 }
