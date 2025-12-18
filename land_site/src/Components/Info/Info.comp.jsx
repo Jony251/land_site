@@ -1,9 +1,8 @@
-import React from 'react';
 import './Info.comp.css';
 import { useI18n } from '../../i18n/LanguageProvider';
 
 const Info = () => {
-  const { t, language, dir } = useI18n();
+  const { t, dir } = useI18n();
 
   const services = [
     { title: t('services.s1.title'), description: t('services.s1.desc') },

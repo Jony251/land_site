@@ -81,78 +81,6 @@
 .rtl .services-grid {
   direction: rtl;
 }
-.rtl .form-group label {
-  text-align: right;
-}
-.rtl .form-group input,
-.rtl .form-group textarea {
-  text-align: right;
-  direction: rtl;
-}
-
-.contact-form-container {
-  max-width: 600px;
-  margin: 0 auto;
-  background: white;
-  padding: 2.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-group label {
-  font-weight: 500;
-  color: #333;
-}
-
-.form-group input,
-.form-group textarea {
-  padding: 0.8rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  background-color: #f0f4ff;
-  color: #333;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #646cff;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 2px rgba(247, 247, 247, 0.2);
-}
-
-.submit-btn {
-  background-color: #646cff;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 1rem;
-}
-
-.submit-btn:hover {
-  background-color: #4a4fcf;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -162,10 +90,6 @@
   
   .services-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .contact-form-container {
-    padding: 1.5rem;
   }
   
   .info-section h2 {

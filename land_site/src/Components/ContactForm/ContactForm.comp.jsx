@@ -59,7 +59,7 @@ const ContactForm = () => {
 
       setStatus({ state: 'success', message: t('contact.form.success') });
       setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
+    } catch {
       setStatus({ state: 'error', message: t('contact.form.error') });
     }
   };

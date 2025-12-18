@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './ChatBot.comp.css';
-import { sendChatMessage, sendChatMessageMock } from './chatService';
+import { sendChatMessageMock } from './chatService';
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
