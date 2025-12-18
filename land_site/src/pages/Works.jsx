@@ -1,28 +1,152 @@
+import { useState, useEffect } from 'react';
 import { useI18n } from '../i18n/LanguageProvider';
+import './Works.css';
+
+const projects = [
+  {
+    id: 'android',
+    titleKey: 'works.projects.android.title',
+    descKey: 'works.projects.android.desc',
+    thumbnail: '/ended_proj/android_play.png',
+    images: [
+      '/ended_proj/android_play.png',
+      '/ended_proj/android_log.png',
+      '/ended_proj/androin_log2.png',
+      '/ended_proj/android_end.png',
+    ],
+  },
+  {
+    id: 'crossplatform',
+    titleKey: 'works.projects.crossplatform.title',
+    descKey: 'works.projects.crossplatform.desc',
+    thumbnail: '/ended_proj/cross_platform.png',
+    images: ['/ended_proj/cross_platform.png'],
+  },
+  {
+    id: 'learning',
+    titleKey: 'works.projects.learning.title',
+    descKey: 'works.projects.learning.desc',
+    thumbnail: '/ended_proj/learning_home.png',
+    images: [
+      '/ended_proj/learning_home.png',
+      '/ended_proj/learning_games.png',
+      '/ended_proj/learning_add.png',
+    ],
+  },
+];
+
+const ProjectModal = ({ project, onClose, t }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [currentIndex]);
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Close">
+          ×
+        </button>
+
+        <div className="modal-gallery">
+          <img
+            src={project.images[currentIndex]}
+            alt={t(project.titleKey)}
+            className="modal-gallery-image"
+          />
+          {project.images.length > 1 && (
+            <>
+              <button className="gallery-nav prev" onClick={prevImage} aria-label="Previous">
+                ‹
+              </button>
+              <button className="gallery-nav next" onClick={nextImage} aria-label="Next">
+                ›
+              </button>
+            </>
+          )}
+        </div>
+
+        {project.images.length > 1 && (
+          <div className="gallery-dots">
+            {project.images.map((_, index) => (
+              <button
+                key={index}
+                className={`gallery-dot ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Image ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
+
+        <div className="modal-info">
+          <h2>{t(project.titleKey)}</h2>
+          <p>{t(project.descKey)}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Works = () => {
   const { t } = useI18n();
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <div className="page">
       <div className="page-content">
         <h1>{t('works.title')}</h1>
         <p>{t('works.body')}</p>
 
-        <div className="card-grid">
-          <div className="card">
-            <h3>{t('works.p1')}</h3>
-            <p>{t('works.pdesc')}</p>
-          </div>
-          <div className="card">
-            <h3>{t('works.p2')}</h3>
-            <p>{t('works.pdesc')}</p>
-          </div>
-          <div className="card">
-            <h3>{t('works.p3')}</h3>
-            <p>{t('works.pdesc')}</p>
-          </div>
+        <div className="works-grid">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="project-card"
+              onClick={() => setSelectedProject(project)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setSelectedProject(project)}
+            >
+              <img
+                src={project.thumbnail}
+                alt={t(project.titleKey)}
+                className="project-card-image"
+              />
+              <div className="project-card-content">
+                <h3>{t(project.titleKey)}</h3>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+          t={t}
+        />
+      )}
     </div>
   );
 };

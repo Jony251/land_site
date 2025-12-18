@@ -34,11 +34,21 @@ export const translations = {
     },
     works: {
       title: 'Works',
-      body: 'Add your projects here. This section is ready for case studies, screenshots, and links.',
-      p1: 'Project #1',
-      p2: 'Project #2',
-      p3: 'Project #3',
-      pdesc: 'Short description of the project and the results.',
+      body: 'A selection of projects I have worked on.',
+      projects: {
+        android: {
+          title: 'Android Game App',
+          desc: 'A mobile game application built with Android Studio featuring user authentication and gameplay mechanics.',
+        },
+        crossplatform: {
+          title: 'Cross-Platform App',
+          desc: 'A cross-platform application designed to work seamlessly across multiple devices and operating systems.',
+        },
+        learning: {
+          title: 'Learning Platform',
+          desc: 'An educational platform with interactive games and content management for effective learning.',
+        },
+      },
     },
     contact: {
       title: 'Contact',
@@ -99,11 +109,21 @@ export const translations = {
     },
     works: {
       title: 'Работы',
-      body: 'Здесь будут кейсы, скриншоты и ссылки на проекты. Позже можно заменить контент.',
-      p1: 'Проект #1',
-      p2: 'Проект #2',
-      p3: 'Проект #3',
-      pdesc: 'Короткое описание проекта и результата.',
+      body: 'Подборка проектов, над которыми я работал.',
+      projects: {
+        android: {
+          title: 'Android-игра',
+          desc: 'Мобильное игровое приложение на Android Studio с авторизацией и игровой механикой.',
+        },
+        crossplatform: {
+          title: 'Кроссплатформенное приложение',
+          desc: 'Приложение, работающее на разных устройствах и операционных системах.',
+        },
+        learning: {
+          title: 'Образовательная платформа',
+          desc: 'Платформа для обучения с интерактивными играми и управлением контентом.',
+        },
+      },
     },
     contact: {
       title: 'Контакты',
@@ -164,11 +184,21 @@ export const translations = {
     },
     works: {
       title: 'Роботи',
-      body: 'Тут будуть кейси, скріншоти та посилання на проєкти. Пізніше можна замінити контент.',
-      p1: 'Проєкт #1',
-      p2: 'Проєкт #2',
-      p3: 'Проєкт #3',
-      pdesc: 'Короткий опис проєкту та результату.',
+      body: 'Добірка проєктів, над якими я працював.',
+      projects: {
+        android: {
+          title: 'Android-гра',
+          desc: 'Мобільний ігровий додаток на Android Studio з авторизацією та ігровою механікою.',
+        },
+        crossplatform: {
+          title: 'Кросплатформний додаток',
+          desc: 'Додаток, що працює на різних пристроях та операційних системах.',
+        },
+        learning: {
+          title: 'Освітня платформа',
+          desc: 'Платформа для навчання з інтерактивними іграми та керуванням контентом.',
+        },
+      },
     },
     contact: {
       title: 'Контакти',
@@ -229,11 +259,21 @@ export const translations = {
     },
     works: {
       title: 'עבודות',
-      body: 'כאן יופיעו קייסים, צילומי מסך וקישורים לפרויקטים. בהמשך ניתן לערוך את התוכן.',
-      p1: 'פרויקט #1',
-      p2: 'פרויקט #2',
-      p3: 'פרויקט #3',
-      pdesc: 'תיאור קצר של הפרויקט והתוצאה.',
+      body: 'מבחר פרויקטים שעבדתי עליהם.',
+      projects: {
+        android: {
+          title: 'אפליקציית משחק לאנדרואיד',
+          desc: 'אפליקציית משחק מובייל שנבנתה ב-Android Studio עם אימות משתמשים ומכניקת משחק.',
+        },
+        crossplatform: {
+          title: 'אפליקציה חוצת פלטפורמות',
+          desc: 'אפליקציה שתוכננה לעבוד בצורה חלקה על מכשירים ומערכות הפעלה שונות.',
+        },
+        learning: {
+          title: 'פלטפורמת למידה',
+          desc: 'פלטפורמה חינוכית עם משחקים אינטראקטיביים וניהול תוכן ללמידה יעילה.',
+        },
+      },
     },
     contact: {
       title: 'צור קשר',
