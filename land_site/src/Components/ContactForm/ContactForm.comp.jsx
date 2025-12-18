@@ -118,6 +118,7 @@ const ContactForm = () => {
 
         {!isConfigured && (
           <div className="form-hint">
+            {/*TODO: change the hint info + add the key*/}
             {t('contact.form.hint')} <code>.env</code>
           </div>
         )}

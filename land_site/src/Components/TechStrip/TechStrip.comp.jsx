@@ -3,10 +3,16 @@ import reactLogo from '../../assets/react.svg';
 
 const TechStrip = () => {
   const tech = [
-    { name: 'React', logo: reactLogo },
-    { name: 'Vite', logo: '/vite.svg' },
+    { name: 'HTML5' },
+    { name: 'CSS3' },
     { name: 'JavaScript' },
-    { name: 'CSS' },
+    { name: 'React', logo: reactLogo },
+    { name: 'Node.js' },
+    { name: 'Python' },
+    { name: 'REST API' },
+    { name: 'Git' },
+    { name: 'Vite', logo: '/vite.svg' },
+    { name: 'Axios' },
     { name: 'EmailJS' },
   ];
 
