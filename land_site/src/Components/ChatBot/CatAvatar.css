@@ -1,0 +1,86 @@
+.cat-avatar-container {
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cat-avatar-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cat-avatar-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Breathing animation for body */
+.cat-body {
+  animation: breathing 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes breathing {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.03);
+  }
+}
+
+/* Subtle head bob */
+.cat-head {
+  animation: headBob 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes headBob {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-1px) rotate(0.5deg);
+  }
+  75% {
+    transform: translateY(-1px) rotate(-0.5deg);
+  }
+}
+
+/* Ear twitch */
+.cat-ear {
+  animation: earTwitch 5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.cat-ear:first-of-type {
+  animation-delay: 0.5s;
+}
+
+@keyframes earTwitch {
+  0%, 90%, 100% {
+    transform: rotate(0deg);
+  }
+  93% {
+    transform: rotate(-3deg);
+  }
+  96% {
+    transform: rotate(2deg);
+  }
+}
+
+/* Eye transitions */
+.cat-eye-white {
+  transition: ry 0.15s ease;
+}
+
+.cat-eye-pupil {
+  transition: cx 0.15s ease-out, cy 0.15s ease-out;
+}
+
+.cat-eye-highlight {
+  transition: cx 0.1s ease-out, cy 0.1s ease-out;
+}

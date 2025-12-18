@@ -21,6 +21,7 @@
   justify-content: center;
   transition: transform 180ms ease, box-shadow 220ms ease, background 220ms ease;
   position: relative;
+  overflow: hidden;
 }
 
 .chat-toggle-btn:hover {
@@ -269,6 +270,7 @@
     height: calc(100vh - 120px);
     max-width: 380px;
   }
+  
 }
 
 @media (max-width: 480px) {

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import './ChatBot.comp.css';
 import { sendChatMessageMock } from './chatService';
+import CatAvatar from './CatAvatar';
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ const ChatBot = () => {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+  const chatWindowRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -103,19 +105,19 @@ const ChatBot = () => {
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         ) : (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-          </svg>
+          <CatAvatar isVisible={!isOpen} />
         )}
       </button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="chat-window">
+        <div className="chat-window" ref={chatWindowRef}>
           {/* Header */}
           <div className="chat-header">
             <div className="chat-header-info">
-              <div className="chat-avatar">BC</div>
+              <div className="chat-avatar">
+                <CatAvatar isVisible={isOpen} chatRef={chatWindowRef} />
+              </div>
               <div>
                 <h3>Blue Cat Assistant</h3>
                 <span className="chat-status">Online</span>
