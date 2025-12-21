@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Nav from './Components/Nav/Nav.comp'
 import ChatBot from './Components/ChatBot/ChatBot.comp'
 import AccessibilityWidget from './Components/Accessibility/AccessibilityWidget.comp'
+import Footer from './Components/Footer/Footer.comp'
 import Home from './pages/Home'
 import About from './pages/About'
 import Works from './pages/Works'
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
+        <Footer />
         <AccessibilityWidget />
         <ChatBot />
       </div>

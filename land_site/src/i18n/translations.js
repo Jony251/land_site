@@ -44,6 +44,10 @@ export const translations = {
           title: 'Cross-Platform App',
           desc: 'A cross-platform application designed to work seamlessly across multiple devices and operating systems.',
         },
+        cross_II: {
+          title: 'Cross-Platform App II',
+          desc: 'An advanced cross-platform application with collection management, user profiles, and wishlist features.',
+        },
         learning: {
           title: 'Learning Platform',
           desc: 'An educational platform with interactive games and content management for effective learning.',
@@ -119,6 +123,10 @@ export const translations = {
         crossplatform: {
           title: 'Кроссплатформенное приложение',
           desc: 'Приложение, работающее на разных устройствах и операционных системах.',
+        },
+        cross_II: {
+          title: 'Кроссплатформенное приложение II',
+          desc: 'Продвинутое кроссплатформенное приложение с управлением коллекциями, профилями пользователей и списками желаемого.',
         },
         learning: {
           title: 'Образовательная платформа',
@@ -196,6 +204,10 @@ export const translations = {
           title: 'Кросплатформний додаток',
           desc: 'Додаток, що працює на різних пристроях та операційних системах.',
         },
+        cross_II: {
+          title: 'Кросплатформний додаток II',
+          desc: 'Просунутий кросплатформний додаток з керуванням колекціями, профілями користувачів та списками бажань.',
+        },
         learning: {
           title: 'Освітня платформа',
           desc: 'Платформа для навчання з інтерактивними іграми та керуванням контентом.',
@@ -271,6 +283,10 @@ export const translations = {
         crossplatform: {
           title: 'אפליקציה חוצת פלטפורמות',
           desc: 'אפליקציה שתוכננה לעבוד בצורה חלקה על מכשירים ומערכות הפעלה שונות.',
+        },
+        cross_II: {
+          title: 'אפליקציה חוצת פלטפורמות II',
+          desc: 'אפליקציה מתקדמת חוצת פלטפורמות עם ניהול אוספים, פרופילי משתמשים ורשימות משאלות.',
         },
         learning: {
           title: 'פלטפורמת למידה',
