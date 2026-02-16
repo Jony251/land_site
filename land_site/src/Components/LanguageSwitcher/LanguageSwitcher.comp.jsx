@@ -12,6 +12,8 @@ const LanguageSwitcher = () => {
           type="button"
           className={`lang-btn ${lang === l.code ? 'active' : ''}`}
           onClick={() => setLang(l.code)}
+          aria-pressed={lang === l.code}
+          title={`Switch language to ${l.label}`}
         >
           {l.label}
         </button>

@@ -1,0 +1,43 @@
+Blue Cat - Web Developer CV
+===========================
+
+Name: Evgeny Nemchenko
+Role: Full-stack Web Developer
+Location: Remote / Flexible
+Email: bluecat.webdev@gmail.com
+LinkedIn: https://www.linkedin.com/in/evgeny-nemchenko/
+GitHub: https://github.com/Jony251
+
+Professional Summary
+--------------------
+Conversion-focused web developer building modern websites and web applications
+with clean architecture, strong performance, and accessible user experiences.
+
+Core Skills
+-----------
+- React / JavaScript
+- HTML5 / CSS3 / Responsive UI
+- Node.js / Python
+- REST API integrations
+- Performance optimization
+- SEO and analytics fundamentals
+- UI accessibility best practices
+
+Services
+--------
+- Landing pages and marketing websites
+- Full website redesign and modernization
+- Web app frontend implementation
+- API and backend integrations
+- Ongoing support and iteration
+
+Recent Outcomes
+---------------
+- Improved conversion rates through clearer CTA hierarchy
+- Reduced load times and improved Lighthouse metrics
+- Increased lead quality with better form UX and validation
+- Delivered reusable component systems for faster updates
+
+Notes
+-----
+This downloadable CV file can be replaced with an official PDF version when needed.
