@@ -39,9 +39,10 @@ cp env.example .env
 Then edit `.env` with your values:
 
 ```env
-SECRET_KEY=django-insecure-please-change-this-in-production
+SECRET_KEY=your-strong-secret-key
 DEBUG=True
-OPENAI_API_KEY=sk-your-key-here
+ALLOWED_HOSTS=localhost,127.0.0.1
+OPENAI_API_KEY=your-openai-api-key
 TELEGRAM_BOT_TOKEN=your-bot-token
 TELEGRAM_CHANNEL_ID=@your-channel
 ```
@@ -56,12 +57,14 @@ TELEGRAM_CHANNEL_ID=@your-channel
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Enable Google Docs API
 3. Create OAuth 2.0 credentials (Desktop app)
-4. Download as `credentials.json` to project root
-5. **Add your Google account as test user:**
+4. Download credentials JSON and save it as `credentials.json` in project root
+5. Do **not** commit `credentials.json` to git (it's ignored by default)
+6. Optional: copy `credentials.example.json` and fill your own values
+7. **Add your Google account as test user:**
    - Go to **APIs & Services** → **OAuth consent screen**
    - Scroll to **Test users** → Click **+ ADD USERS**
    - Add your email address
-6. Run the app once - browser will open for authentication
+8. Run the app once - browser will open for authentication
 
 **⚠️ If you see "Access denied" error:** See [GOOGLE_OAUTH_SETUP.md](GOOGLE_OAUTH_SETUP.md) for fix
 

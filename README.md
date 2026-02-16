@@ -78,12 +78,14 @@ Required environment variables:
 3. Enable the Google Docs API
 4. Create OAuth 2.0 credentials (Desktop application)
 5. Download the credentials file and save it as `credentials.json` in the project root
-6. **Important**: Add your Google account as a test user:
+6. Never commit `credentials.json` to git (it is ignored by `.gitignore`)
+7. You can use `credentials.example.json` as a safe template
+8. **Important**: Add your Google account as a test user:
    - Go to **APIs & Services** → **OAuth consent screen**
    - Scroll to **Test users** section
    - Click **+ ADD USERS** and add your email
    - See [GOOGLE_OAUTH_SETUP.md](GOOGLE_OAUTH_SETUP.md) for detailed instructions
-7. Place your system prompt in a Google Doc and copy the document ID from the URL
+9. Place your system prompt in a Google Doc and copy the document ID from the URL
 
 **Troubleshooting**: If you see "Access denied" error, see [GOOGLE_OAUTH_SETUP.md](GOOGLE_OAUTH_SETUP.md)
 

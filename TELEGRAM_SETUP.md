@@ -11,7 +11,7 @@ Complete guide for setting up Telegram bot and channel for lead notifications.
    - Choose a username (must end with `bot`, e.g., `my_ai_chatbot_bot`)
 4. BotFather will give you a **token** that looks like:
    ```
-   123456789:ABCdefGHIjklMNOpqrsTUVwxyz
+   <telegram_bot_token_from_botfather>
    ```
 5. Save this token - this is your `TELEGRAM_BOT_TOKEN`
 
@@ -80,11 +80,11 @@ Add to your `.env` file:
 
 ```env
 # For public channel with username
-TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrsTUVwxyz
+TELEGRAM_BOT_TOKEN=<telegram_bot_token_from_botfather>
 TELEGRAM_CHANNEL_ID=@my_ai_leads
 
 # OR for private channel (use channel ID instead)
-TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrsTUVwxyz
+TELEGRAM_BOT_TOKEN=<telegram_bot_token_from_botfather>
 TELEGRAM_CHANNEL_ID=-1001234567890
 ```
 

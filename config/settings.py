@@ -5,8 +5,7 @@ Django settings for config project.
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-
-import os
+from django.core.exceptions import ImproperlyConfigured
 from urllib.parse import urlparse
 
 # Load environment variables
@@ -16,14 +15,32 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+def get_bool_env(name: str, default: bool = False) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {'1', 'true', 'yes', 'on'}
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-change-this-in-production')
+DEBUG = get_bool_env('DEBUG', default=True)
+
+SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    if DEBUG:
+        # Local development fallback only.
+        SECRET_KEY = 'django-insecure-dev-only-key'
+    else:
+        raise ImproperlyConfigured('SECRET_KEY environment variable is required when DEBUG=False')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+if not DEBUG and SECRET_KEY in {'django-insecure-change-this-in-production', 'django-insecure-dev-only-key'}:
+    raise ImproperlyConfigured('Use a strong SECRET_KEY in production')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+allowed_hosts_default = 'localhost,127.0.0.1'
+ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS', allowed_hosts_default).split(',') if host.strip()]
+
+if not DEBUG and ('*' in ALLOWED_HOSTS or not ALLOWED_HOSTS):
+    raise ImproperlyConfigured('ALLOWED_HOSTS must be explicitly configured in production')
 
 
 # Application definition

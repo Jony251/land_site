@@ -14,11 +14,12 @@ Create a `.env` file in the project root with these variables:
 
 ```bash
 # Django
-SECRET_KEY=django-insecure-your-secret-key-change-in-production
+SECRET_KEY=your-strong-secret-key
 DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
 
 # OpenAI - Get from https://platform.openai.com/api-keys
-OPENAI_API_KEY=sk-your-openai-api-key
+OPENAI_API_KEY=your-openai-api-key
 
 # Google Docs - Get the document ID from the URL
 GOOGLE_DOCS_SYSTEM_PROMPT_ID=your-document-id-from-url
@@ -38,10 +39,11 @@ TELEGRAM_CHANNEL_ID=@your-channel-username
    - Go to "Credentials" → "Create Credentials" → "OAuth 2.0 Client ID"
    - Choose "Desktop app"
    - Download credentials JSON file
-5. Save it as `credentials.json` in project root
-6. Create a Google Doc with your system prompt
-7. Copy the document ID from the URL (the long string of characters)
-8. Put that ID in `GOOGLE_DOCS_SYSTEM_PROMPT_ID` in your `.env`
+5. Save it as `credentials.json` in project root (or copy `credentials.example.json` and fill values)
+6. Never commit `credentials.json` to git
+7. Create a Google Doc with your system prompt
+8. Copy the document ID from the URL (the long string of characters)
+9. Put that ID in `GOOGLE_DOCS_SYSTEM_PROMPT_ID` in your `.env`
 
 ## 4. Telegram Bot Setup
 
