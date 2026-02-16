@@ -32,7 +32,7 @@ const Nav = () => {
         <div className="nav-logo">
           <a href="#home" className="logo-link" aria-label="Blue Cat home" onClick={handleNavClick}>
             <span className="logo-mark" aria-hidden="true">
-              BC
+              <img className="logo-img" src="/logo_NO_font.png" alt="" />
             </span>
             <span className="logo-text">Blue Cat</span>
           </a>
