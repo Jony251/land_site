@@ -1,54 +1,64 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../Components/SEO/SEO.comp';
 import SectionReveal from '../Components/SectionReveal/SectionReveal.comp';
 import Info from '../Components/Info/Info.comp';
 import TechStrip from '../Components/TechStrip/TechStrip.comp';
-import { featuredProjects } from '../data/projects';
-import { insights, processSteps, testimonials, trustStats } from '../data/siteContent';
+import { getLocalizedFeaturedProjects } from '../data/projects';
+import { getLocalizedSiteContent } from '../data/siteContent';
 import { useI18n } from '../i18n/LanguageProvider';
+import { useSiteCopy } from '../i18n/siteCopy';
 import { trackCtaClick } from '../lib/analytics';
 import './Home.css';
 
 const Home = () => {
-  const { t } = useI18n();
-  const [activeProjectId, setActiveProjectId] = useState(featuredProjects[0].id);
+  const { lang } = useI18n();
+  const sc = useSiteCopy();
+  const localizedContent = useMemo(() => getLocalizedSiteContent(lang), [lang]);
+  const featuredProjects = useMemo(() => getLocalizedFeaturedProjects(lang), [lang]);
+  const [activeProjectId, setActiveProjectId] = useState(featuredProjects[0]?.id ?? '');
 
   const activeProject = useMemo(
     () => featuredProjects.find((project) => project.id === activeProjectId) || featuredProjects[0],
-    [activeProjectId]
+    [activeProjectId, featuredProjects]
   );
+
+  useEffect(() => {
+    if (featuredProjects.length > 0 && !featuredProjects.some((project) => project.id === activeProjectId)) {
+      setActiveProjectId(featuredProjects[0].id);
+    }
+  }, [activeProjectId, featuredProjects]);
 
   const handleTrack = (label) => trackCtaClick(label);
 
   return (
     <div className="page home-page">
       <SEO
-        title="Blue Cat | Conversion-Focused Web Developer"
-        description="Modern websites and web apps engineered for performance, trust, and measurable conversion growth."
+        title={sc('seo.homeTitle')}
+        description={sc('seo.homeDescription')}
       />
 
       <section className="hero">
         <div className="page-content hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">Full-stack web development</p>
-            <h1>Modern websites that look premium and convert consistently.</h1>
-            <p className="hero-subtitle">{t('home.subtitle')}</p>
+            <p className="eyebrow">{sc('home.heroEyebrow')}</p>
+            <h1>{sc('home.heroTitle')}</h1>
+            <p className="hero-subtitle">{sc('home.heroSubtitle')}</p>
 
             <div className="hero-actions">
               <Link className="btn primary" to="/contact" onClick={() => handleTrack('hero_hire_me')}>
-                Hire Me
+                {sc('home.ctaHireMe')}
               </Link>
               <Link className="btn ghost" to="/works" onClick={() => handleTrack('hero_view_projects')}>
-                Explore Projects
+                {sc('home.ctaExploreProjects')}
               </Link>
               <a className="btn secondary" href="/Blue-Cat-CV.txt" download>
-                Download CV
+                {sc('nav.downloadCv')}
               </a>
             </div>
 
             <ul className="hero-stats" aria-label="Trust and performance indicators">
-              {trustStats.map((item) => (
+              {localizedContent.trustStats.map((item) => (
                 <li key={item.label} className="hero-stat">
                   <strong>{item.value}</strong>
                   <span>{item.label}</span>
@@ -60,8 +70,8 @@ const Home = () => {
           <div className="hero-visual" aria-hidden="true">
             <div className="hero-card">
               <div className="hero-card-head">
-                <span>Launch-ready product page</span>
-                <span className="hero-chip">Live preview</span>
+                <span>{sc('home.heroVisualTitle')}</span>
+                <span className="hero-chip">{sc('home.heroVisualChip')}</span>
               </div>
 
               <div className="hero-code">
@@ -73,15 +83,15 @@ const Home = () => {
               <div className="hero-card-footer">
                 <div className="hero-kpi">
                   <strong>+31%</strong>
-                  <span>Quote requests</span>
+                  <span>{sc('home.heroQuoteLabel')}</span>
                 </div>
                 <div className="hero-kpi">
                   <strong>95+</strong>
-                  <span>Lighthouse score</span>
+                  <span>{sc('home.trustScore')}</span>
                 </div>
                 <div className="hero-kpi">
                   <strong>1.8s</strong>
-                  <span>Largest contentful paint</span>
+                  <span>{sc('home.heroSpeedLabel')}</span>
                 </div>
               </div>
             </div>
@@ -93,11 +103,11 @@ const Home = () => {
 
       <SectionReveal as="section" className="page-content process-section">
         <div className="section-head">
-          <p className="eyebrow">Workflow</p>
-          <h2 className="section-title">A clear process from strategy to launch</h2>
+          <p className="eyebrow">{sc('home.processEyebrow')}</p>
+          <h2 className="section-title">{sc('home.processTitle')}</h2>
         </div>
         <div className="process-grid">
-          {processSteps.map((step, index) => (
+          {localizedContent.processSteps.map((step, index) => (
             <article key={step.title} className="process-card surface-panel">
               <span className="process-index">{`0${index + 1}`}</span>
               <h3>{step.title}</h3>
@@ -113,11 +123,9 @@ const Home = () => {
 
       <SectionReveal as="section" className="page-content showcase-section">
         <div className="section-head">
-          <p className="eyebrow">Portfolio highlight</p>
-          <h2 className="section-title">Interactive project showcase</h2>
-          <p className="section-description">
-            Select a project to preview outcomes, role, and delivery details. Open the full case study for implementation notes.
-          </p>
+          <p className="eyebrow">{sc('home.showcaseEyebrow')}</p>
+          <h2 className="section-title">{sc('home.showcaseTitle')}</h2>
+          <p className="section-description">{sc('home.showcaseDescription')}</p>
         </div>
 
         <div className="showcase-layout">
@@ -150,10 +158,10 @@ const Home = () => {
 
             <div className="showcase-preview-actions">
               <Link className="btn primary" to={`/works/${activeProject.id}`}>
-                View Case Study
+                {sc('works.readCaseStudy')}
               </Link>
               <Link className="btn secondary" to="/contact">
-                Start a Similar Project
+                {sc('works.discussBuild')}
               </Link>
             </div>
           </article>
@@ -162,12 +170,12 @@ const Home = () => {
 
       <SectionReveal as="section" className="page-content testimonial-section">
         <div className="section-head">
-          <p className="eyebrow">Testimonials</p>
-          <h2 className="section-title">What clients say</h2>
+          <p className="eyebrow">{sc('home.testimonialEyebrow')}</p>
+          <h2 className="section-title">{sc('home.testimonialTitle')}</h2>
         </div>
 
         <div className="testimonial-grid">
-          {testimonials.map((item) => (
+          {localizedContent.testimonials.map((item) => (
             <article key={item.name} className="testimonial-card surface-panel">
               <p className="testimonial-quote">&ldquo;{item.quote}&rdquo;</p>
               <p className="testimonial-author">{item.name}</p>
@@ -179,32 +187,54 @@ const Home = () => {
 
       <SectionReveal as="section" className="page-content insight-section">
         <div className="section-head">
-          <p className="eyebrow">Insights</p>
-          <h2 className="section-title">Quick reads for better digital outcomes</h2>
+          <p className="eyebrow">{sc('home.insightsEyebrow')}</p>
+          <h2 className="section-title">{sc('home.insightsTitle')}</h2>
         </div>
 
         <div className="insight-grid">
-          {insights.map((item) => (
+          {localizedContent.insights.map((item) => (
             <article key={item.title} className="insight-card surface-panel">
               <p className="insight-time">{item.readTime}</p>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               <Link to="/contact" className="insight-link">
-                Discuss this topic
+                {sc('home.discussTopic')}
               </Link>
             </article>
           ))}
         </div>
       </SectionReveal>
 
+      <SectionReveal as="section" className="page-content faq-section">
+        <div className="section-head">
+          <p className="eyebrow">{sc('home.faqEyebrow')}</p>
+          <h2 className="section-title">{sc('home.faqTitle')}</h2>
+        </div>
+
+        <div className="faq-list">
+          <details className="faq-item surface-panel" open>
+            <summary>{sc('home.faq1Q')}</summary>
+            <p>{sc('home.faq1A')}</p>
+          </details>
+          <details className="faq-item surface-panel">
+            <summary>{sc('home.faq2Q')}</summary>
+            <p>{sc('home.faq2A')}</p>
+          </details>
+          <details className="faq-item surface-panel">
+            <summary>{sc('home.faq3Q')}</summary>
+            <p>{sc('home.faq3A')}</p>
+          </details>
+        </div>
+      </SectionReveal>
+
       <section className="page-content">
         <div className="surface-panel cta-banner">
           <div>
-            <h3>Need a clean redesign that drives more leads?</h3>
-            <p>Get a focused audit plus a practical delivery plan for your website.</p>
+            <h3>{sc('home.ctaTitle')}</h3>
+            <p>{sc('home.ctaDescription')}</p>
           </div>
           <Link className="btn primary" to="/contact" onClick={() => handleTrack('footer_cta_quote')}>
-            Get a Quote
+            {sc('home.ctaButton')}
           </Link>
         </div>
       </section>

@@ -4,10 +4,12 @@ import './Nav.comp.css'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.comp'
 import ThemeToggle from '../ThemeToggle/ThemeToggle.comp'
 import { useI18n } from '../../i18n/LanguageProvider'
+import { useSiteCopy } from '../../i18n/siteCopy'
 import { trackCtaClick } from '../../lib/analytics'
 
 const Nav = () => {
   const { t } = useI18n()
+  const sc = useSiteCopy()
   const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -49,7 +51,7 @@ const Nav = () => {
         <button
           type="button"
           className={`menu-toggle ${mobileOpen ? 'active' : ''}`}
-          aria-label="Toggle navigation menu"
+          aria-label={sc('nav.toggleMenu')}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((value) => !value)}
         >
@@ -71,19 +73,19 @@ const Nav = () => {
           ))}
           <li className="mobile-only">
             <a className="btn ghost small" href="/Blue-Cat-CV.txt" download>
-              Download CV
+              {sc('nav.downloadCv')}
             </a>
           </li>
           <li className="mobile-only">
             <Link className="btn primary small" to="/contact" onClick={handleQuoteClick}>
-              Get a Quote
+              {sc('nav.getQuote')}
             </Link>
           </li>
         </ul>
 
         <div className="nav-actions">
           <a className="btn ghost small desktop-only" href="/Blue-Cat-CV.txt" download>
-            Download CV
+            {sc('nav.downloadCv')}
           </a>
           <ThemeToggle />
           <LanguageSwitcher />
@@ -92,7 +94,7 @@ const Nav = () => {
             to="/contact"
             onClick={handleQuoteClick}
           >
-            Get a Quote
+            {sc('nav.getQuote')}
           </Link>
         </div>
       </div>

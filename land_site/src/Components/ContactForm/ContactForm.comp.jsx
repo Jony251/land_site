@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useI18n } from '../../i18n/LanguageProvider';
+import { useSiteCopy } from '../../i18n/siteCopy';
 import './ContactForm.comp.css';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,6 +16,7 @@ const initialFormState = {
 
 const ContactForm = () => {
   const { t } = useI18n();
+  const sc = useSiteCopy();
   const [formData, setFormData] = useState(initialFormState);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
@@ -32,30 +34,30 @@ const ContactForm = () => {
 
   const validateField = (field, value) => {
     if (field === 'name') {
-      if (!value.trim()) return 'Name is required.';
-      if (value.trim().length < 2) return 'Name should have at least 2 characters.';
+      if (!value.trim()) return sc('form.nameRequired');
+      if (value.trim().length < 2) return sc('form.nameMin');
       return '';
     }
 
     if (field === 'email') {
-      if (!value.trim()) return 'Email is required.';
-      if (!EMAIL_REGEX.test(value.trim())) return 'Please enter a valid email address.';
+      if (!value.trim()) return sc('form.emailRequired');
+      if (!EMAIL_REGEX.test(value.trim())) return sc('form.emailInvalid');
       return '';
     }
 
     if (field === 'budget') {
-      if (!value.trim()) return 'Please select a budget range.';
+      if (!value.trim()) return sc('form.budgetRequired');
       return '';
     }
 
     if (field === 'timeline') {
-      if (!value.trim()) return 'Please select a preferred timeline.';
+      if (!value.trim()) return sc('form.timelineRequired');
       return '';
     }
 
     if (field === 'message') {
-      if (!value.trim()) return 'Message is required.';
-      if (value.trim().length < 20) return 'Please provide at least 20 characters for project details.';
+      if (!value.trim()) return sc('form.messageRequired');
+      if (value.trim().length < 20) return sc('form.messageMin');
       return '';
     }
 
@@ -102,7 +104,7 @@ const ContactForm = () => {
     setTouched(nextTouched);
 
     if (!validateForm()) {
-      setStatus({ state: 'error', message: 'Please fix the highlighted fields and try again.' });
+      setStatus({ state: 'error', message: sc('form.fixErrors') });
       return;
     }
 
@@ -189,7 +191,7 @@ const ContactForm = () => {
 
         <div className="form-grid">
           <div className="form-row">
-            <label className="form-label" htmlFor="budget">Budget range</label>
+            <label className="form-label" htmlFor="budget">{sc('form.budgetLabel')}</label>
             <select
               id="budget"
               name="budget"
@@ -200,17 +202,17 @@ const ContactForm = () => {
               aria-invalid={Boolean(errors.budget)}
               aria-describedby={errors.budget ? 'budget-error' : undefined}
             >
-              <option value="">Select budget</option>
-              <option value="under_1000">Under $1,000</option>
-              <option value="1000_3000">$1,000 - $3,000</option>
-              <option value="3000_7000">$3,000 - $7,000</option>
-              <option value="7000_plus">$7,000+</option>
+              <option value="">{sc('form.budgetPlaceholder')}</option>
+              <option value="under_1000">{sc('form.budget1')}</option>
+              <option value="1000_3000">{sc('form.budget2')}</option>
+              <option value="3000_7000">{sc('form.budget3')}</option>
+              <option value="7000_plus">{sc('form.budget4')}</option>
             </select>
             {errors.budget && <p className="field-error" id="budget-error">{errors.budget}</p>}
           </div>
 
           <div className="form-row">
-            <label className="form-label" htmlFor="timeline">Timeline</label>
+            <label className="form-label" htmlFor="timeline">{sc('form.timelineLabel')}</label>
             <select
               id="timeline"
               name="timeline"
@@ -221,11 +223,11 @@ const ContactForm = () => {
               aria-invalid={Boolean(errors.timeline)}
               aria-describedby={errors.timeline ? 'timeline-error' : undefined}
             >
-              <option value="">Select timeline</option>
-              <option value="asap">ASAP</option>
-              <option value="2_4_weeks">2-4 weeks</option>
-              <option value="1_2_months">1-2 months</option>
-              <option value="flexible">Flexible</option>
+              <option value="">{sc('form.timelinePlaceholder')}</option>
+              <option value="asap">{sc('form.timeline1')}</option>
+              <option value="2_4_weeks">{sc('form.timeline2')}</option>
+              <option value="1_2_months">{sc('form.timeline3')}</option>
+              <option value="flexible">{sc('form.timeline4')}</option>
             </select>
             {errors.timeline && <p className="field-error" id="timeline-error">{errors.timeline}</p>}
           </div>

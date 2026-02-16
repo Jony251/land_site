@@ -1,22 +1,25 @@
 import { useI18n } from '../i18n/LanguageProvider';
+import { useSiteCopy } from '../i18n/siteCopy';
 import SEO from '../Components/SEO/SEO.comp';
 import SectionReveal from '../Components/SectionReveal/SectionReveal.comp';
-import { skillGroups } from '../data/siteContent';
+import { getLocalizedSiteContent } from '../data/siteContent';
 import './About.css';
 
 const About = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const sc = useSiteCopy();
+  const { skillGroups } = getLocalizedSiteContent(lang);
 
   return (
     <div className="page about-page">
       <SEO
-        title="Blue Cat | About the Developer"
-        description="Learn about experience, delivery approach, and technical strengths focused on performance and conversion."
+        title={sc('seo.aboutTitle')}
+        description={sc('seo.aboutDescription')}
       />
 
       <section className="page-content">
         <header className="page-header">
-          <p className="eyebrow">About</p>
+          <p className="eyebrow">{t('about.title')}</p>
           <h1 className="page-title">{t('about.title')}</h1>
         </header>
 
@@ -29,15 +32,15 @@ const About = () => {
           </article>
 
           <aside className="surface-panel about-side-card">
-            <h2>Working principles</h2>
+            <h2>{sc('aboutPage.principlesTitle')}</h2>
             <ul>
-              <li>Business-first delivery decisions</li>
-              <li>Accessible and maintainable UI architecture</li>
-              <li>Fast iteration with transparent communication</li>
-              <li>Measurement and post-launch optimization</li>
+              <li>{sc('aboutPage.principle1')}</li>
+              <li>{sc('aboutPage.principle2')}</li>
+              <li>{sc('aboutPage.principle3')}</li>
+              <li>{sc('aboutPage.principle4')}</li>
             </ul>
             <a className="btn secondary small" href="/Blue-Cat-CV.txt" download>
-              Download CV
+              {sc('nav.downloadCv')}
             </a>
           </aside>
         </div>
@@ -45,8 +48,8 @@ const About = () => {
 
       <SectionReveal as="section" className="page-content">
         <div className="section-head">
-          <p className="eyebrow">Skill visualization</p>
-          <h2 className="section-title">Core strengths</h2>
+          <p className="eyebrow">{sc('aboutPage.coreStrengths')}</p>
+          <h2 className="section-title">{sc('aboutPage.coreStrengths')}</h2>
         </div>
 
         <div className="skills-grid">
@@ -85,11 +88,11 @@ const About = () => {
 
         <div className="surface-panel cta-banner about-cta-banner">
           <div>
-            <h3>Open for freelance and long-term collaboration</h3>
-            <p>I typically reply within one business day with a practical next-step proposal.</p>
+            <h3>{sc('aboutPage.ctaTitle')}</h3>
+            <p>{sc('aboutPage.ctaBody')}</p>
           </div>
           <a className="btn primary" href="mailto:bluecat.webdev@gmail.com">
-            Send Email
+            {sc('aboutPage.ctaButton')}
           </a>
         </div>
       </SectionReveal>

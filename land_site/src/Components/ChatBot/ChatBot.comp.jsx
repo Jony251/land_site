@@ -2,11 +2,15 @@ import { useState, useRef, useEffect } from 'react';
 import './ChatBot.comp.css';
 import { sendChatMessageMock } from './chatService';
 import CatAvatar from './CatAvatar';
+import { useI18n } from '../../i18n/LanguageProvider';
+import { useSiteCopy } from '../../i18n/siteCopy';
 
 const ChatBot = () => {
+  const { lang } = useI18n();
+  const sc = useSiteCopy();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Hi! How can I help you today?", sender: "bot", timestamp: new Date() }
+    { text: sc('chatbot.welcome'), sender: 'bot', timestamp: new Date() }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -21,11 +25,18 @@ const ChatBot = () => {
     scrollToBottom();
   }, [messages]);
 
-  const toggleChat = () => { //  открывает/закрывает окно чата
+  useEffect(() => {
+    setMessages((prev) => {
+      if (prev.length !== 1 || prev[0].sender !== 'bot') return prev;
+      return [{ ...prev[0], text: sc('chatbot.welcome') }];
+    });
+  }, [sc]);
+
+  const toggleChat = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSendMessage = async (e) => { // отправка сообщения
+  const handleSendMessage = async (e) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
 
@@ -47,7 +58,7 @@ const ChatBot = () => {
 
     try {
       // 5️⃣ ВАРИАНТ 1: Использование MOCK данных (для тестирования без backend)
-      const response = await sendChatMessageMock(userMessage.text);
+      const response = await sendChatMessageMock(userMessage.text, lang);
       
       // 6️⃣ ВАРИАНТ 2: Использование реального API (раскомментируйте когда backend готов)
       // const response = await sendChatMessage(userMessage.text);
@@ -64,9 +75,8 @@ const ChatBot = () => {
         // 9️⃣ Добавляем ответ бота в историю
         setMessages(prev => [...prev, botResponse]);
       } else {
-        // 🔟 Обработка ошибки
         const errorMessage = {
-          text: response.message || "Извините, произошла ошибка. Попробуйте позже.",
+          text: response.message || sc('chatbot.genericError'),
           sender: "bot",
           timestamp: new Date()
         };
@@ -76,7 +86,7 @@ const ChatBot = () => {
       // ⚠️ Обработка неожиданных ошибок
       console.error('Ошибка при отправке сообщения:', error);
       const errorMessage = {
-        text: "Произошла непредвиденная ошибка. Пожалуйста, попробуйте снова.",
+        text: sc('chatbot.fallbackError'),
         sender: "bot",
         timestamp: new Date()
       };
@@ -88,7 +98,8 @@ const ChatBot = () => {
   };
 
   const formatTime = (date) => {
-    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    const locale = lang === 'he' ? 'he-IL' : lang === 'ru' ? 'ru-RU' : 'en-US';
+    return date.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
   };
 
   return (
@@ -97,7 +108,7 @@ const ChatBot = () => {
       <button 
         className={`chat-toggle-btn ${isOpen ? 'open' : ''}`}
         onClick={toggleChat}
-        aria-label="Toggle chat"
+        aria-label={sc('chatbot.toggle')}
       >
         {isOpen ? (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -119,8 +130,8 @@ const ChatBot = () => {
                 <CatAvatar isVisible={isOpen} chatRef={chatWindowRef} />
               </div>
               <div>
-                <h3>Blue Cat Assistant</h3>
-                <span className="chat-status">Online</span>
+                <h3>{sc('chatbot.title')}</h3>
+                <span className="chat-status">{sc('chatbot.online')}</span>
               </div>
             </div>
           </div>
@@ -155,7 +166,7 @@ const ChatBot = () => {
             <input
               type="text"
               className="chat-input"
-              placeholder="Type your message..."
+              placeholder={sc('chatbot.placeholder')}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />

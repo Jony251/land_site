@@ -1,10 +1,12 @@
 import './Info.comp.css';
 import { useI18n } from '../../i18n/LanguageProvider';
+import { useSiteCopy } from '../../i18n/siteCopy';
 import { Link } from 'react-router-dom';
 import { trackCtaClick } from '../../lib/analytics';
 
 const Info = () => {
   const { t, dir } = useI18n();
+  const sc = useSiteCopy();
 
   const services = [
     { icon: '🎯', title: t('services.s1.title'), description: t('services.s1.desc') },
@@ -17,11 +19,9 @@ const Info = () => {
     <section className={`info-section ${dir === 'rtl' ? 'rtl' : ''}`} dir={dir} id="services">
       <div className="page-content">
         <div className="section-head">
-          <p className="eyebrow">Services</p>
+          <p className="eyebrow">{t('services.title')}</p>
           <h2 className="section-title">{t('services.title')}</h2>
-          <p className="section-description">
-            Practical services tailored for startup founders, agencies, and teams that need faster delivery with strong product quality.
-          </p>
+          <p className="section-description">{sc('services.description')}</p>
         </div>
 
         <div className="services-grid">
@@ -38,11 +38,11 @@ const Info = () => {
 
         <div className="services-cta surface-panel">
           <div>
-            <h3>Need a custom delivery plan?</h3>
-            <p>Share your project goals and get a focused recommendation with timeline and budget range.</p>
+            <h3>{sc('services.ctaTitle')}</h3>
+            <p>{sc('services.ctaBody')}</p>
           </div>
           <Link className="btn primary" to="/contact" onClick={() => trackCtaClick('services_get_quote')}>
-            Get a Quote
+            {sc('services.ctaButton')}
           </Link>
         </div>
       </div>

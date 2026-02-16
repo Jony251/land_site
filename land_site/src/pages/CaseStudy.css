@@ -97,7 +97,7 @@
 
 .impact-list {
   margin: 0.8rem 0 0;
-  padding-left: 1.05rem;
+  padding-inline-start: 1.05rem;
   color: var(--text-muted);
   display: grid;
   gap: 0.45rem;

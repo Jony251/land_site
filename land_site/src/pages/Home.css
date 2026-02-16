@@ -1,7 +1,8 @@
 .process-section,
 .showcase-section,
 .testimonial-section,
-.insight-section {
+.insight-section,
+.faq-section {
   margin-top: clamp(1.5rem, 3vw, 2.8rem);
 }
 
@@ -47,7 +48,7 @@
 
 .showcase-item {
   width: 100%;
-  text-align: left;
+  text-align: start;
   border: 1px solid var(--border);
   background: var(--surface);
   color: inherit;
@@ -113,7 +114,7 @@
 
 .showcase-preview ul {
   margin: 0.95rem 0 0;
-  padding-left: 1.05rem;
+  padding-inline-start: 1.05rem;
   color: var(--text-muted);
   display: grid;
   gap: 0.45rem;
@@ -181,6 +182,40 @@
   color: var(--accent);
   font-weight: 700;
   font-size: 0.9rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.faq-item {
+  padding: 0.9rem;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  float: inline-end;
+  color: var(--accent);
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-item p {
+  margin: 0.6rem 0 0;
+  color: var(--text-muted);
 }
 
 @media (max-width: 980px) {

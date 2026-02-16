@@ -8,12 +8,15 @@ const getDir = (lang) => {
   return SUPPORTED_LANGUAGES.find((l) => l.code === lang)?.dir || 'ltr';
 };
 
+const isSupportedLanguage = (lang) =>
+  SUPPORTED_LANGUAGES.some((language) => language.code === lang);
+
 const getInitialLanguage = () => {
   const saved = localStorage.getItem('bc_lang');
-  if (saved && translations[saved]) return saved;
+  if (saved && isSupportedLanguage(saved) && translations[saved]) return saved;
 
   const browser = (navigator.language || '').slice(0, 2).toLowerCase();
-  if (translations[browser]) return browser;
+  if (isSupportedLanguage(browser) && translations[browser]) return browser;
 
   return DEFAULT_LANGUAGE;
 };

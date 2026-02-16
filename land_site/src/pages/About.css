@@ -35,7 +35,7 @@
 
 .about-side-card ul {
   margin: 0.85rem 0 1rem;
-  padding-left: 1.05rem;
+  padding-inline-start: 1.05rem;
   color: var(--text-muted);
   display: grid;
   gap: 0.45rem;

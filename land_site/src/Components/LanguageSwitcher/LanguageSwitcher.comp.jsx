@@ -1,11 +1,13 @@
 import { useI18n } from '../../i18n/LanguageProvider';
+import { useSiteCopy } from '../../i18n/siteCopy';
 import './LanguageSwitcher.comp.css';
 
 const LanguageSwitcher = () => {
   const { lang, languages, setLang } = useI18n();
+  const sc = useSiteCopy();
 
   return (
-    <div className="lang-switch" role="group" aria-label="Language selector">
+    <div className="lang-switch" role="group" aria-label={sc('nav.languageSelector')}>
       {languages.map((l) => (
         <button
           key={l.code}

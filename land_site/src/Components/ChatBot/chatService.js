@@ -168,19 +168,33 @@ export const createChatSession = async () => {
  * MOCK функция для тестирования без backend
  * Имитирует задержку и возвращает случайный ответ
  */
-export const sendChatMessageMock = async (message) => {
+export const sendChatMessageMock = async (message, lang = 'en') => {
   // Имитация задержки сети (500-1500ms)
   const delay = Math.random() * 1000 + 500;
   await new Promise(resolve => setTimeout(resolve, delay));
 
-  // Примеры ответов
-  const mockResponses = [
-    "Спасибо за ваше сообщение! Чем могу помочь?",
-    "Интересный вопрос! Позвольте мне подумать...",
-    "Я здесь, чтобы помочь вам с любыми вопросами!",
-    "Отличный вопрос! Вот что я могу вам сказать...",
-    `Вы написали: "${message}". Как я могу помочь с этим?`
-  ];
+  const responsesByLang = {
+    en: [
+      'Thanks for your message! How can I help?',
+      'Great question. Let me think through the best answer.',
+      'I can help with redesign, features, and project scope.',
+      `You wrote: "${message}". Do you want an estimate or implementation plan?`,
+    ],
+    he: [
+      'תודה על ההודעה! איך אפשר לעזור?',
+      'שאלה מצוינת. בוא נחשוב על הפתרון הטוב ביותר.',
+      'אני יכול לעזור עם שדרוג אתר, פיצ\'רים ותכנון הפרויקט.',
+      `כתבת: "${message}". תרצה הערכת עלות או תוכנית יישום?`,
+    ],
+    ru: [
+      'Спасибо за сообщение! Чем могу помочь?',
+      'Отличный вопрос. Давайте подберем оптимальное решение.',
+      'Я могу помочь с редизайном, функциями и оценкой проекта.',
+      `Вы написали: "${message}". Хотите оценку стоимости или план реализации?`,
+    ],
+  };
+
+  const mockResponses = responsesByLang[lang] || responsesByLang.en;
 
   const randomResponse = mockResponses[Math.floor(Math.random() * mockResponses.length)];
 

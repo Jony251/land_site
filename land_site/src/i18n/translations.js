@@ -1,7 +1,6 @@
 export const SUPPORTED_LANGUAGES = [
   { code: 'en', label: 'EN', dir: 'ltr' },
   { code: 'ru', label: 'RU', dir: 'ltr' },
-  { code: 'uk', label: 'UA', dir: 'ltr' },
   { code: 'he', label: 'HE', dir: 'rtl' },
 ];
 

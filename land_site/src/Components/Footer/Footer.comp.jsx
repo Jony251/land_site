@@ -1,22 +1,26 @@
 import './Footer.comp.css';
 import { Link } from 'react-router-dom';
+import { useI18n } from '../../i18n/LanguageProvider';
+import { useSiteCopy } from '../../i18n/siteCopy';
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const { t } = useI18n();
+  const sc = useSiteCopy();
 
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-branding">
           <strong>Blue Cat</strong>
-          <p>Web development focused on performance, clarity, and conversion.</p>
+          <p>{sc('footer.tagline')}</p>
         </div>
 
         <nav className="footer-links" aria-label="Footer navigation">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/works">Portfolio</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/">{t('nav.home')}</Link>
+          <Link to="/about">{t('nav.about')}</Link>
+          <Link to="/works">{sc('footer.portfolio')}</Link>
+          <Link to="/contact">{t('nav.contact')}</Link>
         </nav>
 
         <div className="footer-meta">
@@ -27,11 +31,13 @@ const Footer = () => {
             LinkedIn
           </a>
           <a href="/Blue-Cat-CV.txt" download>
-            Download CV
+            {sc('nav.downloadCv')}
           </a>
         </div>
 
-        <p className="footer-copyright">© {year} Blue Cat. All rights reserved.</p>
+        <p className="footer-copyright">
+          © {year} Blue Cat. {sc('footer.copyright')}
+        </p>
       </div>
     </footer>
   );

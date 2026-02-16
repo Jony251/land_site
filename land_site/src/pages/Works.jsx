@@ -1,19 +1,36 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../Components/SEO/SEO.comp';
 import SectionReveal from '../Components/SectionReveal/SectionReveal.comp';
-import { projectCategories, projects } from '../data/projects';
+import {
+  getLocalizedProjectCategories,
+  getLocalizedProjects,
+} from '../data/projects';
+import { useI18n } from '../i18n/LanguageProvider';
+import { useSiteCopy } from '../i18n/siteCopy';
 import './Works.css';
 
 const Works = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const { lang } = useI18n();
+  const sc = useSiteCopy();
+  const projects = useMemo(() => getLocalizedProjects(lang), [lang]);
+  const categories = useMemo(() => getLocalizedProjectCategories(lang), [lang]);
+  const [activeCategory, setActiveCategory] = useState(categories[0] ?? 'All');
   const [query, setQuery] = useState('');
+
+  const allLabel = categories[0] ?? 'All';
+
+  useEffect(() => {
+    if (categories.length > 0 && !categories.includes(activeCategory)) {
+      setActiveCategory(categories[0]);
+    }
+  }, [activeCategory, categories]);
 
   const filteredProjects = useMemo(() => {
     const term = query.trim().toLowerCase();
 
     return projects.filter((project) => {
-      const categoryPass = activeCategory === 'All' || project.category === activeCategory;
+      const categoryPass = activeCategory === allLabel || project.category === activeCategory;
       const queryPass =
         !term ||
         project.title.toLowerCase().includes(term) ||
@@ -22,27 +39,25 @@ const Works = () => {
 
       return categoryPass && queryPass;
     });
-  }, [activeCategory, query]);
+  }, [activeCategory, allLabel, projects, query]);
 
   return (
     <div className="page works-page">
       <SEO
-        title="Blue Cat | Portfolio & Case Studies"
-        description="Browse filterable portfolio projects and open complete case studies with challenge, solution, stack, and measurable outcomes."
+        title={sc('seo.worksTitle')}
+        description={sc('seo.worksDescription')}
       />
 
       <section className="page-content">
         <header className="page-header">
-          <p className="eyebrow">Portfolio</p>
-          <h1 className="page-title">Filterable project gallery</h1>
-          <p className="page-intro">
-            Explore selected projects by category, then open complete case studies for delivery details and measurable results.
-          </p>
+          <p className="eyebrow">{sc('works.eyebrow')}</p>
+          <h1 className="page-title">{sc('works.title')}</h1>
+          <p className="page-intro">{sc('works.intro')}</p>
         </header>
 
         <div className="portfolio-toolbar surface-panel">
           <div className="portfolio-filters" role="tablist" aria-label="Project categories">
-            {projectCategories.map((category) => (
+            {categories.map((category) => (
               <button
                 key={category}
                 type="button"
@@ -55,11 +70,11 @@ const Works = () => {
           </div>
 
           <label className="search-field" htmlFor="portfolio-search">
-            <span className="sr-only">Search projects</span>
+            <span className="sr-only">{sc('works.searchAria')}</span>
             <input
               id="portfolio-search"
               type="search"
-              placeholder="Search by title, stack, or keyword..."
+              placeholder={sc('works.searchPlaceholder')}
               value={query}
               onChange={(event) => setQuery(event.target.value)}
             />
@@ -67,7 +82,8 @@ const Works = () => {
         </div>
 
         <p className="portfolio-meta">
-          Showing <strong>{filteredProjects.length}</strong> of <strong>{projects.length}</strong> projects
+          {sc('works.showing')} <strong>{filteredProjects.length}</strong> {sc('works.of')}{' '}
+          <strong>{projects.length}</strong> {sc('works.projects')}
         </p>
       </section>
 
@@ -101,10 +117,10 @@ const Works = () => {
 
                 <div className="project-actions">
                   <Link className="btn primary small" to={`/works/${project.id}`}>
-                    Read Case Study
+                    {sc('works.readCaseStudy')}
                   </Link>
                   <Link className="btn secondary small" to="/contact">
-                    Discuss Similar Build
+                    {sc('works.discussBuild')}
                   </Link>
                 </div>
               </div>

@@ -52,9 +52,11 @@ Implemented:
 - Case study pages (`/works/:projectId`)
 - Testimonials section
 - Insights/blog-style section
+- FAQ section for pre-sale objection handling
 - Contact form with validation
 - Downloadable CV button
 - Dark/Light mode toggle
+- Language support for English, Hebrew, and Russian
 - Smooth scrolling and transitions
 - Scroll-based reveal animations
 - Skills visualization (progress bars)
@@ -169,3 +171,14 @@ src/
 5. Add optional booking link (calendar) for high-intent users.
 6. Track CTA click events and form completion by page to identify funnel drop-offs.
 7. Run A/B tests on hero copy and first CTA text after baseline analytics stabilizes.
+
+---
+
+## 8) Competitor differentiation strategy
+
+Compared with typical local agency websites, this upgrade emphasizes:
+
+- **Stronger multilingual UX**: EN/HE/RU with RTL support for Hebrew.
+- **Clearer conversion pathway**: repeated quote CTAs, trust metrics, FAQ, and validated inquiry form.
+- **Deeper project proof**: filterable gallery + full case-study architecture with outcomes.
+- **Higher technical quality**: semantic structure, accessibility controls, lazy routes, and performance-minded UI patterns.

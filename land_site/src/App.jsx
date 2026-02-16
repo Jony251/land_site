@@ -4,6 +4,7 @@ import Nav from './Components/Nav/Nav.comp'
 import ChatBot from './Components/ChatBot/ChatBot.comp'
 import AccessibilityWidget from './Components/Accessibility/AccessibilityWidget.comp'
 import Footer from './Components/Footer/Footer.comp'
+import { useSiteCopy } from './i18n/siteCopy'
 import { trackPageView } from './lib/analytics'
 
 import './App.css'
@@ -43,6 +44,8 @@ const RouteTracker = () => {
 }
 
 function App() {
+  const sc = useSiteCopy()
+
   return (
     <Router>
       <div className="app">
@@ -50,7 +53,7 @@ function App() {
         <RouteTracker />
         <Nav />
         <main>
-          <Suspense fallback={<div className="route-loader">Loading experience...</div>}>
+          <Suspense fallback={<div className="route-loader">{sc('common.loading')}</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
