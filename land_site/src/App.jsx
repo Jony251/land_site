@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Works from './pages/Works'
 import Contact from './pages/Contact'
+import TechStrip from './Components/TechStrip/TechStrip.comp'
 
 import './App.css'
 
@@ -21,6 +22,9 @@ function App() {
         </section>
         <section id="works" className="app-section">
           <Works />
+        </section>
+        <section className="app-section">
+          <TechStrip />
         </section>
         <section id="contact" className="app-section">
           <Contact />

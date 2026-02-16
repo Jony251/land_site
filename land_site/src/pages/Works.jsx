@@ -130,8 +130,10 @@ const Works = () => {
   return (
     <div className="page">
       <div className="page-content">
-        <h1>{t('works.title')}</h1>
-        <p>{t('works.body')}</p>
+        <div className="works-head">
+          <h1>{t('works.title')}</h1>
+          <p>{t('works.body')}</p>
+        </div>
 
         <div className="works-grid">
           {projects.map((project) => (

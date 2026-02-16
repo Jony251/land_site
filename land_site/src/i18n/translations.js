@@ -16,24 +16,24 @@ export const translations = {
     },
     home: {
       title: 'Blue Cat',
-      subtitle: 'Landing pages and modern web experiences built with performance and clarity in mind.',
+      subtitle: 'Websites that look premium, load fast, and convert. We design and build landing pages and web experiences tailored to your business goals.',
       ctaContact: 'Contact',
       ctaWorks: 'View works',
     },
     about: {
-      title: 'About',
-      intro: "I'm Evgeny Nemchenko, a Software Engineering graduate with hands-on experience building websites and web applications.",
-      skills: 'I work with HTML, CSS, JavaScript, React, Node.js, Python, and REST APIs to create responsive, clean, and user-friendly solutions.',
-      approach: 'I focus on quality code, clear communication, and meeting deadlines. Whether you need a landing page, a full website, or backend integration — I deliver results you can rely on.',
-      cta: "Let's work together. Check out my projects or get in touch.",
+      title: 'About us',
+      intro: 'We are a small team of developers building modern websites and web applications for businesses.',
+      skills: 'Our team includes frontend and backend specialists. We work with HTML, CSS, JavaScript, React, Node.js, Python, and REST APIs to deliver fast, responsive, and user-friendly products.',
+      approach: 'We focus on clean code, clear communication, and predictable timelines. Whether you need a landing page, a full website, or backend integrations — we build solutions you can rely on.',
+      cta: "Let's work together. Explore our projects or get in touch.",
       githubTitle: 'GitHub',
       githubText: 'Code samples, projects, and experiments',
       linkedinTitle: 'LinkedIn',
       linkedinText: 'Professional background and experience',
     },
     works: {
-      title: 'Works',
-      body: 'A selection of projects I have worked on.',
+      title: 'Works that we did',
+      body: 'A curated selection of projects we’ve delivered — from clean landing pages to full web experiences.',
       projects: {
         android: {
           title: 'Android Game App',
@@ -74,10 +74,22 @@ export const translations = {
     },
     services: {
       title: 'Our Services',
-      s1: { title: 'Landing Page (One-page)', desc: 'Conversion-focused landing pages and brand websites.' },
-      s2: { title: 'Ongoing Support', desc: 'Maintenance, monitoring, and regular updates on a retainer basis.' },
-      s3: { title: 'Website Updates & Upgrades', desc: 'Content and design fixes, new sections, and performance improvements.' },
-      s4: { title: 'Backend & API Integrations', desc: 'Payment gateways, CRM/ERP, and third-party services via API.' },
+      s1: {
+        title: 'Landing Page (One-page)',
+        desc: 'Conversion-focused landing pages with clear structure, strong copy, and fast load time — built to turn visitors into leads and customers.',
+      },
+      s2: {
+        title: 'Ongoing Support',
+        desc: 'We keep your website stable and secure: monitoring, bug fixes, small improvements, and quick iterations when your business needs changes.',
+      },
+      s3: {
+        title: 'Website Updates & Upgrades',
+        desc: 'Need new features or a refresh? We add new sections, improve UX, optimize performance/SEO, and update content without breaking what already works.',
+      },
+      s4: {
+        title: 'Backend & API Integrations',
+        desc: 'We connect forms, payments, CRM, and other services via APIs. From simple automations to custom backend logic — everything works end‑to‑end.',
+      },
     },
     a11y: {
       title: 'Accessibility',
@@ -90,6 +102,7 @@ export const translations = {
       aria: 'Contact us call to action',
       title: 'Contact us',
       subtitle: 'Get a modern website for your business. Order now and get 1 month of support for free.',
+      lead: 'Have a question, need a quote, or want to discuss your project? Send a message — I’ll reply quickly and help you choose the best solution.',
       whatsapp: 'WhatsApp',
       email: 'Email',
       scroll: 'Or send a message below',
@@ -104,24 +117,24 @@ export const translations = {
     },
     home: {
       title: 'Blue Cat',
-      subtitle: 'Лендинги и современные веб‑сайты с акцентом на скорость, дизайн и понятную структуру.',
+      subtitle: 'Сайты премиального уровня: быстрые, понятные и конверсионные. Делаем лендинги и веб‑решения под задачи вашего бизнеса.',
       ctaContact: 'Связаться',
       ctaWorks: 'Портфолио',
     },
     about: {
-      title: 'Обо мне',
-      intro: 'Я Евгений Немченко, выпускник по специальности «Программная инженерия» с практическим опытом создания сайтов и веб‑приложений.',
-      skills: 'Работаю с HTML, CSS, JavaScript, React, Node.js, Python и REST API. Создаю адаптивные, чистые и удобные решения.',
-      approach: 'Делаю ставку на качественный код, понятную коммуникацию и соблюдение сроков. Лендинг, полноценный сайт или интеграция с бэкендом — результат, на который можно положиться.',
-      cta: 'Давайте работать вместе. Посмотрите мои проекты или свяжитесь со мной.',
+      title: 'О нас',
+      intro: 'Мы — небольшая команда разработчиков, которая создаёт современные сайты и веб‑приложения для бизнеса.',
+      skills: 'У нас есть специалисты по фронтенду и бэкенду. Работаем с HTML, CSS, JavaScript, React, Node.js, Python и REST API — делаем быстрые, адаптивные и удобные продукты.',
+      approach: 'Мы ценим качественный код, понятную коммуникацию и соблюдение сроков. Лендинг, полноценный сайт или интеграции с бэкендом — результат, на который можно положиться.',
+      cta: 'Давайте работать вместе. Посмотрите наши проекты или свяжитесь с нами.',
       githubTitle: 'GitHub',
       githubText: 'Примеры кода, проекты и эксперименты',
       linkedinTitle: 'LinkedIn',
       linkedinText: 'Опыт и профессиональный профиль',
     },
     works: {
-      title: 'Работы',
-      body: 'Подборка проектов, над которыми я работал.',
+      title: 'Наши проекты',
+      body: 'Подборка проектов, которые мы уже реализовали — от лендингов до полноценных веб‑решений.',
       projects: {
         android: {
           title: 'Android-игра',
@@ -162,10 +175,22 @@ export const translations = {
     },
     services: {
       title: 'Наши услуги',
-      s1: { title: 'Лендинг (One-page)', desc: 'Лендинги и сайты-визитки с фокусом на конверсию.' },
-      s2: { title: 'Поддержка и сопровождение', desc: 'Техподдержка, мониторинг и регулярные обновления на ретейнере.' },
-      s3: { title: 'Обновление и доработка сайтов', desc: 'Правки контента и дизайна, новые секции, улучшение производительности.' },
-      s4: { title: 'Интеграции бэкенда и API', desc: 'Платёжные шлюзы, CRM/ERP и сторонние сервисы через API.' },
+      s1: {
+        title: 'Лендинг (One-page)',
+        desc: 'Конверсионные лендинги с понятной структурой, сильным оффером и высокой скоростью загрузки — чтобы посетители становились лидами и клиентами.',
+      },
+      s2: {
+        title: 'Поддержка и сопровождение',
+        desc: 'Держим сайт в форме: мониторинг, исправление багов, мелкие улучшения и быстрые правки, когда бизнесу нужно что‑то поменять.',
+      },
+      s3: {
+        title: 'Обновление и доработка сайтов',
+        desc: 'Добавим новые фичи и секции, улучшим UX, оптимизируем скорость/SEO, обновим контент и дизайн — без поломки существующей логики.',
+      },
+      s4: {
+        title: 'Интеграции бэкенда и API',
+        desc: 'Подключаем формы, оплаты, CRM и другие сервисы через API. От простых автоматизаций до кастомной серверной логики — всё под ключ.',
+      },
     },
     a11y: {
       title: 'Доступность',
@@ -178,6 +203,7 @@ export const translations = {
       aria: 'Призыв связаться с нами',
       title: 'Связаться с нами',
       subtitle: 'Сделаем современный сайт для вашего бизнеса. Закажите сейчас и получите 1 месяц поддержки бесплатно.',
+      lead: 'Есть вопрос, нужен расчёт или хотите обсудить проект? Напишите — отвечу оперативно и помогу выбрать лучший вариант.',
       whatsapp: 'WhatsApp',
       email: 'Email',
       scroll: 'Или отправьте сообщение ниже',
@@ -192,24 +218,24 @@ export const translations = {
     },
     home: {
       title: 'Blue Cat',
-      subtitle: 'דפי נחיתה ואתרים מודרניים עם דגש על מהירות, עיצוב ומבנה ברור.',
+      subtitle: 'אתרי פרימיום: נראים מצוין, נטענים מהר וממירים. אנחנו בונים דפי נחיתה וחוויות ווב לפי מטרות העסק שלך.',
       ctaContact: 'צור קשר',
       ctaWorks: 'תיק עבודות',
     },
     about: {
-      title: 'אודות',
-      intro: 'אני יבגני נמצ\'נקו. בונה אפליקציות ואתרי תדמית: UI מודרני, קוד תחזיק ומהירות ביצוע.',
-      skills: 'עובד עם HTML, CSS, JavaScript, React, Node.js, Python ו-REST API. יוצר פתרונות רספונסיביים, נקיים וידידותיים למשתמש.',
-      approach: 'מתמקד בקוד איכותי, תקשורת ברורה ועמידה בלוחות זמנים. בין אם מדובר בדף נחיתה, אתר מלא או אינטגרציית בקאנד — אני מספק תוצאות שאפשר לסמוך עליהן.',
-      cta: 'בואו נעבוד יחד. צפו בפרויקטים שלי או צרו קשר.',
+      title: 'עלינו',
+      intro: 'אנחנו צוות קטן של מפתחים שבונה אתרים ואפליקציות ווב מודרניים לעסקים.',
+      skills: 'בצוות שלנו יש מומחי פרונטאנד ובקאנד. אנחנו עובדים עם HTML, CSS, JavaScript, React, Node.js, Python ו-REST API כדי לספק מוצרים מהירים, רספונסיביים וידידותיים למשתמש.',
+      approach: 'אנחנו מתמקדים בקוד איכותי, תקשורת ברורה ועמידה בזמנים. דף נחיתה, אתר מלא או אינטגרציות בקאנד — אנחנו מספקים פתרונות שאפשר לסמוך עליהם.',
+      cta: 'בואו נעבוד יחד. צפו בפרויקטים שלנו או צרו קשר.',
       githubTitle: 'GitHub',
       githubText: 'דוגמאות קוד, פרויקטים וניסויים',
       linkedinTitle: 'LinkedIn',
       linkedinText: 'פרופיל מקצועי וניסיון',
     },
     works: {
-      title: 'עבודות',
-      body: 'מבחר פרויקטים שעבדתי עליהם.',
+      title: 'הפרויקטים שלנו',
+      body: 'מבחר פרויקטים שביצענו — מדפי נחיתה נקיים ועד חוויות ווב מלאות.',
       projects: {
         android: {
           title: 'אפליקציית משחק לאנדרואיד',
@@ -250,10 +276,22 @@ export const translations = {
     },
     services: {
       title: 'השירותים שלנו',
-      s1: { title: 'עמוד נחיתה (One-page)', desc: 'דפי נחיתה ואתרי תדמית ממוקדי המרה.' },
-      s2: { title: 'תמיכה וליווי מתמשך', desc: 'תחזוקה, ניטור ועדכונים שוטפים במתכונת ריטיינר.' },
-      s3: { title: 'עדכון ושדרוג אתרים קיימים', desc: 'תיקוני תוכן ועיצוב, הוספת סקשנים ושיפורי ביצועים.' },
-      s4: { title: 'אינטגרציות בקאנד ו-API', desc: 'חיבורי תשלום, CRM/ERP ושירותי צד שלישי דרך API.' },
+      s1: {
+        title: 'עמוד נחיתה (One-page)',
+        desc: 'דפי נחיתה ממוקדי המרה עם מבנה ברור, מסרים חזקים וזמן טעינה מהיר — כדי להפוך מבקרים ללידים וללקוחות.',
+      },
+      s2: {
+        title: 'תמיכה וליווי מתמשך',
+        desc: 'שומרים על האתר יציב ומאובטח: ניטור, תיקון תקלות, שיפורים קטנים ועדכונים מהירים כשצריך לשנות משהו בעסק.',
+      },
+      s3: {
+        title: 'עדכון ושדרוג אתרים קיימים',
+        desc: 'הוספת פיצ׳רים וסקשנים, שיפור UX, אופטימיזציה למהירות/SEO ועדכון תוכן ועיצוב — בלי לשבור מה שכבר עובד.',
+      },
+      s4: {
+        title: 'אינטגרציות בקאנד ו-API',
+        desc: 'מחברים טפסים, תשלומים, CRM ושירותים נוספים דרך APIs. מאוטומציות פשוטות ועד לוגיקה מותאמת אישית — מקצה לקצה.',
+      },
     },
     a11y: {
       title: 'נגישות',
@@ -266,6 +304,7 @@ export const translations = {
       aria: 'קריאה לפעולה יצירת קשר',
       title: 'צור קשר',
       subtitle: 'נבנה עבורך אתר מודרני לעסק. הזמן עכשיו וקבל חודש תמיכה חינם.',
+      lead: 'יש שאלה, צריך הצעת מחיר או רוצה לדבר על הפרויקט? שלחו הודעה — אחזור אליכם במהירות ואעזור לבחור את הפתרון המתאים.',
       whatsapp: 'WhatsApp',
       email: 'אימייל',
       scroll: 'או שלחו הודעה כאן למטה',

@@ -1,33 +1,70 @@
+import { useEffect, useState } from 'react'
 import './Nav.comp.css'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.comp'
 import { useI18n } from '../../i18n/LanguageProvider'
 
 const Nav = () => {
-  const { t } = useI18n();
-  return (
-    <nav className="navbar">
-      <div className="nav-logo">
-        <a href="#home" className="logo-link">
-          <img 
-            src="/logo_NO_font.png" 
-            className="logo" 
-            alt="Blue Cat" 
-          />
-          <span>Blue Cat</span>
-        </a>
-      </div>
-      
-      <ul className="nav-links">
-        <li><a href="#home">{t('nav.home')}</a></li>
-        <li><a href="#about">{t('nav.about')}</a></li>
-        <li><a href="#works">{t('nav.works')}</a></li>
-        <li><a href="#contact">{t('nav.contact')}</a></li>
-      </ul>
+  const { t } = useI18n()
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-      <div className="nav-actions">
-        <LanguageSwitcher />
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const navItems = [
+    { href: '#home', label: t('nav.home') },
+    { href: '#about', label: t('nav.about') },
+    { href: '#works', label: t('nav.works') },
+    { href: '#contact', label: t('nav.contact') },
+  ]
+
+  const handleNavClick = () => {
+    setMobileOpen(false)
+  }
+
+  return (
+    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="nav-shell">
+        <div className="nav-logo">
+          <a href="#home" className="logo-link" aria-label="Blue Cat home" onClick={handleNavClick}>
+            <span className="logo-mark" aria-hidden="true">
+              BC
+            </span>
+            <span className="logo-text">Blue Cat</span>
+          </a>
+        </div>
+
+        <button
+          type="button"
+          className={`menu-toggle ${mobileOpen ? 'active' : ''}`}
+          aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((value) => !value)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <ul className={`nav-links ${mobileOpen ? 'open' : ''}`}>
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a className="nav-link" href={item.href} onClick={handleNavClick}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="nav-actions">
+          <LanguageSwitcher />
+        </div>
       </div>
-    </nav>
+    </header>
   )
 }
 
