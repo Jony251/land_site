@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/LanguageProvider';
 import Info from '../Components/Info/Info.comp';
 import TechStrip from '../Components/TechStrip/TechStrip.comp';
@@ -12,8 +11,8 @@ const Home = () => {
           <h1>{t('home.title')}</h1>
           <p className="hero-subtitle">{t('home.subtitle')}</p>
           <div className="hero-actions">
-            <Link className="btn primary" to="/contact">{t('home.ctaContact')}</Link>
-            <Link className="btn" to="/works">{t('home.ctaWorks')}</Link>
+            <a className="btn primary" href="#contact">{t('home.ctaContact')}</a>
+            <a className="btn" href="#works">{t('home.ctaWorks')}</a>
           </div>
         </div>
       </section>

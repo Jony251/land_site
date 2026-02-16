@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import './Nav.comp.css'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.comp'
 import { useI18n } from '../../i18n/LanguageProvider'
@@ -8,21 +7,21 @@ const Nav = () => {
   return (
     <nav className="navbar">
       <div className="nav-logo">
-        <Link to="/" className="logo-link">
+        <a href="#home" className="logo-link">
           <img 
             src="/logo_NO_font.png" 
             className="logo" 
             alt="Blue Cat" 
           />
           <span>Blue Cat</span>
-        </Link>
+        </a>
       </div>
       
       <ul className="nav-links">
-        <li><Link to="/">{t('nav.home')}</Link></li>
-        <li><Link to="/about">{t('nav.about')}</Link></li>
-        <li><Link to="/works">{t('nav.works')}</Link></li>
-        <li><Link to="/contact">{t('nav.contact')}</Link></li>
+        <li><a href="#home">{t('nav.home')}</a></li>
+        <li><a href="#about">{t('nav.about')}</a></li>
+        <li><a href="#works">{t('nav.works')}</a></li>
+        <li><a href="#contact">{t('nav.contact')}</a></li>
       </ul>
 
       <div className="nav-actions">

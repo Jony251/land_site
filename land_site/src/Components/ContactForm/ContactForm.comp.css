@@ -71,7 +71,7 @@
 .form-buttons {
   display: flex;
   justify-content: center;
-  gap: 8rem;
+  gap: 1rem;
   margin-top: 0.5rem;
 }
 
@@ -82,7 +82,6 @@
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: soft-pulse 2.5s ease-in-out infinite;
 }
 
 .form-buttons .btn:hover {
@@ -90,10 +89,10 @@
 }
 
 .form-buttons .btn.primary {
-  background: linear-gradient(135deg, #7c83ff, #6366f1);
-  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #070b15;
   border: none;
-  box-shadow: 0 4px 15px rgba(124, 131, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(124, 131, 255, 0.22);
 }
 
 .form-buttons .btn.secondary {
@@ -104,15 +103,6 @@
 
 .form-buttons .btn.secondary:hover {
   background: rgba(255, 255, 255, 0.05);
-}
-
-@keyframes soft-pulse {
-  0%, 100% {
-    box-shadow: 0 4px 15px rgba(124, 131, 255, 0.2);
-  }
-  50% {
-    box-shadow: 0 4px 25px rgba(124, 131, 255, 0.4);
-  }
 }
 
 .form-hint {

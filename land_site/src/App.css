@@ -14,35 +14,47 @@ body {
   color: var(--text);
 }
 
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1.15;
+}
+
 .page {
   width: 100%;
 }
 
 .hero {
   background:
-    radial-gradient(1200px 600px at 10% 10%, rgba(124, 131, 255, 0.22), transparent 60%),
-    radial-gradient(900px 500px at 90% 20%, rgba(34, 197, 94, 0.10), transparent 55%),
+    radial-gradient(1200px 700px at 12% 12%, rgba(124, 131, 255, 0.28), transparent 60%),
+    radial-gradient(900px 560px at 88% 18%, rgba(34, 197, 94, 0.12), transparent 55%),
+    radial-gradient(900px 520px at 55% 10%, rgba(255, 255, 255, 0.05), transparent 60%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
   border-bottom: 1px solid var(--border);
 }
 
 .hero-content {
-  padding: 4rem 2rem;
+  padding: 5.25rem 2rem;
   text-align: center;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  line-height: 1.1;
   margin-bottom: 0.75rem;
-  letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
   max-width: 760px;
   margin: 0 auto;
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 1.08rem;
 }
 
 .hero-actions {
@@ -81,7 +93,7 @@ body {
 .btn.primary {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
   border-color: transparent;
-  color: #0b1220;
+  color: #070b15;
 }
 
 .card-grid {
@@ -116,6 +128,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.app-section {
+  scroll-margin-top: 96px;
 }
 
 main {

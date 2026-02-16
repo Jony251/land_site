@@ -42,17 +42,18 @@
 
 .service-card {
   background: var(--surface);
-  border-radius: 10px;
+  border-radius: var(--radius);
   padding: 2rem;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
   backdrop-filter: blur(12px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
+  border-color: rgba(124, 131, 255, 0.32);
 }
 
 .service-card h3 {

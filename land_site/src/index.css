@@ -3,21 +3,23 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --bg: #0b1220;
+  --bg: #070b15;
   --surface: rgba(255, 255, 255, 0.06);
   --surface-2: rgba(255, 255, 255, 0.10);
-  --text: rgba(255, 255, 255, 0.92);
-  --muted: rgba(255, 255, 255, 0.70);
+  --text: rgba(255, 255, 255, 0.94);
+  --muted: rgba(255, 255, 255, 0.72);
+  --text-muted: rgba(255, 255, 255, 0.72);
   --border: rgba(255, 255, 255, 0.12);
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 18px 60px rgba(0, 0, 0, 0.45);
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.38);
+  --shadow-lg: 0 26px 90px rgba(0, 0, 0, 0.55);
 
   --accent: #7c83ff;
-  --accent-2: #5b63ff;
+  --accent-2: #22c55e;
+  --primary: var(--accent);
   --danger: #ff6b6b;
   --success: #22c55e;
 
-  --radius: 14px;
+  --radius: 16px;
   --font-scale: 1;
 
   color: var(--text);
@@ -34,6 +36,10 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-size: calc(16px * var(--font-scale));
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html[data-font-scale="1.0"] { --font-scale: 1; }
