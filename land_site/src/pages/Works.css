@@ -66,6 +66,9 @@
 .project-card {
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .project-card:hover {
@@ -96,6 +99,9 @@
 
 .project-card-content {
   padding: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-card-content h2 {
@@ -151,10 +157,27 @@
 }
 
 .project-actions {
-  margin-top: 0.85rem;
+  padding-top: 0.85rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
+  margin-top: auto;
+}
+
+.portfolio-empty {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.portfolio-empty h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.portfolio-empty p {
+  margin: 0.65rem auto 1rem;
+  max-width: 58ch;
+  color: var(--text-muted);
 }
 
 .sr-only {

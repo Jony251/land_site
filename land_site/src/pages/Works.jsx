@@ -41,6 +41,11 @@ const Works = () => {
     });
   }, [activeCategory, allLabel, projects, query]);
 
+  const resetFilters = () => {
+    setActiveCategory(allLabel);
+    setQuery('');
+  };
+
   return (
     <div className="page works-page">
       <SEO
@@ -88,45 +93,55 @@ const Works = () => {
       </section>
 
       <SectionReveal as="section" className="page-content">
-        <div className="works-grid">
-          {filteredProjects.map((project) => (
-            <article key={project.id} className="project-card surface-panel">
-              <div className="project-card-preview" style={{ background: project.screens[0].gradient }}>
-                <span>{project.category}</span>
-                <strong>{project.year}</strong>
-              </div>
-
-              <div className="project-card-content">
-                <h2>{project.title}</h2>
-                <p>{project.summary}</p>
-
-                <div className="project-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+        {filteredProjects.length === 0 ? (
+          <div className="portfolio-empty surface-panel">
+            <h2>{sc('works.emptyTitle')}</h2>
+            <p>{sc('works.emptyBody')}</p>
+            <button type="button" className="btn primary small" onClick={resetFilters}>
+              {sc('works.resetFilters')}
+            </button>
+          </div>
+        ) : (
+          <div className="works-grid">
+            {filteredProjects.map((project) => (
+              <article key={project.id} className="project-card surface-panel">
+                <div className="project-card-preview" style={{ background: project.screens[0].gradient }}>
+                  <span>{project.category}</span>
+                  <strong>{project.year}</strong>
                 </div>
 
-                <div className="project-metrics">
-                  {project.metrics.slice(0, 2).map((metric) => (
-                    <div key={metric.label}>
-                      <strong>{metric.value}</strong>
-                      <span>{metric.label}</span>
-                    </div>
-                  ))}
-                </div>
+                <div className="project-card-content">
+                  <h2>{project.title}</h2>
+                  <p>{project.summary}</p>
 
-                <div className="project-actions">
-                  <Link className="btn primary small" to={`/works/${project.id}`}>
-                    {sc('works.readCaseStudy')}
-                  </Link>
-                  <Link className="btn secondary small" to="/contact">
-                    {sc('works.discussBuild')}
-                  </Link>
+                  <div className="project-tags">
+                    {project.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-metrics">
+                    {project.metrics.slice(0, 2).map((metric) => (
+                      <div key={metric.label}>
+                        <strong>{metric.value}</strong>
+                        <span>{metric.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="project-actions">
+                    <Link className="btn primary small" to={`/works/${project.id}`}>
+                      {sc('works.readCaseStudy')}
+                    </Link>
+                    <Link className="btn secondary small" to="/contact">
+                      {sc('works.discussBuild')}
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        )}
       </SectionReveal>
     </div>
   );

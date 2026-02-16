@@ -31,6 +31,54 @@ const Home = () => {
 
   const handleTrack = (label) => trackCtaClick(label);
 
+  const integrationItems = useMemo(
+    () => [
+      { title: sc('home.integration1Title'), body: sc('home.integration1Body'), tag: 'GA4' },
+      { title: sc('home.integration2Title'), body: sc('home.integration2Body'), tag: 'CRM' },
+      { title: sc('home.integration3Title'), body: sc('home.integration3Body'), tag: 'Automation' },
+      { title: sc('home.integration4Title'), body: sc('home.integration4Body'), tag: 'Payments' },
+    ],
+    [sc]
+  );
+
+  const pricingPlans = useMemo(
+    () => [
+      {
+        name: sc('home.pricingStarterName'),
+        price: sc('home.pricingStarterPrice'),
+        features: [
+          sc('home.pricingStarterFeature1'),
+          sc('home.pricingStarterFeature2'),
+          sc('home.pricingStarterFeature3'),
+        ],
+      },
+      {
+        name: sc('home.pricingGrowthName'),
+        price: sc('home.pricingGrowthPrice'),
+        features: [
+          sc('home.pricingGrowthFeature1'),
+          sc('home.pricingGrowthFeature2'),
+          sc('home.pricingGrowthFeature3'),
+        ],
+        highlighted: true,
+      },
+      {
+        name: sc('home.pricingScaleName'),
+        price: sc('home.pricingScalePrice'),
+        features: [
+          sc('home.pricingScaleFeature1'),
+          sc('home.pricingScaleFeature2'),
+          sc('home.pricingScaleFeature3'),
+        ],
+      },
+    ],
+    [sc]
+  );
+
+  if (!activeProject) {
+    return null;
+  }
+
   return (
     <div className="page home-page">
       <SEO
@@ -119,6 +167,57 @@ const Home = () => {
 
       <SectionReveal as="div">
         <Info />
+      </SectionReveal>
+
+      <SectionReveal as="section" className="page-content integration-section">
+        <div className="section-head">
+          <p className="eyebrow">{sc('home.integrationEyebrow')}</p>
+          <h2 className="section-title">{sc('home.integrationTitle')}</h2>
+          <p className="section-description">{sc('home.integrationDescription')}</p>
+        </div>
+
+        <div className="integration-grid">
+          {integrationItems.map((item) => (
+            <article key={item.title} className="integration-card surface-panel">
+              <span className="integration-tag">{item.tag}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </SectionReveal>
+
+      <SectionReveal as="section" className="page-content pricing-section">
+        <div className="section-head">
+          <p className="eyebrow">{sc('home.pricingEyebrow')}</p>
+          <h2 className="section-title">{sc('home.pricingTitle')}</h2>
+          <p className="section-description">{sc('home.pricingDescription')}</p>
+        </div>
+
+        <div className="pricing-grid">
+          {pricingPlans.map((plan) => (
+            <article
+              key={plan.name}
+              className={`pricing-card surface-panel ${plan.highlighted ? 'highlighted' : ''}`}
+            >
+              {plan.highlighted && <span className="pricing-popular">{sc('home.pricingPopular')}</span>}
+              <h3>{plan.name}</h3>
+              <p className="pricing-price">{plan.price}</p>
+              <ul>
+                {plan.features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+              <Link
+                className="btn primary small"
+                to="/contact"
+                onClick={() => handleTrack(`pricing_${plan.name}`)}
+              >
+                {sc('home.pricingCta')}
+              </Link>
+            </article>
+          ))}
+        </div>
       </SectionReveal>
 
       <SectionReveal as="section" className="page-content showcase-section">

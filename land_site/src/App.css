@@ -69,6 +69,9 @@ main {
 .hero {
   padding: clamp(1.5rem, 4vw, 4rem) 0 clamp(2rem, 5vw, 4.5rem);
   border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(900px 360px at 5% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 68%),
+    radial-gradient(700px 280px at 95% 8%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 72%);
 }
 
 .hero-grid {
@@ -135,7 +138,9 @@ main {
   min-height: 330px;
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 4px);
-  background: linear-gradient(170deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  background:
+    linear-gradient(170deg, color-mix(in srgb, var(--accent) 9%, transparent), color-mix(in srgb, var(--accent-2) 6%, transparent)),
+    var(--surface);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
 }
@@ -204,7 +209,8 @@ main {
 
 .hero-code-line {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
   opacity: 0.86;
 }
 
@@ -262,6 +268,7 @@ main {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
   border-color: transparent;
   color: #0d1323;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
 .btn.secondary {
@@ -283,6 +290,7 @@ main {
   background: var(--surface);
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-grid {

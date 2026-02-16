@@ -12,12 +12,12 @@ const getSystemTheme = () => {
 };
 
 const getInitialTheme = () => {
-  if (typeof window === 'undefined') return 'system';
+  if (typeof window === 'undefined') return 'light';
 
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved && THEMES.includes(saved)) return saved;
 
-  return 'system';
+  return 'light';
 };
 
 export const ThemeProvider = ({ children }) => {
