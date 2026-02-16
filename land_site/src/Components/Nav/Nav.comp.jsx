@@ -1,22 +1,13 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
 import './Nav.comp.css'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.comp'
 import ThemeToggle from '../ThemeToggle/ThemeToggle.comp'
 import { useI18n } from '../../i18n/LanguageProvider'
-import { useSiteCopy } from '../../i18n/siteCopy'
-import { trackCtaClick } from '../../lib/analytics'
 
 const Nav = () => {
   const { t } = useI18n()
-  const sc = useSiteCopy()
-  const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    setMobileOpen(false)
-  }, [location.pathname])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -25,33 +16,33 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleQuoteClick = () => {
-    trackCtaClick('nav_get_quote')
-  }
-
   const navItems = [
-    { to: '/', label: t('nav.home') },
-    { to: '/about', label: t('nav.about') },
-    { to: '/works', label: t('nav.works') },
-    { to: '/contact', label: t('nav.contact') },
+    { href: '#home', label: t('nav.home') },
+    { href: '#about', label: t('nav.about') },
+    { href: '#works', label: t('nav.works') },
+    { href: '#contact', label: t('nav.contact') },
   ]
+
+  const handleNavClick = () => {
+    setMobileOpen(false)
+  }
 
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-shell">
         <div className="nav-logo">
-          <Link to="/" className="logo-link" aria-label="Blue Cat home">
+          <a href="#home" className="logo-link" aria-label="Blue Cat home" onClick={handleNavClick}>
             <span className="logo-mark" aria-hidden="true">
               BC
             </span>
             <span className="logo-text">Blue Cat</span>
-          </Link>
+          </a>
         </div>
 
         <button
           type="button"
           className={`menu-toggle ${mobileOpen ? 'active' : ''}`}
-          aria-label={sc('nav.toggleMenu')}
+          aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((value) => !value)}
         >
@@ -62,40 +53,17 @@ const Nav = () => {
 
         <ul className={`nav-links ${mobileOpen ? 'open' : ''}`}>
           {navItems.map((item) => (
-            <li key={item.to}>
-              <NavLink
-                to={item.to}
-                className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
-              >
+            <li key={item.href}>
+              <a className="nav-link" href={item.href} onClick={handleNavClick}>
                 {item.label}
-              </NavLink>
+              </a>
             </li>
           ))}
-          <li className="mobile-only">
-            <a className="btn ghost small" href="/Blue-Cat-CV.txt" download>
-              {sc('nav.downloadCv')}
-            </a>
-          </li>
-          <li className="mobile-only">
-            <Link className="btn primary small" to="/contact" onClick={handleQuoteClick}>
-              {sc('nav.getQuote')}
-            </Link>
-          </li>
         </ul>
 
         <div className="nav-actions">
-          <a className="btn ghost small desktop-only" href="/Blue-Cat-CV.txt" download>
-            {sc('nav.downloadCv')}
-          </a>
           <ThemeToggle />
           <LanguageSwitcher />
-          <Link
-            className="btn primary small desktop-only"
-            to="/contact"
-            onClick={handleQuoteClick}
-          >
-            {sc('nav.getQuote')}
-          </Link>
         </div>
       </div>
     </header>

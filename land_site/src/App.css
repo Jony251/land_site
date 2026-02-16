@@ -11,6 +11,34 @@ main {
   padding-top: 84px;
 }
 
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1.15;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1.15;
+}
+
 .page {
   width: 100%;
 }
@@ -67,33 +95,28 @@ main {
 }
 
 .hero {
-  padding: clamp(1.5rem, 4vw, 4rem) 0 clamp(2rem, 5vw, 4.5rem);
-  border-bottom: 1px solid var(--border);
   background:
-    radial-gradient(900px 360px at 5% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 68%),
-    radial-gradient(700px 280px at 95% 8%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 72%);
+    radial-gradient(1200px 700px at 12% 12%, rgba(124, 131, 255, 0.28), transparent 60%),
+    radial-gradient(900px 560px at 88% 18%, rgba(34, 197, 94, 0.12), transparent 55%),
+    radial-gradient(900px 520px at 55% 10%, rgba(255, 255, 255, 0.05), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border-bottom: 1px solid var(--border);
 }
 
-.hero-grid {
-  display: grid;
-  align-items: center;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  grid-template-columns: 1.15fr 0.85fr;
+.hero-content {
+  padding: 5.25rem 2rem;
+  text-align: center;
 }
 
-.hero-copy h1 {
-  margin: 0;
-  font-size: clamp(2rem, 4.2vw, 3.65rem);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  max-width: 14ch;
+.hero-content h1 {
+  margin-bottom: 0.75rem;
 }
 
 .hero-subtitle {
-  margin: 1.1rem 0 0;
-  max-width: 62ch;
-  color: var(--text-muted);
-  font-size: clamp(1rem, 1.1vw + 0.7rem, 1.18rem);
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.08rem;
 }
 
 .hero-actions {
@@ -267,30 +290,7 @@ main {
 .btn.primary {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
   border-color: transparent;
-  color: #0d1323;
-  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 30%, transparent);
-}
-
-.btn.secondary {
-  background: transparent;
-}
-
-.btn.ghost {
-  background: var(--surface-2);
-}
-
-.btn.small {
-  padding: 0.55rem 0.82rem;
-  font-size: 0.86rem;
-}
-
-.surface-panel {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(8px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #070b15;
 }
 
 .card-grid {
@@ -323,84 +323,27 @@ main {
   margin-top: 2rem;
   padding: clamp(1rem, 2.5vw, 1.6rem);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.cta-banner h3 {
-  margin: 0;
-  font-size: clamp(1.1rem, 1vw + 0.85rem, 1.5rem);
+.app-section {
+  scroll-margin-top: 96px;
 }
 
-.cta-banner p {
-  margin: 0.4rem 0 0;
-  color: var(--text-muted);
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 80px;
+  background-color: var(--bg);
 }
 
-.route-loader {
-  min-height: calc(100vh - 240px);
-  display: grid;
-  place-items: center;
-  color: var(--text-muted);
+.page-content {
+  color: var(--text);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
-}
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes float-a {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(16px);
-  }
-}
-
-@keyframes float-b {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-18px);
-  }
-}
-
-@media (max-width: 960px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-copy h1 {
-    max-width: none;
-  }
-
-  .hero-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 680px) {
-  main {
-    padding-top: 70px;
-  }
-
-  .hero-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-card-footer {
-    grid-template-columns: 1fr;
-  }
-}

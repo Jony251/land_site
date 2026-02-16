@@ -1,4 +1,12 @@
 .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(7, 11, 21, 0.72);
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
@@ -112,7 +120,11 @@
 .nav-link:hover,
 .nav-link.active {
   color: var(--text);
-  background: color-mix(in srgb, var(--accent) 12%, var(--surface-2));
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .nav-actions {

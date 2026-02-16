@@ -89,14 +89,39 @@
 
 .form-buttons {
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 0.2rem;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .form-buttons .btn {
-  min-width: 140px;
+  padding: 0.85rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-buttons .btn:hover {
+  transform: scale(1.03);
+}
+
+.form-buttons .btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #070b15;
+  border: none;
+  box-shadow: 0 10px 30px rgba(124, 131, 255, 0.22);
+}
+
+.form-buttons .btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.form-buttons .btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .form-hint {

@@ -10,26 +10,19 @@
 }
 
 .service-card {
-  padding: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
-.service-icon {
-  display: inline-flex;
-  width: 34px;
-  height: 34px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  margin-bottom: 0.7rem;
-  font-size: 1.05rem;
-  background: var(--surface-2);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(124, 131, 255, 0.32);
 }
 
 .service-card h3 {
