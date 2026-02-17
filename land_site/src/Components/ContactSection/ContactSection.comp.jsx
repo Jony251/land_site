@@ -6,6 +6,7 @@ import './ContactSection.comp.css'
 const ContactSection = () => {
   const { t } = useI18n()
   const whatsappEnabled = Boolean(WHATSAPP_URL)
+  const emailEnabled = Boolean(CONTACT_EMAIL)
 
   return (
     <section className="contact-section" aria-label={t('finalCta.aria')}>
@@ -50,9 +51,15 @@ const ContactSection = () => {
               </button>
             )}
 
-            <a className="contact-section-btn" href={`mailto:${CONTACT_EMAIL}`}>
-              {t('finalCta.email')}
-            </a>
+            {emailEnabled ? (
+              <a className="contact-section-btn" href={`mailto:${CONTACT_EMAIL}`}>
+                {t('finalCta.email')}
+              </a>
+            ) : (
+              <button className="contact-section-btn disabled" type="button" disabled>
+                {t('finalCta.email')}
+              </button>
+            )}
           </div>
         </div>
 

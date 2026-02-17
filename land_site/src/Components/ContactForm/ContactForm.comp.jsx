@@ -123,12 +123,6 @@ const ContactForm = () => {
             {t('contact.form.reset')}
           </button>
         </div>
-
-        {!isConfigured && (
-          <div className="form-hint">
-            {t('contact.form.hint')}
-          </div>
-        )}
       </form>
     </div>
   );
