@@ -1,6 +1,13 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      args:
+        VITE_EMAILJS_SERVICE_ID: ${VITE_EMAILJS_SERVICE_ID}
+        VITE_EMAILJS_TEMPLATE_ID: ${VITE_EMAILJS_TEMPLATE_ID}
+        VITE_EMAILJS_PUBLIC_KEY: ${VITE_EMAILJS_PUBLIC_KEY}
+        VITE_WHATSAPP_URL: ${VITE_WHATSAPP_URL}
+        VITE_CONTACT_EMAIL: ${VITE_CONTACT_EMAIL}
     ports:
       - "8080:80"
     restart: unless-stopped
