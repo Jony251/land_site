@@ -1,12 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Nav.comp.css'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.comp'
 import { useI18n } from '../../i18n/LanguageProvider'
 
 const Nav = () => {
   const { t } = useI18n()
-  const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -16,13 +15,6 @@ const Nav = () => {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  const navItems = useMemo(() => {
-    const prefix = location.pathname === '/' ? '' : '/'
-    return [
-      { href: `${prefix}#about`, label: t('nav.about') },
-    ]
-  }, [location.pathname, t])
 
   const handleNavClick = () => {
     setMobileOpen(false)
@@ -43,18 +35,17 @@ const Nav = () => {
         <div className="nav-spacer" aria-hidden="true" />
 
         <ul className={`nav-links ${mobileOpen ? 'open' : ''}`}>
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a className="nav-link" href={item.href} onClick={handleNavClick}>
-                {item.label}
-              </a>
-            </li>
-          ))}
+          <li>
+            <Link className="nav-link" to="/about" onClick={handleNavClick}>
+              {t('nav.about')}
+            </Link>
+          </li>
           <li>
             <Link className="nav-link" to="/works" onClick={handleNavClick}>
               {t('nav.works')}
             </Link>
           </li>
+
           <li>
             <Link className="nav-link" to="/contact" onClick={handleNavClick}>
               {t('nav.contact')}

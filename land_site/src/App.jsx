@@ -15,9 +15,6 @@ const HomeRoute = () => (
     <section id="home" className="app-section">
       <Home />
     </section>
-    <section id="about" className="app-section">
-      <About />
-    </section>
     <section className="app-section">
       <TechStrip />
     </section>
@@ -33,6 +30,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<HomeRoute />} />
+        <Route path="/about" element={<About />} />
         <Route path="/works" element={<Works />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

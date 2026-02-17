@@ -4,7 +4,7 @@ import './About.css';
 const About = () => {
   const { t } = useI18n();
   return (
-    <div className="page">
+    <main className="about-route">
       <div className="page-content about-page">
         <h1>{t('about.title')}</h1>
         
@@ -15,7 +15,7 @@ const About = () => {
           <p className="about-cta">{t('about.cta')}</p>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
