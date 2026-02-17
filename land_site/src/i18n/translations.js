@@ -33,7 +33,7 @@ export const translations = {
       linkedinText: 'Professional background and experience',
     },
     works: {
-      title: 'Works that we did',
+      title: 'Our works',
       body: 'A curated selection of projects we’ve delivered — from clean landing pages to full web experiences.',
       projects: {
         android: {
@@ -135,7 +135,7 @@ export const translations = {
       linkedinText: 'Опыт и профессиональный профиль',
     },
     works: {
-      title: 'Наши проекты',
+      title: 'Наши работы',
       body: 'Подборка проектов, которые мы уже реализовали — от лендингов до полноценных веб‑решений.',
       projects: {
         android: {
@@ -237,7 +237,7 @@ export const translations = {
       linkedinText: 'פרופיל מקצועי וניסיון',
     },
     works: {
-      title: 'הפרויקטים שלנו',
+      title: 'העבודות שלנו',
       body: 'מבחר פרויקטים שביצענו — מדפי נחיתה נקיים ועד חוויות ווב מלאות.',
       projects: {
         android: {

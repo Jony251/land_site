@@ -6,9 +6,6 @@ const Services = () => {
 
   return (
     <main className="services-route">
-      <div className="page-content" style={{ textAlign: 'center' }}>
-        <h1>{t('services.title')}</h1>
-      </div>
       <Info />
     </main>
   );

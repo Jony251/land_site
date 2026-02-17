@@ -235,6 +235,10 @@ main {
   text-transform: uppercase;
 }
 
+.landing-brand-ltr {
+  unicode-bidi: isolate;
+}
+
 .landing-subtitle {
   margin-top: 0.85rem;
   color: color-mix(in srgb, var(--text) 72%, transparent);
@@ -277,6 +281,13 @@ main {
   .landing-nav {
     gap: 0.35rem;
   }
+}
+
+html[dir="rtl"] .landing-link {
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 

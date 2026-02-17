@@ -5,6 +5,14 @@
   margin-right: auto;
 }
 
+.works-head h1 {
+  margin-bottom: 1rem;
+}
+
+.works-head p {
+  margin-top: 0;
+}
+
 .works-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

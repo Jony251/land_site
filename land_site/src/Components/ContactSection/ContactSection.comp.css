@@ -72,6 +72,7 @@
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
   font-weight: 800;
+  font-family: inherit;
   text-decoration: none;
   transition: transform 0.12s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
@@ -141,4 +142,10 @@
 
 html[dir="rtl"] .contact-section-actions {
   justify-content: flex-start;
+}
+
+html[dir="rtl"] .contact-section-btn {
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
 }

@@ -20,7 +20,11 @@ const Home = () => {
       <div className="landing-center">
         <div className="landing-card" role="region" aria-label="Blue Cat landing">
           <div className="landing-card-inner">
-            <div className="landing-brand">C.A.T.</div>
+            <div className="landing-brand">
+              <span className="landing-brand-ltr" dir="ltr">
+                C.A.T.
+              </span>
+            </div>
             <div className="landing-subtitle">Creative Advanced Technology</div>
             <nav className="landing-nav" aria-label="Primary">
               <Link className="landing-link" to="/works">
