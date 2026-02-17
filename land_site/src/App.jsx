@@ -15,9 +15,6 @@ const HomeRoute = () => (
     <section id="home" className="app-section">
       <Home />
     </section>
-    <section className="app-section">
-      <TechStrip />
-    </section>
   </main>
 )
 

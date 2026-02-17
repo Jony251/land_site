@@ -1,5 +1,6 @@
 import { useI18n } from '../i18n/LanguageProvider';
 import './About.css';
+import TechStrip from '../Components/TechStrip/TechStrip.comp';
 
 const About = () => {
   const { t } = useI18n();
@@ -14,6 +15,8 @@ const About = () => {
           <p>{t('about.approach')}</p>
           <p className="about-cta">{t('about.cta')}</p>
         </div>
+
+        <TechStrip />
       </div>
     </main>
   );
