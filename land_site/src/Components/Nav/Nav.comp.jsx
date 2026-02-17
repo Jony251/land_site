@@ -16,7 +16,6 @@ const Nav = () => {
   }, [])
 
   const navItems = [
-    { href: '#home', label: t('nav.home') },
     { href: '#about', label: t('nav.about') },
     { href: '#works', label: t('nav.works') },
     { href: '#contact', label: t('nav.contact') },
@@ -38,17 +37,7 @@ const Nav = () => {
           </a>
         </div>
 
-        <button
-          type="button"
-          className={`menu-toggle ${mobileOpen ? 'active' : ''}`}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((value) => !value)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="nav-spacer" aria-hidden="true" />
 
         <ul className={`nav-links ${mobileOpen ? 'open' : ''}`}>
           {navItems.map((item) => (
@@ -63,6 +52,18 @@ const Nav = () => {
         <div className="nav-actions">
           <LanguageSwitcher />
         </div>
+
+        <button
+          type="button"
+          className={`menu-toggle ${mobileOpen ? 'active' : ''}`}
+          aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((value) => !value)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
     </header>
   )

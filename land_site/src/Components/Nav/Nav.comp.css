@@ -3,8 +3,8 @@
   inset: 0 0 auto;
   z-index: 1000;
   border-bottom: 1px solid var(--border);
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
-  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   direction: ltr;
 }
@@ -13,17 +13,21 @@
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   border-color: var(--border);
   box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(10px);
 }
 
 .nav-shell {
   max-width: 1160px;
   margin: 0 auto;
   padding: 0.7rem clamp(1rem, 3vw, 2rem);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.nav-spacer {
+  flex: 1;
+  min-width: 0;
 }
 
 .nav-logo .logo-link {
@@ -32,6 +36,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.62rem;
+}
+
+.nav-logo .logo-link:hover .logo-text {
+  color: var(--text);
 }
 
 .logo-mark {
@@ -56,11 +64,11 @@
 .logo-text {
   font-weight: 800;
   letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 .menu-toggle {
   display: none;
-  justify-self: end;
   width: 42px;
   height: 36px;
   border-radius: 10px;
@@ -94,11 +102,10 @@
 .nav-links {
   display: flex;
   align-items: center;
-  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 0.4rem;
+  gap: 0.25rem;
 }
 
 .nav-link {
@@ -106,7 +113,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: var(--text-muted);
+  color: var(--muted);
   font-weight: 700;
   font-size: 0.93rem;
   padding: 0.55rem 0.75rem;
@@ -128,29 +135,32 @@
 
 @media (max-width: 860px) {
   .nav-shell {
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
+    flex-wrap: wrap;
     align-items: center;
+  }
+
+  .nav-spacer {
+    display: none;
   }
 
   .menu-toggle {
     display: block;
+    margin-left: auto;
   }
 
   .nav-links {
-    grid-column: 1 / -1;
     width: 100%;
     background: color-mix(in srgb, var(--bg) 85%, transparent);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-sm);
-    backdrop-filter: blur(12px);
     margin-top: 0.3rem;
     padding: 0.6rem;
     flex-direction: column;
     align-items: stretch;
     gap: 0.3rem;
     display: none;
+    order: 10;
   }
 
   .nav-links.open {
