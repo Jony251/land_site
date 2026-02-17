@@ -20,8 +20,8 @@ const Home = () => {
       <div className="landing-center">
         <div className="landing-card" role="region" aria-label="Blue Cat landing">
           <div className="landing-card-inner">
-            <div className="landing-brand">Blue Cat</div>
-            <div className="landing-subtitle">{t('home.subtitle')}</div>
+            <div className="landing-brand">C.A.T.</div>
+            <div className="landing-subtitle">Creative Advanced Technology</div>
             <nav className="landing-nav" aria-label="Primary">
               <Link className="landing-link" to="/works">
                 {t('nav.works')}
