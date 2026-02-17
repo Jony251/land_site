@@ -11,7 +11,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
 
 const HomeRoute = () => (
-  <main>
+  <main className="landing-route">
     <section id="home" className="app-section">
       <Home />
     </section>
