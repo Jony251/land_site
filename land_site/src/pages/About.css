@@ -4,8 +4,12 @@
   text-align: center;
 }
 
+.about-page h1 {
+  margin-bottom: 1.25rem;
+}
+
 .about-bio {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .about-bio p {

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/LanguageProvider';
 import './About.css';
 import TechStrip from '../Components/TechStrip/TechStrip.comp';
@@ -13,7 +14,7 @@ const About = () => {
           <p>{t('about.intro')}</p>
           <p>{t('about.skills')}</p>
           <p>{t('about.approach')}</p>
-          <p className="about-cta">{t('about.cta')}</p>
+          <Link className="about-cta" to="/contact">{t('about.cta')}</Link>
         </div>
 
         <TechStrip />

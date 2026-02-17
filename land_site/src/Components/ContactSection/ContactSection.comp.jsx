@@ -11,7 +11,6 @@ const ContactSection = () => {
     <section className="contact-section" aria-label={t('finalCta.aria')}>
       <div className="contact-section-inner">
         <div className="contact-section-left">
-          <p className="contact-section-eyebrow">{t('contact.title')}</p>
           <h2 className="contact-section-title">{t('finalCta.title')}</h2>
           <p className="contact-section-subtitle">{t('finalCta.subtitle')}</p>
           <p className="contact-section-lead">{t('finalCta.lead')}</p>

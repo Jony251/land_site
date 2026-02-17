@@ -24,8 +24,6 @@ const Contact = () => {
   return (
     <main className="contact-route">
       <div className="page-content" style={{ textAlign: 'center' }}>
-        <h1>{t('contact.title')}</h1>
-        <p>{t('contact.body')}</p>
         <ContactSection />
       </div>
     </main>
