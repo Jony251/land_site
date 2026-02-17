@@ -128,7 +128,7 @@ const Works = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <div className="page">
+    <main className="works-route">
       <div className="page-content">
         <div className="works-head">
           <h1>{t('works.title')}</h1>
@@ -165,7 +165,7 @@ const Works = () => {
           t={t}
         />
       )}
-    </div>
+    </main>
   );
 };
 

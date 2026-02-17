@@ -6,31 +6,37 @@ import About from './pages/About'
 import Works from './pages/Works'
 import Contact from './pages/Contact'
 import TechStrip from './Components/TechStrip/TechStrip.comp'
+import { Route, Routes, useLocation } from 'react-router-dom'
 
 import './App.css'
 
+const HomeRoute = () => (
+  <main>
+    <section id="home" className="app-section">
+      <Home />
+    </section>
+    <section id="about" className="app-section">
+      <About />
+    </section>
+    <section className="app-section">
+      <TechStrip />
+    </section>
+  </main>
+)
+
 function App() {
+  const location = useLocation()
+  const isContactRoute = location.pathname === '/contact'
+
   return (
     <div className="app">
       <Nav />
-      <main>
-        <section id="home" className="app-section">
-          <Home />
-        </section>
-        <section id="about" className="app-section">
-          <About />
-        </section>
-        <section id="works" className="app-section">
-          <Works />
-        </section>
-        <section className="app-section">
-          <TechStrip />
-        </section>
-        <section id="contact" className="app-section">
-          <Contact />
-        </section>
-      </main>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomeRoute />} />
+        <Route path="/works" element={<Works />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      {!isContactRoute && <Footer />}
       <AccessibilityWidget />
     </div>
   );

@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './Nav.comp.css'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.comp'
 import { useI18n } from '../../i18n/LanguageProvider'
 
 const Nav = () => {
   const { t } = useI18n()
+  const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -15,11 +17,12 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const navItems = [
-    { href: '#about', label: t('nav.about') },
-    { href: '#works', label: t('nav.works') },
-    { href: '#contact', label: t('nav.contact') },
-  ]
+  const navItems = useMemo(() => {
+    const prefix = location.pathname === '/' ? '' : '/'
+    return [
+      { href: `${prefix}#about`, label: t('nav.about') },
+    ]
+  }, [location.pathname, t])
 
   const handleNavClick = () => {
     setMobileOpen(false)
@@ -29,12 +32,12 @@ const Nav = () => {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-shell">
         <div className="nav-logo">
-          <a href="#home" className="logo-link" aria-label="Blue Cat home" onClick={handleNavClick}>
+          <Link to="/" className="logo-link" aria-label="Blue Cat home" onClick={handleNavClick}>
             <span className="logo-mark" aria-hidden="true">
               <img className="logo-img" src="/logo_NO_font.png" alt="" />
             </span>
             <span className="logo-text">Blue Cat</span>
-          </a>
+          </Link>
         </div>
 
         <div className="nav-spacer" aria-hidden="true" />
@@ -47,6 +50,16 @@ const Nav = () => {
               </a>
             </li>
           ))}
+          <li>
+            <Link className="nav-link" to="/works" onClick={handleNavClick}>
+              {t('nav.works')}
+            </Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="/contact" onClick={handleNavClick}>
+              {t('nav.contact')}
+            </Link>
+          </li>
         </ul>
 
         <div className="nav-actions">
