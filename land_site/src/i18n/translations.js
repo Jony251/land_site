@@ -12,6 +12,7 @@ export const translations = {
       home: 'Home',
       about: 'About',
       works: 'Works',
+      services: 'Services',
       contact: 'Contact',
     },
     home: {
@@ -113,6 +114,7 @@ export const translations = {
       home: 'Главная',
       about: 'Обо мне',
       works: 'Работы',
+      services: 'Услуги',
       contact: 'Контакты',
     },
     home: {
@@ -214,6 +216,7 @@ export const translations = {
       home: 'בית',
       about: 'אודות',
       works: 'עבודות',
+      services: 'שירותים',
       contact: 'צור קשר',
     },
     home: {

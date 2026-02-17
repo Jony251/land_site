@@ -36,13 +36,20 @@ const Nav = () => {
 
         <ul className={`nav-links ${mobileOpen ? 'open' : ''}`}>
           <li>
-            <Link className="nav-link" to="/about" onClick={handleNavClick}>
-              {t('nav.about')}
-            </Link>
-          </li>
-          <li>
             <Link className="nav-link" to="/works" onClick={handleNavClick}>
               {t('nav.works')}
+            </Link>
+          </li>
+
+          <li>
+            <Link className="nav-link" to="/services" onClick={handleNavClick}>
+              {t('nav.services')}
+            </Link>
+          </li>
+
+          <li>
+            <Link className="nav-link" to="/about" onClick={handleNavClick}>
+              {t('nav.about')}
             </Link>
           </li>
 

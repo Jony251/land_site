@@ -163,6 +163,12 @@ main {
   background-color: var(--bg);
 }
 
+.services-route {
+  width: 100%;
+  padding-top: 80px;
+  background-color: var(--bg);
+}
+
 .page-content {
   color: var(--text);
   max-width: 1200px;
