@@ -52,6 +52,10 @@ export const translations = {
           title: 'Learning Platform',
           desc: 'An educational platform with interactive games and content management for effective learning.',
         },
+        massage: {
+          title: 'Massage Website',
+          desc: 'A landing page for a massage studio — clean layout, service overview, and contact section.',
+        },
       },
     },
     contact: {
@@ -154,6 +158,10 @@ export const translations = {
           title: 'Образовательная платформа',
           desc: 'Платформа для обучения с интерактивными играми и управлением контентом.',
         },
+        massage: {
+          title: 'Сайт массажного салона',
+          desc: 'Лендинг для массажного салона — чистый дизайн, обзор услуг и контактная секция.',
+        },
       },
     },
     contact: {
@@ -255,6 +263,10 @@ export const translations = {
         learning: {
           title: 'פלטפורמת למידה',
           desc: 'פלטפורמה חינוכית עם משחקים אינטראקטיביים וניהול תוכן ללמידה יעילה.',
+        },
+        massage: {
+          title: 'אתר עיסוי',
+          desc: 'דף נחיתה לסטודיו לעיסוי — עיצוב נקי, סקירת שירותים ואזור יצירת קשר.',
         },
       },
     },

@@ -49,6 +49,19 @@ const projects = [
       '/ended_proj/learning_add.png',
     ],
   },
+  {
+    id: 'massage',
+    category: 'web',
+    titleKey: 'works.projects.massage.title',
+    descKey: 'works.projects.massage.desc',
+    thumbnail: '/ended_proj/massage_home.png',
+    github: 'https://github.com/Jony251/massage',
+    images: [
+      '/ended_proj/massage_home.png',
+      '/ended_proj/massage_services.png',
+      '/ended_proj/massage_footer.png',
+    ],
+  },
 ];
 
 export default projects;
