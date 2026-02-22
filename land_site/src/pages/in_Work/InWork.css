@@ -115,6 +115,26 @@
   opacity: 0.7;
 }
 
+/* ── Technologies ── */
+.inwork-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.inwork-tech-tag {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  opacity: 0.85;
+}
+
 /* ── GitHub Link ── */
 .inwork-github-link {
   display: inline-flex;

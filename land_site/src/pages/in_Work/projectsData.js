@@ -5,6 +5,7 @@ const projects = [
     titleKey: 'works.projects.android.title',
     descKey: 'works.projects.android.desc',
     thumbnail: '/ended_proj/android_play.png',
+    technologies: ['Java', 'Android Studio', 'XML', 'Firebase'],
     images: [
       '/ended_proj/android_play.png',
       '/ended_proj/android_log.png',
@@ -18,6 +19,7 @@ const projects = [
     titleKey: 'works.projects.crossplatform.title',
     descKey: 'works.projects.crossplatform.desc',
     thumbnail: '/ended_proj/cross_platform.png',
+    technologies: ['CSS3', 'JavaScript', 'React'],
     images: [
       '/ended_proj/cross_platform.png',
       '/ended_proj/cross_platform_home.png',
@@ -30,6 +32,7 @@ const projects = [
     titleKey: 'works.projects.cross_II.title',
     descKey: 'works.projects.cross_II.desc',
     thumbnail: '/ended_proj/cross_II_home.png',
+    technologies: ['React Native', 'JavaScript', 'CSS3'],
     images: [
       '/ended_proj/cross_II_home.png',
       '/ended_proj/cross_II_collection.png',
@@ -43,6 +46,7 @@ const projects = [
     titleKey: 'works.projects.learning.title',
     descKey: 'works.projects.learning.desc',
     thumbnail: '/ended_proj/learning_home.png',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'React'],
     images: [
       '/ended_proj/learning_home.png',
       '/ended_proj/learning_games.png',
@@ -56,10 +60,37 @@ const projects = [
     descKey: 'works.projects.massage.desc',
     thumbnail: '/ended_proj/massage_home.png',
     github: 'https://github.com/Jony251/massage',
+    technologies: ['HTML5', 'CSS3', 'JavaScript'],
     images: [
       '/ended_proj/massage_home.png',
       '/ended_proj/massage_services.png',
       '/ended_proj/massage_footer.png',
+    ],
+  },
+  {
+    id: 'landfolio',
+    category: 'web',
+    titleKey: 'works.projects.landfolio.title',
+    descKey: 'works.projects.landfolio.desc',
+    thumbnail: '/ended_proj/landfolio_home.png',
+    github: 'https://github.com/Jony251/land_Folio',
+    technologies: ['Vue 3', 'Vite', 'JavaScript', 'CSS3'],
+    images: [
+      '/ended_proj/landfolio_home.png',
+    ],
+  },
+  {
+    id: 'aispace',
+    category: 'web',
+    titleKey: 'works.projects.aispace.title',
+    descKey: 'works.projects.aispace.desc',
+    thumbnail: '/ended_proj/aispace_home.png',
+    github: 'https://github.com/Jony251/AI_Space',
+    technologies: ['Vue 3', 'TypeScript', 'CSS3'],
+    images: [
+      '/ended_proj/aispace_home.png',
+      '/ended_proj/aispace_chat.png',
+      '/ended_proj/aispace_features.png',
     ],
   },
 ];

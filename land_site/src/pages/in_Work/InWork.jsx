@@ -58,6 +58,13 @@ const InWork = () => {
               </div>
               <h1 className="inwork-title">{t(project.titleKey)}</h1>
               <p className="inwork-description">{t(project.descKey)}</p>
+              {project.technologies && project.technologies.length > 0 && (
+                <div className="inwork-technologies">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="inwork-tech-tag">{tech}</span>
+                  ))}
+                </div>
+              )}
               {project.github && (
                 <a
                   href={project.github}

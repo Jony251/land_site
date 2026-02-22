@@ -56,6 +56,14 @@ export const translations = {
           title: 'Massage Website',
           desc: 'A landing page for a massage studio — clean layout, service overview, and contact section.',
         },
+        landfolio: {
+          title: 'Portfolio Landing',
+          desc: 'A portfolio landing page built with Vue 3 and Vite — modern SPA with clean design and smooth interactions.',
+        },
+        aispace: {
+          title: 'AI Space',
+          desc: 'An AI-powered chat interface built with Vue 3 and TypeScript — modern design with conversational AI features.',
+        },
       },
     },
     contact: {
@@ -162,6 +170,14 @@ export const translations = {
           title: 'Сайт массажного салона',
           desc: 'Лендинг для массажного салона — чистый дизайн, обзор услуг и контактная секция.',
         },
+        landfolio: {
+          title: 'Портфолио-лендинг',
+          desc: 'Лендинг портфолио на Vue 3 и Vite — современный SPA с чистым дизайном и плавными взаимодействиями.',
+        },
+        aispace: {
+          title: 'AI Space',
+          desc: 'Чат-интерфейс с ИИ на Vue 3 и TypeScript — современный дизайн с функциями разговорного ИИ.',
+        },
       },
     },
     contact: {
@@ -267,6 +283,14 @@ export const translations = {
         massage: {
           title: 'אתר עיסוי',
           desc: 'דף נחיתה לסטודיו לעיסוי — עיצוב נקי, סקירת שירותים ואזור יצירת קשר.',
+        },
+        landfolio: {
+          title: 'דף נחיתה לתיק עבודות',
+          desc: 'דף נחיתה לתיק עבודות שנבנה עם Vue 3 ו-Vite — SPA מודרני עם עיצוב נקי ואינטראקציות חלקות.',
+        },
+        aispace: {
+          title: 'AI Space',
+          desc: 'ממשק צ׳אט מבוסס AI שנבנה עם Vue 3 ו-TypeScript — עיצוב מודרני עם יכולות שיחה עם בינה מלאכותית.',
         },
       },
     },
