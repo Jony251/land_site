@@ -41,8 +41,8 @@ export const translations = {
           desc: 'A mobile game application built with Android Studio featuring user authentication and gameplay mechanics.',
         },
         crossplatform: {
-          title: 'Cross-Platform App',
-          desc: 'A cross-platform application designed to work seamlessly across multiple devices and operating systems.',
+          title: 'Whale Business',
+          desc: 'A business management platform with authentication, registration, and a clean landing page.',
         },
         cross_II: {
           title: 'Cross-Platform App II',
@@ -155,8 +155,8 @@ export const translations = {
           desc: 'Мобильное игровое приложение на Android Studio с авторизацией и игровой механикой.',
         },
         crossplatform: {
-          title: 'Кроссплатформенное приложение',
-          desc: 'Приложение, работающее на разных устройствах и операционных системах.',
+          title: 'Whale Business',
+          desc: 'Платформа для управления бизнесом с авторизацией, регистрацией и чистым лендингом.',
         },
         cross_II: {
           title: 'Кроссплатформенное приложение II',
@@ -269,8 +269,8 @@ export const translations = {
           desc: 'אפליקציית משחק מובייל שנבנתה ב-Android Studio עם אימות משתמשים ומכניקת משחק.',
         },
         crossplatform: {
-          title: 'אפליקציה חוצת פלטפורמות',
-          desc: 'אפליקציה שתוכננה לעבוד בצורה חלקה על מכשירים ומערכות הפעלה שונות.',
+          title: 'Whale Business',
+          desc: 'פלטפורמה לניהול עסקי עם אימות, הרשמה ודף נחיתה נקי.',
         },
         cross_II: {
           title: 'אפליקציה חוצת פלטפורמות II',

@@ -18,12 +18,13 @@ const projects = [
     category: 'web',
     titleKey: 'works.projects.crossplatform.title',
     descKey: 'works.projects.crossplatform.desc',
-    thumbnail: '/ended_proj/cross_platform.png',
+    thumbnail: '/ended_proj/Whale_Business_land.png',
+    siteUrl: 'https://whalebiz.co.il/',
     technologies: ['CSS3', 'JavaScript', 'React'],
     images: [
-      '/ended_proj/cross_platform.png',
-      '/ended_proj/cross_platform_home.png',
-      '/ended_proj/cross_platform_psw.png',
+      '/ended_proj/Whale_Business_land.png',
+      '/ended_proj/Whale_Business_login.png',
+      '/ended_proj/Whale_Business_reg.png',
     ],
   },
   {
