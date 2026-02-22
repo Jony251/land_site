@@ -60,8 +60,13 @@ const InWork = () => {
               <p className="inwork-description">{t(project.descKey)}</p>
               {project.technologies && project.technologies.length > 0 && (
                 <div className="inwork-technologies">
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className="inwork-tech-tag">{tech}</span>
+                  {project.technologies.map((item) => (
+                    <span key={item.name} className="inwork-tech-tag">
+                      {item.icon && (
+                        <img className="inwork-tech-icon" src={item.icon} alt={item.name} />
+                      )}
+                      {item.name}
+                    </span>
                   ))}
                 </div>
               )}

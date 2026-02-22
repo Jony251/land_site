@@ -1,3 +1,23 @@
+const CDN = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons';
+
+const TECH_ICONS = {
+  'HTML5':           `${CDN}/html5/html5-original.svg`,
+  'CSS3':            `${CDN}/css3/css3-original.svg`,
+  'JavaScript':      `${CDN}/javascript/javascript-original.svg`,
+  'TypeScript':      `${CDN}/typescript/typescript-original.svg`,
+  'React':           `${CDN}/react/react-original.svg`,
+  'React Native':    `${CDN}/react/react-original.svg`,
+  'Vue 3':           `${CDN}/vuejs/vuejs-original.svg`,
+  'Node.js':         `${CDN}/nodejs/nodejs-original.svg`,
+  'Java':            `${CDN}/java/java-original.svg`,
+  'Android Studio':  `${CDN}/androidstudio/androidstudio-original.svg`,
+  'XML':             null,
+  'Firebase':        `${CDN}/firebase/firebase-plain.svg`,
+  'Vite':            '/vite.svg',
+};
+
+const tech = (name) => ({ name, icon: TECH_ICONS[name] || null });
+
 const projects = [
   {
     id: 'android',
@@ -5,7 +25,7 @@ const projects = [
     titleKey: 'works.projects.android.title',
     descKey: 'works.projects.android.desc',
     thumbnail: '/ended_proj/android_play.png',
-    technologies: ['Java', 'Android Studio', 'XML', 'Firebase'],
+    technologies: [tech('Java'), tech('Android Studio'), tech('XML'), tech('Firebase')],
     images: [
       '/ended_proj/android_play.png',
       '/ended_proj/android_log.png',
@@ -20,7 +40,7 @@ const projects = [
     descKey: 'works.projects.crossplatform.desc',
     thumbnail: '/ended_proj/Whale_Business_land.png',
     siteUrl: 'https://whalebiz.co.il/',
-    technologies: ['CSS3', 'JavaScript', 'React'],
+    technologies: [tech('CSS3'), tech('JavaScript'), tech('React')],
     images: [
       '/ended_proj/Whale_Business_land.png',
       '/ended_proj/Whale_Business_login.png',
@@ -33,7 +53,7 @@ const projects = [
     titleKey: 'works.projects.cross_II.title',
     descKey: 'works.projects.cross_II.desc',
     thumbnail: '/ended_proj/cross_II_home.png',
-    technologies: ['React Native', 'JavaScript', 'CSS3'],
+    technologies: [tech('React Native'), tech('JavaScript'), tech('CSS3')],
     images: [
       '/ended_proj/cross_II_home.png',
       '/ended_proj/cross_II_collection.png',
@@ -47,7 +67,7 @@ const projects = [
     titleKey: 'works.projects.learning.title',
     descKey: 'works.projects.learning.desc',
     thumbnail: '/ended_proj/learning_home.png',
-    technologies: ['HTML5', 'CSS3', 'JavaScript', 'React'],
+    technologies: [tech('HTML5'), tech('CSS3'), tech('JavaScript'), tech('React')],
     images: [
       '/ended_proj/learning_home.png',
       '/ended_proj/learning_games.png',
@@ -61,7 +81,7 @@ const projects = [
     descKey: 'works.projects.massage.desc',
     thumbnail: '/ended_proj/massage_home.png',
     github: 'https://github.com/Jony251/massage',
-    technologies: ['HTML5', 'CSS3', 'JavaScript'],
+    technologies: [tech('HTML5'), tech('CSS3'), tech('JavaScript')],
     images: [
       '/ended_proj/massage_home.png',
       '/ended_proj/massage_services.png',
@@ -75,7 +95,7 @@ const projects = [
     descKey: 'works.projects.landfolio.desc',
     thumbnail: '/ended_proj/landfolio_home.png',
     github: 'https://github.com/Jony251/land_Folio',
-    technologies: ['Vue 3', 'Vite', 'JavaScript', 'CSS3'],
+    technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
     images: [
       '/ended_proj/landfolio_home.png',
     ],
@@ -87,7 +107,7 @@ const projects = [
     descKey: 'works.projects.aispace.desc',
     thumbnail: '/ended_proj/aispace_home.png',
     github: 'https://github.com/Jony251/AI_Space',
-    technologies: ['Vue 3', 'TypeScript', 'CSS3'],
+    technologies: [tech('Vue 3'), tech('TypeScript'), tech('CSS3')],
     images: [
       '/ended_proj/aispace_home.png',
       '/ended_proj/aispace_chat.png',
