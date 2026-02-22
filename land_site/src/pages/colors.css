@@ -1,0 +1,46 @@
+/* ── Centralized Colors, Shadows & Radius ── */
+
+:root {
+  /* Backgrounds */
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-2: #fbfbfa;
+
+  /* Text */
+  --text: #0f172a;
+  --muted: rgba(15, 23, 42, 0.72);
+  --text-muted: rgba(15, 23, 42, 0.72);
+
+  /* Borders */
+  --border: rgba(15, 23, 42, 0.10);
+
+  /* Shadows */
+  --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.06);
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 18px 52px rgba(15, 23, 42, 0.12);
+
+  /* Accent / Brand */
+  --accent: #7aa2ff;
+  --accent-2: #7aa2ff;
+  --primary: var(--accent);
+
+  /* Status */
+  --danger: #ff6b6b;
+  --success: #22c55e;
+
+  /* Radius */
+  --radius: 14px;
+  --radius-sm: 12px;
+}
+
+/* ── High Contrast Override ── */
+html[data-high-contrast="true"] {
+  --bg: #000000;
+  --surface: rgba(255, 255, 255, 0.12);
+  --surface-2: rgba(255, 255, 255, 0.18);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.84);
+  --border: rgba(255, 255, 255, 0.22);
+  --accent: #7aa2ff;
+  --accent-2: #7aa2ff;
+}
