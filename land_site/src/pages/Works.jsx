@@ -5,6 +5,7 @@ import './Works.css';
 const projects = [
   {
     id: 'android',
+    category: 'android',
     titleKey: 'works.projects.android.title',
     descKey: 'works.projects.android.desc',
     thumbnail: '/ended_proj/android_play.png',
@@ -17,6 +18,7 @@ const projects = [
   },
   {
     id: 'crossplatform',
+    category: 'web',
     titleKey: 'works.projects.crossplatform.title',
     descKey: 'works.projects.crossplatform.desc',
     thumbnail: '/ended_proj/cross_platform.png',
@@ -28,6 +30,7 @@ const projects = [
   },
   {
     id: 'cross_II',
+    category: 'android',
     titleKey: 'works.projects.cross_II.title',
     descKey: 'works.projects.cross_II.desc',
     thumbnail: '/ended_proj/cross_II_home.png',
@@ -40,6 +43,7 @@ const projects = [
   },
   {
     id: 'learning',
+    category: 'web',
     titleKey: 'works.projects.learning.title',
     descKey: 'works.projects.learning.desc',
     thumbnail: '/ended_proj/learning_home.png',
@@ -126,17 +130,38 @@ const ProjectModal = ({ project, onClose, t }) => {
 const Works = () => {
   const { t } = useI18n();
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('web');
+
+  const visibleProjects = projects.filter((p) => p.category === selectedCategory);
 
   return (
     <main className="works-route">
       <div className="page-content">
-        <div className="works-head">
-          <h1>{t('works.title')}</h1>
-          <p>{t('works.body')}</p>
-        </div>
+        <nav className="works-categories" aria-label="Works categories">
+          <button
+            type="button"
+            className={`works-category ${selectedCategory === 'web' ? 'active' : ''}`}
+            onClick={() => {
+              setSelectedProject(null);
+              setSelectedCategory('web');
+            }}
+          >
+            WEB
+          </button>
+          <button
+            type="button"
+            className={`works-category ${selectedCategory === 'android' ? 'active' : ''}`}
+            onClick={() => {
+              setSelectedProject(null);
+              setSelectedCategory('android');
+            }}
+          >
+            ANDROID
+          </button>
+        </nav>
 
         <div className="works-grid">
-          {projects.map((project) => (
+          {visibleProjects.map((project) => (
             <div
               key={project.id}
               className="project-card"
