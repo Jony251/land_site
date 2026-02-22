@@ -14,7 +14,10 @@
 }
 
 .works-filterbar {
-  background: color-mix(in srgb, var(--bg) 92%, #59b5c5bb);
+  background:
+    radial-gradient(900px 520px at 15% 20%, rgba(124, 131, 255, 0.22), transparent 55%),
+    radial-gradient(900px 520px at 85% 30%, rgba(34, 197, 94, 0.10), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
   border-top: 0;
   border-bottom: 1px solid var(--border);
   margin-top: -80px;
