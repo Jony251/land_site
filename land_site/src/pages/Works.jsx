@@ -136,30 +136,34 @@ const Works = () => {
 
   return (
     <main className="works-route">
-      <div className="page-content">
-        <nav className="works-categories" aria-label="Works categories">
-          <button
-            type="button"
-            className={`works-category ${selectedCategory === 'web' ? 'active' : ''}`}
-            onClick={() => {
-              setSelectedProject(null);
-              setSelectedCategory('web');
-            }}
-          >
-            WEB
-          </button>
-          <button
-            type="button"
-            className={`works-category ${selectedCategory === 'android' ? 'active' : ''}`}
-            onClick={() => {
-              setSelectedProject(null);
-              setSelectedCategory('android');
-            }}
-          >
-            ANDROID
-          </button>
-        </nav>
+      <div className="works-filterbar">
+        <div className="page-content">
+          <nav className="works-categories" aria-label="Works categories">
+            <button
+              type="button"
+              className={`works-category ${selectedCategory === 'web' ? 'active' : ''}`}
+              onClick={() => {
+                setSelectedProject(null);
+                setSelectedCategory('web');
+              }}
+            >
+              WEB
+            </button>
+            <button
+              type="button"
+              className={`works-category ${selectedCategory === 'android' ? 'active' : ''}`}
+              onClick={() => {
+                setSelectedProject(null);
+                setSelectedCategory('android');
+              }}
+            >
+              ANDROID
+            </button>
+          </nav>
+        </div>
+      </div>
 
+      <div className="page-content">
         <div className="works-grid">
           {visibleProjects.map((project) => (
             <div
