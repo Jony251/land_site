@@ -36,6 +36,10 @@ export const translations = {
       title: 'Our works',
       body: 'A curated selection of projects we’ve delivered — from clean landing pages to full web experiences.',
       projects: {
+        crm: {
+          title: 'Pet Project CRM',
+          desc: 'A CRM pet project for managing clients and workflows — built as a full-stack learning project.',
+        },
         android: {
           title: 'Android Game App',
           desc: 'A mobile game application built with Android Studio featuring user authentication and gameplay mechanics.',
@@ -150,6 +154,10 @@ export const translations = {
       title: 'Наши работы',
       body: 'Подборка проектов, которые мы уже реализовали — от лендингов до полноценных веб‑решений.',
       projects: {
+        crm: {
+          title: 'Pet Project CRM',
+          desc: 'CRM pet‑проект для управления клиентами и процессами — учебный full‑stack проект.',
+        },
         android: {
           title: 'Android-игра',
           desc: 'Мобильное игровое приложение на Android Studio с авторизацией и игровой механикой.',
@@ -264,6 +272,10 @@ export const translations = {
       title: 'העבודות שלנו',
       body: 'מבחר פרויקטים שביצענו — מדפי נחיתה נקיים ועד חוויות ווב מלאות.',
       projects: {
+        crm: {
+          title: 'Pet Project CRM',
+          desc: 'פרויקט CRM ללמידה וניהול לקוחות ותהליכים — פרויקט full‑stack.',
+        },
         android: {
           title: 'אפליקציית משחק לאנדרואיד',
           desc: 'אפליקציית משחק מובייל שנבנתה ב-Android Studio עם אימות משתמשים ומכניקת משחק.',
