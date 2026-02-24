@@ -60,6 +60,10 @@ export const translations = {
           title: 'Massage Website',
           desc: 'A landing page for a massage studio designed to convert visitors into bookings. Includes clear service sections, strong visual hierarchy, trust‑building blocks, and a direct contact path — optimized for mobile and fast loading.',
         },
+        change_web: {
+          title: 'Change Web',
+          desc: 'A modern Vue 3 + Vite website prototype with a custom teal‑based design system. Built as a clean, responsive UI foundation with reusable sections and a contact flow (EmailJS-ready) — designed to feel premium, load fast, and be easy to extend as the product evolves.',
+        },
         landfolio: {
           title: 'Portfolio Landing',
           desc: 'A portfolio landing page built with Vue 3 and Vite — a fast, modern SPA that presents projects and expertise with a clean structure, responsive layout, and smooth interactions. Designed to build trust, showcase work with clear visuals, and guide visitors to contact or booking.',
@@ -178,6 +182,10 @@ export const translations = {
           title: 'Сайт массажного салона',
           desc: 'Конверсионный лендинг для массажного салона: чёткая структура услуг, визуальные акценты, блоки доверия и быстрый путь к записи/контакту. Оптимизирован под мобильные устройства и быструю загрузку.',
         },
+        change_web: {
+          title: 'Change Web',
+          desc: 'Современный сайт‑прототип на Vue 3 + Vite с кастомной дизайн‑системой в бирюзовой палитре. Сделан как чистая, адаптивная UI‑основа: переиспользуемые секции, аккуратная типографика и контактный сценарий (готов к EmailJS). Подходит как «премиальный фундамент» — быстро загружается и легко расширяется по мере развития проекта.',
+        },
         landfolio: {
           title: 'Портфолио-лендинг',
           desc: 'Портфолио‑лендинг на Vue 3 и Vite — быстрый современный SPA, который аккуратно показывает проекты и экспертизу: понятная структура, адаптивная верстка и плавные взаимодействия. Задача — повысить доверие, красиво презентовать кейсы и привести посетителя к контакту/заявке.',
@@ -295,6 +303,10 @@ export const translations = {
         massage: {
           title: 'אתר עיסוי',
           desc: 'דף נחיתה לסטודיו לעיסוי שמיועד להמרה: מבנה שירותים ברור, היררכיית טקסט חזקה, אלמנטים שמייצרים אמון וקריאה לפעולה ישירה. מותאם למובייל ומכוון לביצועים מהירים.',
+        },
+        change_web: {
+          title: 'Change Web',
+          desc: 'אב‑טיפוס אתר מודרני ב‑Vue 3 + Vite עם Design System מותאם בצבעי טורקיז. נבנה כבסיס UI נקי ורספונסיבי עם סקשנים חוזרים וזרימת יצירת קשר (מוכן ל‑EmailJS) — נראה פרימיום, נטען מהר וקל להרחבה ככל שהמוצר מתקדם.',
         },
         landfolio: {
           title: 'דף נחיתה לתיק עבודות',

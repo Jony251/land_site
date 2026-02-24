@@ -89,6 +89,20 @@ const projects = [
     ],
   },
   {
+    id: 'change-web',
+    category: 'web',
+    titleKey: 'works.projects.change_web.title',
+    descKey: 'works.projects.change_web.desc',
+    thumbnail: 'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
+    github: 'https://github.com/Jony251/Change_Web',
+    technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
+    images: [
+      'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
+      'https://github.com/user-attachments/assets/3cce7c51-8078-4038-9728-468bbacda501',
+      'https://github.com/user-attachments/assets/3caa22ad-7c07-4b25-aec8-0055fc43c5d0',
+    ],
+  },
+  {
     id: 'landfolio',
     category: 'web',
     titleKey: 'works.projects.landfolio.title',
