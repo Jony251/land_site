@@ -38,35 +38,35 @@ export const translations = {
       projects: {
         crm: {
           title: 'Pet Project CRM',
-          desc: 'A CRM pet project for managing clients and workflows — built as a full-stack learning project.',
+          desc: 'A CRM pet project aimed at small teams: authentication, roles, and a clean workspace for managing customers, deals, and tasks. The focus is on a modern UI, clear information hierarchy, and scalable architecture — built as a full‑stack learning project with production‑like patterns.',
         },
         android: {
           title: 'Android Game App',
-          desc: 'A mobile game application built with Android Studio featuring user authentication and gameplay mechanics.',
+          desc: 'A mobile game app built in Android Studio with authentication, Firebase integration, and gameplay flow. The project explores UI screens, state handling, navigation, and a complete user journey — from onboarding/login to core gameplay and progress screens.',
         },
         crossplatform: {
           title: 'Whale Business',
-          desc: 'A business management platform with authentication, registration, and a clean landing page.',
+          desc: 'A business platform / startup landing experience with authentication and registration. The emphasis is on a premium first impression: clear value proposition, a polished sign‑in flow, responsive layout, and a consistent UI system that can scale as the product grows.',
         },
         cross_II: {
           title: 'Cross-Platform App II',
-          desc: 'An advanced cross-platform application with collection management, user profiles, and wishlist features.',
+          desc: 'An advanced cross‑platform app concept featuring profiles, collection management, and wishlist flows. Built to validate UX patterns across devices: structured navigation, reusable components, and “product‑like” screens that demonstrate how features connect end‑to‑end.',
         },
         learning: {
           title: 'Learning Platform',
-          desc: 'An educational platform with interactive games and content management for effective learning.',
+          desc: 'An educational platform with interactive mini‑games and content screens. The project is focused on clarity and engagement: lightweight UI, simple navigation, and a structure that supports expanding content, tracking progress, and delivering a smooth learning experience.',
         },
         massage: {
           title: 'Massage Website',
-          desc: 'A landing page for a massage studio — clean layout, service overview, and contact section.',
+          desc: 'A landing page for a massage studio designed to convert visitors into bookings. Includes clear service sections, strong visual hierarchy, trust‑building blocks, and a direct contact path — optimized for mobile and fast loading.',
         },
         landfolio: {
           title: 'Portfolio Landing',
-          desc: 'A portfolio landing page built with Vue 3 and Vite — modern SPA with clean design and smooth interactions.',
+          desc: 'A portfolio landing page built with Vue 3 and Vite — a fast, modern SPA that presents projects and expertise with a clean structure, responsive layout, and smooth interactions. Designed to build trust, showcase work with clear visuals, and guide visitors to contact or booking.',
         },
         aispace: {
           title: 'AI Space',
-          desc: 'An AI-powered chat interface built with Vue 3 and TypeScript — modern design with conversational AI features.',
+          desc: 'A modern AI‑themed web UI concept with a chat‑like flow and feature sections. Built to experiment with UX patterns, layout systems, responsive components, and a clean “product demo” presentation that can later be connected to real AI APIs.',
         },
       },
     },
@@ -156,35 +156,35 @@ export const translations = {
       projects: {
         crm: {
           title: 'Pet Project CRM',
-          desc: 'CRM pet‑проект для управления клиентами и процессами — учебный full‑stack проект.',
+          desc: 'CRM pet‑проект для небольших команд: авторизация, роли, понятное рабочее пространство для клиентов, сделок и задач. Акцент на современный интерфейс, читабельность, структуру данных и масштабируемую архитектуру — учебный full‑stack проект в стиле «как в продакшене».',
         },
         android: {
           title: 'Android-игра',
-          desc: 'Мобильное игровое приложение на Android Studio с авторизацией и игровой механикой.',
+          desc: 'Мобильная игра на Android Studio: авторизация, интеграция с Firebase и полноценный пользовательский сценарий. Проект проработан как продукт: экраны входа/онбординга, навигация, игровой процесс и экраны прогресса.',
         },
         crossplatform: {
           title: 'Whale Business',
-          desc: 'Платформа для управления бизнесом с авторизацией, регистрацией и чистым лендингом.',
+          desc: 'Платформа/стартап‑проект с лендингом и входом в систему: регистрация, авторизация и аккуратный премиальный интерфейс. Основная идея — «сильный первый экран»: понятный оффер, продуманный вход, адаптивность и единая дизайн‑система для дальнейшего развития продукта.',
         },
         cross_II: {
           title: 'Кроссплатформенное приложение II',
-          desc: 'Продвинутое кроссплатформенное приложение с управлением коллекциями, профилями пользователей и списками желаемого.',
+          desc: 'Продвинутое кроссплатформенное приложение: профили, управление коллекциями и wishlist‑сценарии. Сделано для демонстрации UX‑паттернов на разных устройствах: структура экранов, переиспользуемые компоненты и логика фич «сквозным» потоком.',
         },
         learning: {
           title: 'Образовательная платформа',
-          desc: 'Платформа для обучения с интерактивными играми и управлением контентом.',
+          desc: 'Образовательная платформа с интерактивными мини‑играми и контент‑экранами. Фокус на простоте и вовлечении: понятная навигация, лёгкий интерфейс и структура, которую можно расширять новыми уроками, прогрессом и заданиями.',
         },
         massage: {
           title: 'Сайт массажного салона',
-          desc: 'Лендинг для массажного салона — чистый дизайн, обзор услуг и контактная секция.',
+          desc: 'Конверсионный лендинг для массажного салона: чёткая структура услуг, визуальные акценты, блоки доверия и быстрый путь к записи/контакту. Оптимизирован под мобильные устройства и быструю загрузку.',
         },
         landfolio: {
           title: 'Портфолио-лендинг',
-          desc: 'Лендинг портфолио на Vue 3 и Vite — современный SPA с чистым дизайном и плавными взаимодействиями.',
+          desc: 'Портфолио‑лендинг на Vue 3 и Vite — быстрый современный SPA, который аккуратно показывает проекты и экспертизу: понятная структура, адаптивная верстка и плавные взаимодействия. Задача — повысить доверие, красиво презентовать кейсы и привести посетителя к контакту/заявке.',
         },
         aispace: {
           title: 'AI Space',
-          desc: 'Чат-интерфейс с ИИ на Vue 3 и TypeScript — современный дизайн с функциями разговорного ИИ.',
+          desc: 'Концепт современного интерфейса в AI‑стиле: чат‑флоу, секции фич и аккуратная подача как «демо продукта». Проект для экспериментов с UX‑паттернами, компоновкой, адаптивными компонентами и дальнейшей интеграции с AI‑API.',
         },
       },
     },
@@ -274,35 +274,35 @@ export const translations = {
       projects: {
         crm: {
           title: 'Pet Project CRM',
-          desc: 'פרויקט CRM ללמידה וניהול לקוחות ותהליכים — פרויקט full‑stack.',
+          desc: 'פרויקט CRM ללמידה עבור צוותים קטנים: הרשאות ותפקידים, סביבת עבודה מסודרת לניהול לקוחות, עסקאות ומשימות. הדגש הוא על UI מודרני, היררכיית מידע ברורה וארכיטקטורה שניתנת להרחבה — פרויקט full‑stack בסגנון פרודקשן.',
         },
         android: {
           title: 'אפליקציית משחק לאנדרואיד',
-          desc: 'אפליקציית משחק מובייל שנבנתה ב-Android Studio עם אימות משתמשים ומכניקת משחק.',
+          desc: 'אפליקציית משחק מובייל שנבנתה ב-Android Studio עם אימות משתמשים, Firebase וזרימת משחק מלאה. הפרויקט בוחן מסכים, ניווט, ניהול מצב וחוויית משתמש מקצה לקצה — מהתחברות ועד התקדמות במשחק.',
         },
         crossplatform: {
           title: 'Whale Business',
-          desc: 'פלטפורמה לניהול עסקי עם אימות, הרשמה ודף נחיתה נקי.',
+          desc: 'חוויית מוצר/סטארטאפ עם דף נחיתה וזרימת התחברות: הרשמה, אימות וממשק פרימיום עקבי. המטרה היא “רושם ראשון חזק” — מסר ברור, כניסה חלקה, רספונסיביות ועיצוב שניתן להרחבה ככל שהמוצר מתקדם.',
         },
         cross_II: {
-          title: 'אפליקציה חוצת פלטפורמות II',
-          desc: 'אפליקציה מתקדמת חוצת פלטפורמות עם ניהול אוספים, פרופילי משתמשים ורשימות משאלות.',
+          title: 'קרוספלטפורם II',
+          desc: 'אפליקציה מתקדמת חוצת פלטפורמות: פרופילים, ניהול אוספים וזרימות wishlist. נבנתה כדי להדגים UX בין‑מכשירי: מבנה מסכים, רכיבים חוזרים וזרימה “מוצרית” שמחברת פיצ׳רים מקצה לקצה.',
         },
         learning: {
           title: 'פלטפורמת למידה',
-          desc: 'פלטפורמה חינוכית עם משחקים אינטראקטיביים וניהול תוכן ללמידה יעילה.',
+          desc: 'פלטפורמת למידה עם מיני‑משחקים אינטראקטיביים ומסכי תוכן. הדגש הוא על חוויה ברורה ומעודדת שימוש: ניווט פשוט, ממשק קליל ומבנה שמאפשר להוסיף תכנים, לעקוב אחרי התקדמות ולהרחיב את המערכת.',
         },
         massage: {
           title: 'אתר עיסוי',
-          desc: 'דף נחיתה לסטודיו לעיסוי — עיצוב נקי, סקירת שירותים ואזור יצירת קשר.',
+          desc: 'דף נחיתה לסטודיו לעיסוי שמיועד להמרה: מבנה שירותים ברור, היררכיית טקסט חזקה, אלמנטים שמייצרים אמון וקריאה לפעולה ישירה. מותאם למובייל ומכוון לביצועים מהירים.',
         },
         landfolio: {
           title: 'דף נחיתה לתיק עבודות',
-          desc: 'דף נחיתה לתיק עבודות שנבנה עם Vue 3 ו-Vite — SPA מודרני עם עיצוב נקי ואינטראקציות חלקות.',
+          desc: 'דף נחיתה לתיק עבודות שנבנה עם Vue 3 ו-Vite — SPA מהיר ומודרני שמציג פרויקטים ומומחיות בצורה נקייה ומסודרת: מבנה ברור, עיצוב רספונסיבי ואינטראקציות חלקות. מתאים לבניית אמון, להצגת עבודות בצורה חזקה, ולהובלת מבקרים ליצירת קשר/השארת פרטים.',
         },
         aispace: {
           title: 'AI Space',
-          desc: 'ממשק צ׳אט מבוסס AI שנבנה עם Vue 3 ו-TypeScript — עיצוב מודרני עם יכולות שיחה עם בינה מלאכותית.',
+          desc: 'קונספט UI מודרני בסגנון AI עם זרימת צ׳אט וסקשנים של פיצ׳רים — מוצג כמו דמו של מוצר אמיתי. הפרויקט נועד לניסויי UX, פריסה ורכיבים רספונסיביים, ויכול בהמשך להתחבר ל‑AI APIs אמיתיים.',
         },
       },
     },
