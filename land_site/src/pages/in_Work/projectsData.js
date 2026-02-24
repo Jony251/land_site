@@ -94,7 +94,7 @@ const projects = [
     titleKey: 'works.projects.landfolio.title',
     descKey: 'works.projects.landfolio.desc',
     thumbnail: '/ended_proj/landfolio_home.png',
-    github: 'https://github.com/Jony251/land_Folio',
+    siteUrl: 'https://daria-levitan.com/',
     technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
     images: [
       '/ended_proj/landfolio_home.png',
