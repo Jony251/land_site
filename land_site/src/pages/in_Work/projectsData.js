@@ -94,7 +94,7 @@ const projects = [
     titleKey: 'works.projects.change_web.title',
     descKey: 'works.projects.change_web.desc',
     thumbnail: 'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
-    github: 'https://github.com/Jony251/Change_Web',
+    siteUrl: 'http://money-site-bucket.s3-website.eu-central-1.amazonaws.com/',
     technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
     images: [
       'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',

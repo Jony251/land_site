@@ -72,7 +72,7 @@ const InWork = () => {
               )}
               {(project.github || project.siteUrl) && (
                 <div className="inwork-links">
-                  {project.github && (
+                  {!project.siteUrl && project.github && (
                     <a
                       href={project.github}
                       target="_blank"
