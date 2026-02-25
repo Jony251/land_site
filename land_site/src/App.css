@@ -224,6 +224,16 @@ main {
   box-shadow: none;
 }
 
+.landing-cat-gif {
+  position: absolute;
+  left: 18px;
+  top: -60px;
+  width: 120px;
+  height: auto;
+  pointer-events: none;
+  z-index: 3;
+}
+
 .landing-card-inner {
   padding: clamp(1.25rem, 3.2vw, 2.1rem);
   text-align: center;

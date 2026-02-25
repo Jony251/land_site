@@ -1,70 +1,55 @@
 
 .cat-anime {
-  --cat-duration: 12000ms;
-  --cat-size: 64px;
+  --cat-duration: 1800ms;
+  --cat-size: 280px;
 
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset-inline-start: 50%;
+  inset-block-start: 10px;
+  transform: translateX(-50%);
+  width: var(--cat-size);
   pointer-events: none;
   z-index: 2;
 }
 
-.cat-anime__walker {
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  inline-size: var(--cat-size);
-  block-size: var(--cat-size);
-  animation: cat-perimeter var(--cat-duration) linear infinite;
-  transform: translate(0, 0);
-  transform-origin: 50% 50%;
-}
-
-.cat-anime__img-wrap {
+.cat-anime__svg {
   width: 100%;
-  height: 100%;
-  transform-origin: 50% 75%;
-  animation: cat-bob 900ms ease-in-out infinite;
+  height: auto;
+  display: block;
 }
 
-.cat-anime__img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transform-origin: 50% 75%;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.08));
+.cat-anime__stroke {
+  fill: none;
+  stroke: #b88454;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-@keyframes cat-perimeter {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  24.999% {
-    transform: translate(calc(100% - var(--cat-size)), 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(calc(100% - var(--cat-size)), 0) rotate(90deg);
-  }
-  49.999% {
-    transform: translate(calc(100% - var(--cat-size)), calc(100% - var(--cat-size))) rotate(90deg);
-  }
-  50% {
-    transform: translate(calc(100% - var(--cat-size)), calc(100% - var(--cat-size))) rotate(180deg);
-  }
-  74.999% {
-    transform: translate(0, calc(100% - var(--cat-size))) rotate(180deg);
-  }
-  75% {
-    transform: translate(0, calc(100% - var(--cat-size))) rotate(270deg);
-  }
-  99.999% {
-    transform: translate(0, 0) rotate(270deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(360deg);
-  }
+.cat-anime__cat {
+  transform-origin: 50% 70%;
+  animation: cat-bob var(--cat-duration) ease-in-out infinite;
+}
+
+.cat-anime__tail {
+  transform-box: fill-box;
+  transform-origin: 15% 55%;
+  animation: cat-tail calc(var(--cat-duration) * 1.2) ease-in-out infinite;
+}
+
+.cat-anime__leg {
+  transform-box: fill-box;
+  transform-origin: 50% 10%;
+}
+
+.cat-anime__leg--a,
+.cat-anime__leg--c {
+  animation: cat-leg var(--cat-duration) ease-in-out infinite;
+}
+
+.cat-anime__leg--b,
+.cat-anime__leg--d {
+  animation: cat-leg var(--cat-duration) ease-in-out infinite reverse;
 }
 
 @keyframes cat-bob {
@@ -73,14 +58,35 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(1.6px);
+    transform: translateY(2.5px);
+  }
+}
+
+@keyframes cat-leg {
+  0%,
+  100% {
+    transform: rotate(10deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-12deg) translateY(1px);
+  }
+}
+
+@keyframes cat-tail {
+  0%,
+  100% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-10deg);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cat-anime__walker,
-  .cat-anime__img-wrap,
-  .cat-anime__img {
+  .cat-anime,
+  .cat-anime__cat,
+  .cat-anime__tail,
+  .cat-anime__leg {
     animation: none !important;
   }
 }
