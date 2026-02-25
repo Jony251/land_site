@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n/LanguageProvider'
 import bg from '../assets/BG.png'
+import CatAnime from '../Components/Cat_anime/Cat_anime.comp'
 
 const Home = () => {
   const { t } = useI18n()
@@ -19,6 +20,7 @@ const Home = () => {
     <div className="landing-page" style={{ backgroundImage: `url(${bg})` }}>
       <div className="landing-center">
         <div className="landing-card" role="region" aria-label="Blue Cat landing">
+          <CatAnime size={72} durationMs={14000} />
           <div className="landing-card-inner">
             <div className="landing-brand">
               <span className="landing-brand-ltr" dir="ltr">
