@@ -18,12 +18,22 @@ Landing page (SPA) built with React + Vite.
 
 ## Run
 
-- Local dev: install deps with npm and run `npm run dev`
-- Production build: `npm run build`
+- The app source lives in `land_site/`.
+- Local dev:
+  - `npm ci`
+  - `npm run dev`
+- Preview production build locally:
+  - `npm run build`
+  - `npm run preview`
 
 ## Docker
 
 - Build + run via Docker Compose (Nginx serves the built `dist/`)
+- Set env vars (optional) in your shell or in an `.env` file in `land_site/`.
+- Run:
+  - `docker compose up --build`
+- App will be available on:
+  - `http://localhost:8080`
 
 ## AWS EC2 (quick notes)
 
