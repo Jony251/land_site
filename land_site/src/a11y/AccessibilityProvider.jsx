@@ -1,17 +1,46 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-const AccessibilityContext = createContext(null);
+import AccessibilityContext from './AccessibilityContext';
 
 const STORAGE_KEY = 'bc_a11y';
 
+/**
+ * Default accessibility settings.
+ *
+ * Output:
+ * - Object with:
+ *   - `fontScale` (number)
+ *   - `highContrast` (boolean)
+ *   - `reduceMotion` (boolean)
+ */
 const defaultState = {
   fontScale: 1,
   highContrast: false,
   reduceMotion: false,
 };
 
+/**
+ * Clamps a numeric value into a range.
+ *
+ * Input:
+ * - `v` (number)
+ * - `min` (number)
+ * - `max` (number)
+ *
+ * Output:
+ * - (number) clamped value
+ */
 const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 
+/**
+ * Reads initial accessibility settings from localStorage.
+ *
+ * Side effects:
+ * - Reads `localStorage` key `bc_a11y`
+ *
+ * Output:
+ * - State object compatible with `defaultState`.
+ */
 const readInitialState = () => {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -28,6 +57,22 @@ const readInitialState = () => {
   }
 };
 
+/**
+ * Accessibility provider.
+ *
+ * Input:
+ * - `children` (React.ReactNode)
+ *
+ * Side effects:
+ * - Persists state to `localStorage` (`bc_a11y`)
+ * - Updates `document.documentElement.dataset`:
+ *   - `data-font-scale`
+ *   - `data-high-contrast`
+ *   - `data-reduce-motion`
+ *
+ * Output:
+ * - Provides `{ state, setFontScale, toggleHighContrast, toggleReduceMotion, reset }` via context.
+ */
 export const AccessibilityProvider = ({ children }) => {
   const [state, setState] = useState(readInitialState);
 
@@ -51,10 +96,4 @@ export const AccessibilityProvider = ({ children }) => {
   );
 
   return <AccessibilityContext.Provider value={value}>{children}</AccessibilityContext.Provider>;
-};
-
-export const useA11y = () => {
-  const ctx = useContext(AccessibilityContext);
-  if (!ctx) throw new Error('useA11y must be used within AccessibilityProvider');
-  return ctx;
 };

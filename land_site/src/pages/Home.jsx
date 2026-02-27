@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useI18n } from '../i18n/LanguageProvider'
+import useI18n from '../i18n/useI18n'
 import bg from '../assets/BG.png'
 import catGif from '../assets/cat.gif'
 

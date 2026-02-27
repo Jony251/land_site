@@ -1,8 +1,18 @@
 import { useMemo, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { useI18n } from '../../i18n/LanguageProvider';
+import useI18n from '../../i18n/useI18n';
 import './ContactForm.comp.css';
 
+/**
+ * Contact form component.
+ *
+ * Output:
+ * - Renders a contact form that sends a message via EmailJS.
+ *
+ * Side effects:
+ * - Makes a network request to EmailJS on submit.
+ * - Reads EmailJS configuration from `import.meta.env`.
+ */
 const ContactForm = () => {
   const { t } = useI18n();
   const [formData, setFormData] = useState({
@@ -22,6 +32,13 @@ const ContactForm = () => {
 
   const isConfigured = Boolean(config.serviceId && config.templateId && config.publicKey);
 
+  /**
+   * Input:
+   * - `e` (React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>)
+   *
+   * Output:
+   * - Updates local form state (`formData`).
+   */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -30,6 +47,15 @@ const ContactForm = () => {
     }));
   };
 
+  /**
+   * Input:
+   * - `e` (React.FormEvent<HTMLFormElement>)
+   *
+   * Output:
+   * - Prevents default submit.
+   * - Sends data to EmailJS and sets status to `sending`/`success`/`error`.
+   * - Clears the form on success.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 

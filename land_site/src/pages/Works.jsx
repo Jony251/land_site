@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useI18n } from '../i18n/LanguageProvider';
+import useI18n from '../i18n/useI18n';
 import projects from './in_Work/projectsData';
 import './Works.css';
 
-
+/**
+ * Works page.
+ *
+ * Output:
+ * - Renders a grid of project cards filtered by category (`web` / `android`).
+ * - Navigates to `/works/:id` on click or Enter key.
+ */
 const Works = () => {
   const { t } = useI18n();
   const navigate = useNavigate();

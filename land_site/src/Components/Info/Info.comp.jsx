@@ -1,5 +1,5 @@
 import './Info.comp.css';
-import { useI18n } from '../../i18n/LanguageProvider';
+import useI18n from '../../i18n/useI18n';
 
 const Info = () => {
   const { t, dir } = useI18n();

@@ -1,11 +1,21 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { useI18n } from '../../i18n/LanguageProvider';
+import { useParams, Link } from 'react-router-dom';
+import useI18n from '../../i18n/useI18n';
 import projects from './projectsData';
 import './InWork.css';
 
+/**
+ * Project details page.
+ *
+ * Input:
+ * - Route param `id` (string) from `/works/:id`
+ *
+ * Output:
+ * - Renders project details (title/description/tech stack), external links (live site or GitHub),
+ *   image gallery, and prev/next navigation.
+ * - If no project matches `id`, renders a "Project not found" fallback.
+ */
 const InWork = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { t } = useI18n();
 
   const project = projects.find((p) => p.id === id);

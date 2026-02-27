@@ -1,5 +1,5 @@
 import { CONTACT_EMAIL, WHATSAPP_URL } from '../../config/contact'
-import { useI18n } from '../../i18n/LanguageProvider'
+import useI18n from '../../i18n/useI18n'
 import ContactForm from '../ContactForm/ContactForm.comp'
 import './ContactSection.comp.css'
 

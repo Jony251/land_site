@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Nav.comp.css'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.comp'
-import { useI18n } from '../../i18n/LanguageProvider'
+import useI18n from '../../i18n/useI18n'
 
 const Nav = () => {
   const { t } = useI18n()

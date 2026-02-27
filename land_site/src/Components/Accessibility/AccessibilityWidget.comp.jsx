@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { useA11y } from '../../a11y/AccessibilityProvider';
-import { useI18n } from '../../i18n/LanguageProvider';
+import useA11y from '../../a11y/useA11y';
+import useI18n from '../../i18n/useI18n';
 import './AccessibilityWidget.comp.css';
 
 const AccessibilityWidget = () => {

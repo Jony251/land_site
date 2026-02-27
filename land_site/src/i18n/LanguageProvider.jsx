@@ -1,12 +1,30 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, translations } from './translations';
+import LanguageContext from './LanguageContext';
 
-const LanguageContext = createContext(null);
-
+/**
+ * Returns the text direction for a language code.
+ *
+ * Input:
+ * - `lang` (string): language code (e.g. `en`, `ru`, `he`)
+ *
+ * Output:
+ * - `ltr` | `rtl`
+ */
 const getDir = (lang) => {
   return SUPPORTED_LANGUAGES.find((l) => l.code === lang)?.dir || 'ltr';
 };
 
+/**
+ * Determines the initial language.
+ *
+ * Input:
+ * - Reads from `localStorage` key `bc_lang`
+ * - Uses `navigator.language` as a fallback
+ *
+ * Output:
+ * - A supported language code. Defaults to `DEFAULT_LANGUAGE`.
+ */
 const getInitialLanguage = () => {
   const saved = localStorage.getItem('bc_lang');
   if (saved && translations[saved]) return saved;
@@ -17,10 +35,33 @@ const getInitialLanguage = () => {
   return DEFAULT_LANGUAGE;
 };
 
+/**
+ * Safe getter for nested translation keys using dot notation.
+ *
+ * Input:
+ * - `obj` (object): translations tree
+ * - `path` (string): dot-notation key path, e.g. `nav.contact`
+ *
+ * Output:
+ * - The found value or `undefined`
+ */
 const getByPath = (obj, path) => {
   return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : undefined), obj);
 };
 
+/**
+ * i18n provider.
+ *
+ * Input:
+ * - `children` (React.ReactNode)
+ *
+ * Side effects:
+ * - Updates `document.documentElement.lang` and `document.documentElement.dir`
+ * - Persists selected language to `localStorage` (`bc_lang`)
+ *
+ * Output:
+ * - Provides `{ lang, dir, languages, setLang, t }` via React context.
+ */
 export const LanguageProvider = ({ children }) => {
   const [lang, setLang] = useState(getInitialLanguage);
 
@@ -57,10 +98,4 @@ export const LanguageProvider = ({ children }) => {
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
-};
-
-export const useI18n = () => {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error('useI18n must be used within LanguageProvider');
-  return ctx;
 };

@@ -11,6 +11,12 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 
 import './App.css'
 
+/**
+ * Home route wrapper.
+ *
+ * Output:
+ * - Renders the landing page inside the main layout container.
+ */
 const HomeRoute = () => (
   <main className="landing-route">
     <section id="home" className="app-section">
@@ -19,6 +25,16 @@ const HomeRoute = () => (
   </main>
 )
 
+/**
+ * Main application component.
+ *
+ * Output:
+ * - Renders navigation and page routing.
+ * - Conditionally renders `Footer` (hidden on `/contact`).
+ *
+ * Input:
+ * - Current location from React Router.
+ */
 function App() {
   const location = useLocation()
   const isContactRoute = location.pathname === '/contact'

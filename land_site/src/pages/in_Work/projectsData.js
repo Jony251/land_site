@@ -16,8 +16,30 @@ const TECH_ICONS = {
   'Vite':            '/vite.svg',
 };
 
+/**
+ * Creates a technology descriptor for the UI.
+ *
+ * Input:
+ * - `name` (string): technology name used as a label.
+ *
+ * Output:
+ * - `{ name, icon }` where `icon` is an URL string or `null`.
+ */
 const tech = (name) => ({ name, icon: TECH_ICONS[name] || null });
 
+/**
+ * Projects catalog used by Works and project details pages.
+ *
+ * Output:
+ * - Array of project objects with:
+ *   - `id` (string): route id used in `/works/:id`
+ *   - `category` ('web' | 'android')
+ *   - `titleKey`/`descKey` (string): i18n keys
+ *   - `thumbnail` (string)
+ *   - `images` (string[]) (first image used as hero)
+ *   - optional `siteUrl`/`github`
+ *   - optional `technologies` ({ name, icon }[])
+ */
 const projects = [
   {
     id: 'android',
