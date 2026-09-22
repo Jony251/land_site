@@ -34,16 +34,21 @@ const Works = () => {
             <p>{t('works.body')}</p>
           </div>
           <nav className="works-categories" aria-label="Works categories">
-            {['all', ...TIER_ORDER].map((tierKey) => (
-              <button
-                key={tierKey}
-                type="button"
-                className={`works-category ${selectedTier === tierKey ? 'active' : ''}`}
-                onClick={() => setSelectedTier(tierKey)}
-              >
-                {t(`works.filters.${tierKey}`)}
-              </button>
-            ))}
+            {['all', ...TIER_ORDER].map((tierKey) => {
+              const count = tierKey === 'all'
+                ? projects.length
+                : projects.filter((p) => p.tier === tierKey).length;
+              return (
+                <button
+                  key={tierKey}
+                  type="button"
+                  className={`works-category ${selectedTier === tierKey ? 'active' : ''}`}
+                  onClick={() => setSelectedTier(tierKey)}
+                >
+                  {t(`works.filters.${tierKey}`)} <span className="works-category-count">({count})</span>
+                </button>
+              );
+            })}
           </nav>
         </div>
       </div>

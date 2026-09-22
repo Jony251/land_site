@@ -44,6 +44,10 @@
   color: var(--muted);
 }
 
+.home-title-accent {
+  color: var(--accent);
+}
+
 .home-eyebrow-mark {
   width: 22px;
   height: 22px;

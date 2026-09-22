@@ -41,6 +41,8 @@ const tech = (name) => ({ name, icon: TECH_ICONS[name] || null });
  *   - `images` (string[]) (first image used as hero)
  *   - optional `siteUrl`/`github`
  *   - optional `technologies` ({ name, icon }[])
+ *   - optional `workTypes` (string[]): categories from the shared
+ *     `works.types.*` i18n dictionary (e.g. 'frontend', 'backend')
  *   - optional `caseKeys` ({ problem, solution, stack, result }): i18n keys
  *     for the structured case-study narrative (flagship tier only)
  */
@@ -54,6 +56,7 @@ const projects = [
     thumbnail: 'https://github.com/user-attachments/assets/74915549-c17c-4391-8713-50eb23da5719',
     github: 'https://github.com/Jony251/pet-project-CRM',
     technologies: [tech('React'), tech('JavaScript'), tech('CSS3')],
+    workTypes: ['frontend', 'backend', 'api', 'database'],
     caseKeys: {
       problem: 'works.projects.crm.case.problem',
       solution: 'works.projects.crm.case.solution',
@@ -77,6 +80,7 @@ const projects = [
     thumbnail: '/ended_proj/aispace_home.png',
     github: 'https://github.com/Jony251/AI_Space',
     technologies: [tech('Vue 3'), tech('TypeScript'), tech('CSS3')],
+    workTypes: ['frontend', 'uiux'],
     caseKeys: {
       problem: 'works.projects.aispace.case.problem',
       solution: 'works.projects.aispace.case.solution',
@@ -98,6 +102,7 @@ const projects = [
     thumbnail: '/ended_proj/Whale_Business_land.png',
     siteUrl: 'https://whalebiz.co.il/',
     technologies: [tech('CSS3'), tech('JavaScript'), tech('React')],
+    workTypes: ['frontend', 'uiux'],
     images: [
       '/ended_proj/Whale_Business_land.png',
       '/ended_proj/Whale_Business_login.png',
@@ -113,6 +118,7 @@ const projects = [
     thumbnail: '/ended_proj/landfolio_home.png',
     siteUrl: 'https://daria-levitan.com/',
     technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
+    workTypes: ['frontend', 'uiux'],
     images: [
       '/ended_proj/landfolio_home.png',
     ],
@@ -126,6 +132,7 @@ const projects = [
     thumbnail: 'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
     siteUrl: 'http://money-site-bucket.s3-website.eu-central-1.amazonaws.com/',
     technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
+    workTypes: ['frontend'],
     images: [
       'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
       'https://github.com/user-attachments/assets/3cce7c51-8078-4038-9728-468bbacda501',
@@ -140,6 +147,7 @@ const projects = [
     descKey: 'works.projects.android.desc',
     thumbnail: '/ended_proj/android_play.png',
     technologies: [tech('Java'), tech('Android Studio'), tech('XML'), tech('Firebase')],
+    workTypes: ['mobile'],
     images: [
       '/ended_proj/android_play.png',
       '/ended_proj/android_log.png',
@@ -155,6 +163,7 @@ const projects = [
     descKey: 'works.projects.cross_II.desc',
     thumbnail: '/ended_proj/cross_II_home.png',
     technologies: [tech('React Native'), tech('JavaScript'), tech('CSS3')],
+    workTypes: ['mobile'],
     images: [
       '/ended_proj/cross_II_home.png',
       '/ended_proj/cross_II_collection.png',
@@ -170,6 +179,7 @@ const projects = [
     descKey: 'works.projects.learning.desc',
     thumbnail: '/ended_proj/learning_home.png',
     technologies: [tech('HTML5'), tech('CSS3'), tech('JavaScript'), tech('React')],
+    workTypes: ['frontend'],
     images: [
       '/ended_proj/learning_home.png',
       '/ended_proj/learning_games.png',
@@ -185,6 +195,7 @@ const projects = [
     thumbnail: '/ended_proj/massage_home.png',
     github: 'https://github.com/Jony251/massage',
     technologies: [tech('HTML5'), tech('CSS3'), tech('JavaScript')],
+    workTypes: ['frontend'],
     images: [
       '/ended_proj/massage_home.png',
       '/ended_proj/massage_services.png',

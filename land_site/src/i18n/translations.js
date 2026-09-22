@@ -17,7 +17,9 @@ export const translations = {
     },
     home: {
       eyebrow: 'Full-stack development studio',
-      title: 'We build sites people trust — and systems businesses run on.',
+      titleStart: 'We build sites people trust — and ',
+      titleAccent: 'systems',
+      titleEnd: ' businesses run on.',
       subtitle: 'From one-page landing sites to full web applications and role-based CRM systems — plus AI features like on-site chat assistants and predictive analytics, built in when your product needs them.',
       ctaContact: 'Start a project',
       ctaWorks: 'View works',
@@ -59,6 +61,16 @@ export const translations = {
         solution: 'Solution',
         stack: 'Stack',
         result: 'What it demonstrates',
+        technologies: 'Technologies',
+        workTypes: 'Type of work',
+      },
+      types: {
+        frontend: 'Frontend',
+        backend: 'Backend',
+        mobile: 'Mobile development',
+        api: 'API integration',
+        database: 'Database design',
+        uiux: 'UI/UX',
       },
       projects: {
         crm: {
@@ -132,6 +144,7 @@ export const translations = {
     },
     services: {
       title: 'Our Services',
+      lead: 'Not just a site that looks good — a system that keeps working after handover.',
       s1: {
         title: 'Landing Page (One-page)',
         desc: 'Conversion-focused landing pages with clear structure, strong copy, and fast load time — built to turn visitors into leads and customers.',
@@ -180,7 +193,9 @@ export const translations = {
     },
     home: {
       eyebrow: 'Студия full-stack разработки',
-      title: 'Строим сайты, которым доверяют — и системы, на которых держится бизнес.',
+      titleStart: 'Строим сайты, которым доверяют — и ',
+      titleAccent: 'системы',
+      titleEnd: ', на которых держится бизнес.',
       subtitle: 'От одностраничного лендинга до полноценных веб‑приложений и CRM-систем с ролями — а также AI-возможности: чат-ассистенты на сайте и прогнозная аналитика там, где это нужно продукту.',
       ctaContact: 'Обсудить проект',
       ctaWorks: 'Портфолио',
@@ -222,6 +237,16 @@ export const translations = {
         solution: 'Решение',
         stack: 'Стек',
         result: 'Что демонстрирует',
+        technologies: 'Технологии',
+        workTypes: 'Виды работ',
+      },
+      types: {
+        frontend: 'Фронтенд',
+        backend: 'Бэкенд',
+        mobile: 'Мобильная разработка',
+        api: 'Интеграция API',
+        database: 'Проектирование БД',
+        uiux: 'UI/UX',
       },
       projects: {
         crm: {
@@ -295,6 +320,7 @@ export const translations = {
     },
     services: {
       title: 'Наши услуги',
+      lead: 'Не просто сайт, который красиво выглядит, а система, которая продолжает работать после сдачи проекта.',
       s1: {
         title: 'Лендинг (One-page)',
         desc: 'Конверсионные лендинги с понятной структурой, сильным оффером и высокой скоростью загрузки — чтобы посетители становились лидами и клиентами.',
@@ -343,7 +369,9 @@ export const translations = {
     },
     home: {
       eyebrow: 'סטודיו לפיתוח Full-Stack',
-      title: 'בונים אתרים שסומכים עליהם — ומערכות שהעסק שלכם רץ עליהן.',
+      titleStart: 'בונים אתרים שסומכים עליהם — ו',
+      titleAccent: 'מערכות',
+      titleEnd: ' שהעסק שלכם רץ עליהן.',
       subtitle: 'מדף נחיתה אחד ועד אפליקציות ווב מלאות ומערכות CRM עם הרשאות — ועוד יכולות AI כמו צ׳אט-בוט באתר וניתוח חיזוי, במקום שבו המוצר שלכם צריך את זה.',
       ctaContact: 'בואו נתחיל פרויקט',
       ctaWorks: 'לתיק העבודות',
@@ -385,6 +413,16 @@ export const translations = {
         solution: 'הפתרון',
         stack: 'הטכנולוגיות',
         result: 'מה זה מדגים',
+        technologies: 'טכנולוגיות',
+        workTypes: 'סוג העבודה',
+      },
+      types: {
+        frontend: 'פרונטאנד',
+        backend: 'בקאנד',
+        mobile: 'פיתוח מובייל',
+        api: 'אינטגרציית API',
+        database: 'תכנון מסד נתונים',
+        uiux: 'UI/UX',
       },
       projects: {
         crm: {
@@ -458,6 +496,7 @@ export const translations = {
     },
     services: {
       title: 'השירותים שלנו',
+      lead: 'לא רק אתר שנראה טוב — מערכת שממשיכה לעבוד גם אחרי המסירה.',
       s1: {
         title: 'עמוד נחיתה (One-page)',
         desc: 'דפי נחיתה ממוקדי המרה עם מבנה ברור, מסרים חזקים וזמן טעינה מהיר — כדי להפוך מבקרים ללידים וללקוחות.',

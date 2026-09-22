@@ -30,7 +30,11 @@ const Home = () => {
               <img className="home-eyebrow-mark" src={catGif} alt="" aria-hidden="true" />
               {t('home.eyebrow')}
             </span>
-            <h1>{t('home.title')}</h1>
+            <h1>
+              {t('home.titleStart')}
+              <span className="home-title-accent">{t('home.titleAccent')}</span>
+              {t('home.titleEnd')}
+            </h1>
             <p className="hero-subtitle home-hero-subtitle">{t('home.subtitle')}</p>
             <div className="hero-actions">
               <Link className="btn primary" to="/works">

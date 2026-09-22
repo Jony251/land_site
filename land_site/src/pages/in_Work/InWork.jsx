@@ -73,15 +73,26 @@ const InWork = () => {
               <h1 className="inwork-title">{t(project.titleKey)}</h1>
               <p className="inwork-description">{t(project.descKey)}</p>
               {project.technologies && project.technologies.length > 0 && (
-                <div className="inwork-technologies">
-                  {project.technologies.map((item) => (
-                    <span key={item.name} className="inwork-tech-tag">
-                      {item.icon && (
-                        <img className="inwork-tech-icon" src={item.icon} alt={item.name} />
-                      )}
-                      {item.name}
-                    </span>
-                  ))}
+                <>
+                  <h3 className="inwork-meta-label">{t('works.case.technologies')}</h3>
+                  <div className="inwork-technologies">
+                    {project.technologies.map((item) => (
+                      <span key={item.name} className="inwork-tech-tag">
+                        {item.icon && (
+                          <img className="inwork-tech-icon" src={item.icon} alt={item.name} />
+                        )}
+                        {item.name}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
+              {project.workTypes && project.workTypes.length > 0 && (
+                <div className="inwork-worktypes">
+                  <h3 className="inwork-meta-label">{t('works.case.workTypes')}</h3>
+                  <p className="inwork-worktypes-text">
+                    {project.workTypes.map((key) => t(`works.types.${key}`)).join(', ')}
+                  </p>
                 </div>
               )}
               {(project.github || project.siteUrl) && (

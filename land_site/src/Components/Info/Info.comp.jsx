@@ -16,6 +16,7 @@ const Info = () => {
     <section className={`info-section ${dir === 'rtl' ? 'rtl' : ''}`} dir={dir}>
       <div className="container">
         <h2>{t('services.title')}</h2>
+        <p className="services-lead">{t('services.lead')}</p>
         <div className="services-grid">
           {services.map((service, index) => (
             <div key={index} className="service-card">

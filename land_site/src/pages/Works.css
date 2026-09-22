@@ -77,6 +77,11 @@
   opacity: 1;
 }
 
+.works-category-count {
+  opacity: 0.55;
+  font-weight: 400;
+}
+
 .works-category:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 6px;
