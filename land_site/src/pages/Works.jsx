@@ -4,39 +4,46 @@ import useI18n from '../i18n/useI18n';
 import projects from './in_Work/projectsData';
 import './Works.css';
 
+const TIER_ORDER = ['flagship', 'product', 'craft'];
+
 /**
  * Works page.
  *
  * Output:
- * - Renders a grid of project cards filtered by category (`web` / `android`).
+ * - Renders projects grouped by portfolio tier (flagship / product / craft),
+ *   filtered by the selected tier. Flagship (system-level) projects get a
+ *   visually larger card to signal they're the strongest proof of range
+ *   (see docs/portfolio-strategy.md).
  * - Navigates to `/works/:id` on click or Enter key.
  */
 const Works = () => {
   const { t } = useI18n();
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState('web');
+  const [selectedTier, setSelectedTier] = useState('all');
 
-  const visibleProjects = projects.filter((p) => p.category === selectedCategory);
+  const visibleProjects = projects
+    .filter((p) => selectedTier === 'all' || p.tier === selectedTier)
+    .sort((a, b) => TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier));
 
   return (
     <main className="works-route">
       <div className="works-filterbar">
         <div className="page-content">
+          <div className="works-head">
+            <h1>{t('works.title')}</h1>
+            <p>{t('works.body')}</p>
+          </div>
           <nav className="works-categories" aria-label="Works categories">
-            <button
-              type="button"
-              className={`works-category ${selectedCategory === 'web' ? 'active' : ''}`}
-              onClick={() => setSelectedCategory('web')}
-            >
-              WEB
-            </button>
-            <button
-              type="button"
-              className={`works-category ${selectedCategory === 'android' ? 'active' : ''}`}
-              onClick={() => setSelectedCategory('android')}
-            >
-              ANDROID
-            </button>
+            {['all', ...TIER_ORDER].map((tierKey) => (
+              <button
+                key={tierKey}
+                type="button"
+                className={`works-category ${selectedTier === tierKey ? 'active' : ''}`}
+                onClick={() => setSelectedTier(tierKey)}
+              >
+                {t(`works.filters.${tierKey}`)}
+              </button>
+            ))}
           </nav>
         </div>
       </div>
@@ -46,7 +53,7 @@ const Works = () => {
           {visibleProjects.map((project) => (
             <div
               key={project.id}
-              className="project-card"
+              className={`project-card tier-${project.tier}`}
               onClick={() => navigate(`/works/${project.id}`)}
               role="button"
               tabIndex={0}
@@ -58,6 +65,9 @@ const Works = () => {
                 className="project-card-image"
               />
               <div className="project-card-content">
+                <span className={`project-card-badge tier-${project.tier}`}>
+                  {t(`works.tier.${project.tier}`)}
+                </span>
                 <h3>{t(project.titleKey)}</h3>
               </div>
             </div>

@@ -9,6 +9,7 @@ const Info = () => {
     { title: t('services.s2.title'), description: t('services.s2.desc') },
     { title: t('services.s3.title'), description: t('services.s3.desc') },
     { title: t('services.s4.title'), description: t('services.s4.desc') },
+    { title: t('services.s5.title'), description: t('services.s5.desc') },
   ];
 
   return (

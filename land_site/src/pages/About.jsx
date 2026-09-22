@@ -14,6 +14,7 @@ const About = () => {
           <p>{t('about.intro')}</p>
           <p>{t('about.skills')}</p>
           <p>{t('about.approach')}</p>
+          <p>{t('about.range')}</p>
           <Link className="about-cta" to="/contact">{t('about.cta')}</Link>
         </div>
 

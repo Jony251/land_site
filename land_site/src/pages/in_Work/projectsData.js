@@ -34,30 +34,65 @@ const tech = (name) => ({ name, icon: TECH_ICONS[name] || null });
  * - Array of project objects with:
  *   - `id` (string): route id used in `/works/:id`
  *   - `category` ('web' | 'android')
+ *   - `tier` ('flagship' | 'product' | 'craft'): portfolio priority level,
+ *     drives visual weight on the Works grid (see docs/portfolio-strategy.md)
  *   - `titleKey`/`descKey` (string): i18n keys
  *   - `thumbnail` (string)
  *   - `images` (string[]) (first image used as hero)
  *   - optional `siteUrl`/`github`
  *   - optional `technologies` ({ name, icon }[])
+ *   - optional `caseKeys` ({ problem, solution, stack, result }): i18n keys
+ *     for the structured case-study narrative (flagship tier only)
  */
 const projects = [
   {
-    id: 'android',
-    category: 'android',
-    titleKey: 'works.projects.android.title',
-    descKey: 'works.projects.android.desc',
-    thumbnail: '/ended_proj/android_play.png',
-    technologies: [tech('Java'), tech('Android Studio'), tech('XML'), tech('Firebase')],
+    id: 'pet-project-crm',
+    category: 'web',
+    tier: 'flagship',
+    titleKey: 'works.projects.crm.title',
+    descKey: 'works.projects.crm.desc',
+    thumbnail: 'https://github.com/user-attachments/assets/74915549-c17c-4391-8713-50eb23da5719',
+    github: 'https://github.com/Jony251/pet-project-CRM',
+    technologies: [tech('React'), tech('JavaScript'), tech('CSS3')],
+    caseKeys: {
+      problem: 'works.projects.crm.case.problem',
+      solution: 'works.projects.crm.case.solution',
+      stack: 'works.projects.crm.case.stack',
+      result: 'works.projects.crm.case.result',
+    },
     images: [
-      '/ended_proj/android_play.png',
-      '/ended_proj/android_log.png',
-      '/ended_proj/androin_log2.png',
-      '/ended_proj/android_end.png',
+      'https://github.com/user-attachments/assets/74915549-c17c-4391-8713-50eb23da5719',
+      'https://github.com/user-attachments/assets/f984bed2-01c5-4c33-9078-6d8b2b2dd1f1',
+      'https://github.com/user-attachments/assets/dfe12271-46dd-4430-a16b-d83cd4b5f954',
+      'https://github.com/user-attachments/assets/5db9a83d-d7a6-4fde-bcdb-b0ba94c9d825',
+      'https://github.com/user-attachments/assets/4421accf-a85d-4409-88b3-2643437bc890',
+    ],
+  },
+  {
+    id: 'aispace',
+    category: 'web',
+    tier: 'flagship',
+    titleKey: 'works.projects.aispace.title',
+    descKey: 'works.projects.aispace.desc',
+    thumbnail: '/ended_proj/aispace_home.png',
+    github: 'https://github.com/Jony251/AI_Space',
+    technologies: [tech('Vue 3'), tech('TypeScript'), tech('CSS3')],
+    caseKeys: {
+      problem: 'works.projects.aispace.case.problem',
+      solution: 'works.projects.aispace.case.solution',
+      stack: 'works.projects.aispace.case.stack',
+      result: 'works.projects.aispace.case.result',
+    },
+    images: [
+      '/ended_proj/aispace_home.png',
+      '/ended_proj/aispace_chat.png',
+      '/ended_proj/aispace_features.png',
     ],
   },
   {
     id: 'crossplatform',
     category: 'web',
+    tier: 'product',
     titleKey: 'works.projects.crossplatform.title',
     descKey: 'works.projects.crossplatform.desc',
     thumbnail: '/ended_proj/Whale_Business_land.png',
@@ -70,8 +105,52 @@ const projects = [
     ],
   },
   {
+    id: 'landfolio',
+    category: 'web',
+    tier: 'product',
+    titleKey: 'works.projects.landfolio.title',
+    descKey: 'works.projects.landfolio.desc',
+    thumbnail: '/ended_proj/landfolio_home.png',
+    siteUrl: 'https://daria-levitan.com/',
+    technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
+    images: [
+      '/ended_proj/landfolio_home.png',
+    ],
+  },
+  {
+    id: 'change-web',
+    category: 'web',
+    tier: 'product',
+    titleKey: 'works.projects.change_web.title',
+    descKey: 'works.projects.change_web.desc',
+    thumbnail: 'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
+    siteUrl: 'http://money-site-bucket.s3-website.eu-central-1.amazonaws.com/',
+    technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
+    images: [
+      'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
+      'https://github.com/user-attachments/assets/3cce7c51-8078-4038-9728-468bbacda501',
+      'https://github.com/user-attachments/assets/3caa22ad-7c07-4b25-aec8-0055fc43c5d0',
+    ],
+  },
+  {
+    id: 'android',
+    category: 'android',
+    tier: 'craft',
+    titleKey: 'works.projects.android.title',
+    descKey: 'works.projects.android.desc',
+    thumbnail: '/ended_proj/android_play.png',
+    technologies: [tech('Java'), tech('Android Studio'), tech('XML'), tech('Firebase')],
+    images: [
+      '/ended_proj/android_play.png',
+      '/ended_proj/android_log.png',
+      '/ended_proj/androin_log2.png',
+      '/ended_proj/android_end.png',
+    ],
+  },
+  {
     id: 'cross_II',
     category: 'android',
+    tier: 'craft',
     titleKey: 'works.projects.cross_II.title',
     descKey: 'works.projects.cross_II.desc',
     thumbnail: '/ended_proj/cross_II_home.png',
@@ -86,6 +165,7 @@ const projects = [
   {
     id: 'learning',
     category: 'web',
+    tier: 'craft',
     titleKey: 'works.projects.learning.title',
     descKey: 'works.projects.learning.desc',
     thumbnail: '/ended_proj/learning_home.png',
@@ -99,6 +179,7 @@ const projects = [
   {
     id: 'massage',
     category: 'web',
+    tier: 'craft',
     titleKey: 'works.projects.massage.title',
     descKey: 'works.projects.massage.desc',
     thumbnail: '/ended_proj/massage_home.png',
@@ -108,62 +189,6 @@ const projects = [
       '/ended_proj/massage_home.png',
       '/ended_proj/massage_services.png',
       '/ended_proj/massage_footer.png',
-    ],
-  },
-  {
-    id: 'change-web',
-    category: 'web',
-    titleKey: 'works.projects.change_web.title',
-    descKey: 'works.projects.change_web.desc',
-    thumbnail: 'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
-    siteUrl: 'http://money-site-bucket.s3-website.eu-central-1.amazonaws.com/',
-    technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
-    images: [
-      'https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818',
-      'https://github.com/user-attachments/assets/3cce7c51-8078-4038-9728-468bbacda501',
-      'https://github.com/user-attachments/assets/3caa22ad-7c07-4b25-aec8-0055fc43c5d0',
-    ],
-  },
-  {
-    id: 'landfolio',
-    category: 'web',
-    titleKey: 'works.projects.landfolio.title',
-    descKey: 'works.projects.landfolio.desc',
-    thumbnail: '/ended_proj/landfolio_home.png',
-    siteUrl: 'https://daria-levitan.com/',
-    technologies: [tech('Vue 3'), tech('Vite'), tech('JavaScript'), tech('CSS3')],
-    images: [
-      '/ended_proj/landfolio_home.png',
-    ],
-  },
-  {
-    id: 'aispace',
-    category: 'web',
-    titleKey: 'works.projects.aispace.title',
-    descKey: 'works.projects.aispace.desc',
-    thumbnail: '/ended_proj/aispace_home.png',
-    github: 'https://github.com/Jony251/AI_Space',
-    technologies: [tech('Vue 3'), tech('TypeScript'), tech('CSS3')],
-    images: [
-      '/ended_proj/aispace_home.png',
-      '/ended_proj/aispace_chat.png',
-      '/ended_proj/aispace_features.png',
-    ],
-  },
-  {
-    id: 'pet-project-crm',
-    category: 'web',
-    titleKey: 'works.projects.crm.title',
-    descKey: 'works.projects.crm.desc',
-    thumbnail: 'https://github.com/user-attachments/assets/74915549-c17c-4391-8713-50eb23da5719',
-    github: 'https://github.com/Jony251/pet-project-CRM',
-    technologies: [tech('React'), tech('JavaScript'), tech('CSS3')],
-    images: [
-      'https://github.com/user-attachments/assets/74915549-c17c-4391-8713-50eb23da5719',
-      'https://github.com/user-attachments/assets/f984bed2-01c5-4c33-9078-6d8b2b2dd1f1',
-      'https://github.com/user-attachments/assets/dfe12271-46dd-4430-a16b-d83cd4b5f954',
-      'https://github.com/user-attachments/assets/5db9a83d-d7a6-4fde-bcdb-b0ba94c9d825',
-      'https://github.com/user-attachments/assets/4421accf-a85d-4409-88b3-2643437bc890',
     ],
   },
 ];

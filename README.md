@@ -40,3 +40,23 @@ Landing page (SPA) built with React + Vite.
 - Open ports: 80 (and 443 if needed)
 - Install Docker on the server
 - Build and run the container with Docker Compose
+
+## Production deploy (bluecat.cc)
+
+The site is live on the same Lightsail instance as `coinset-api`
+(`ec2-user@18.197.102.183`). Because that instance only has 419MB RAM, the
+site is **not** run as a Docker container there — Docker is used for local
+builds/testing only. In production, nginx serves the static `dist/` build
+directly from `/var/www/bluecat.cc` (config: `/etc/nginx/conf.d/bluecat.conf`
+on the server), reusing the existing Cloudflare Origin certificate that
+already covers `*.bluecat.cc`.
+
+`.github/workflows/deploy.yml` builds the site and rsyncs `land_site/dist/`
+to `/var/www/bluecat.cc/` on every push to `main` that touches `land_site/`.
+Required GitHub Actions repository secrets:
+
+- `DEPLOY_HOST` — `18.197.102.183`
+- `DEPLOY_USER` — `ec2-user`
+- `DEPLOY_SSH_KEY` — private key with access to the instance (PEM contents)
+- `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`,
+  `VITE_WHATSAPP_URL`, `VITE_CONTACT_EMAIL` — same values as local `.env`

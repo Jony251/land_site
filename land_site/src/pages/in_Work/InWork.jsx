@@ -43,6 +43,7 @@ const InWork = () => {
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   const categoryLabel = project.category === 'web' ? 'WEB' : 'ANDROID';
+  const tierLabel = project.tier ? t(`works.tier.${project.tier}`) : null;
 
   return (
     <main className="inwork-route">
@@ -66,6 +67,9 @@ const InWork = () => {
               <div className="inwork-breadcrumb">
                 {categoryLabel} / <span>{t(project.titleKey)}</span>
               </div>
+              {tierLabel && (
+                <span className={`inwork-tier-badge tier-${project.tier}`}>{tierLabel}</span>
+              )}
               <h1 className="inwork-title">{t(project.titleKey)}</h1>
               <p className="inwork-description">{t(project.descKey)}</p>
               {project.technologies && project.technologies.length > 0 && (
@@ -119,6 +123,28 @@ const InWork = () => {
               <img src={project.images[0]} alt={t(project.titleKey)} />
             </div>
           </section>
+
+          {/* Case study narrative: flagship (system-level) projects only */}
+          {project.caseKeys && (
+            <section className="inwork-case" aria-label={t('works.case.problem')}>
+              <div className="inwork-case-item">
+                <h3 className="inwork-case-label">{t('works.case.problem')}</h3>
+                <p>{t(project.caseKeys.problem)}</p>
+              </div>
+              <div className="inwork-case-item">
+                <h3 className="inwork-case-label">{t('works.case.solution')}</h3>
+                <p>{t(project.caseKeys.solution)}</p>
+              </div>
+              <div className="inwork-case-item">
+                <h3 className="inwork-case-label">{t('works.case.stack')}</h3>
+                <p>{t(project.caseKeys.stack)}</p>
+              </div>
+              <div className="inwork-case-item">
+                <h3 className="inwork-case-label">{t('works.case.result')}</h3>
+                <p>{t(project.caseKeys.result)}</p>
+              </div>
+            </section>
+          )}
 
           {/* Gallery: remaining images */}
           {project.images.length > 1 && (

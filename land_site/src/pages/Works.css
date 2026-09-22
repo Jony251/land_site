@@ -32,9 +32,9 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin: 0;
+  margin: 1.5rem 0 0;
   padding: 0;
-  direction: ltr;
+  flex-wrap: wrap;
 }
 
 .works-category {
@@ -82,6 +82,16 @@
   outline-offset: 6px;
 }
 
+html[dir="rtl"] .works-category {
+  padding-left: 0;
+  padding-right: 1.1rem;
+}
+
+html[dir="rtl"] .works-category::before {
+  left: auto;
+  right: 0;
+}
+
 .works-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -95,11 +105,25 @@
   border: 1px solid var(--border);
   overflow: hidden;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .project-card:hover {
-  opacity: 0.7;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+}
+
+.project-card.tier-flagship {
+  grid-column: span 2;
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 720px) {
+  .project-card.tier-flagship {
+    grid-column: span 1;
+  }
 }
 
 .project-card-image {
@@ -109,14 +133,37 @@
   display: block;
 }
 
+.project-card.tier-flagship .project-card-image {
+  height: 320px;
+}
+
 .project-card-content {
   padding: 1.25rem;
 }
 
 .project-card-content h3 {
-  margin: 0;
+  margin: 0.4rem 0 0;
   font-size: 1.25rem;
   color: var(--text);
+}
+
+.project-card-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.project-card-badge.tier-flagship {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: color-mix(in srgb, var(--accent) 70%, var(--text));
 }
 
 /* Modal Overlay */
