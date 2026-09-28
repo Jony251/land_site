@@ -24,6 +24,10 @@ jobs:
         working-directory: land_site
         run: npm ci
 
+      - name: Test
+        working-directory: land_site
+        run: npm test
+
       - name: Build
         working-directory: land_site
         env:
