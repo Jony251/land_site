@@ -15,6 +15,11 @@
 }
 
 .marquee-item {
+  display: flex;
+  flex: none;
+}
+
+.marquee-segment {
   flex: none;
   padding-inline-end: 0.5em;
 }
