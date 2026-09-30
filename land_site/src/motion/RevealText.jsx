@@ -1,9 +1,12 @@
 import { useRef } from 'react';
 import { gsap, SplitText, useGSAP } from './gsap';
 import useMotionAllowed from './useMotionAllowed';
+import useI18n from '../i18n/useI18n';
 
 /**
  * Text that reveals line by line when scrolled into view.
+ * Must render inside LanguageProvider: a language change remounts the element
+ * and re-splits it, so SplitText never patches React-owned DOM.
  *
  * Input:
  * - `as` (string): element tag, default `div`.
@@ -14,10 +17,10 @@ import useMotionAllowed from './useMotionAllowed';
  * - The element; with motion allowed, its lines slide up from a mask once on enter.
  *   With reduced motion, plain static text.
  */
-// eslint-disable-next-line no-unused-vars
 const RevealText = ({ as: Tag = 'div', className, children }) => {
   const ref = useRef(null);
   const motionAllowed = useMotionAllowed();
+  const { lang } = useI18n();
 
   useGSAP(
     () => {
@@ -36,11 +39,11 @@ const RevealText = ({ as: Tag = 'div', className, children }) => {
           }),
       });
     },
-    { scope: ref, dependencies: [motionAllowed, children], revertOnUpdate: true }
+    { scope: ref, dependencies: [motionAllowed, lang], revertOnUpdate: true }
   );
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag key={lang} ref={ref} className={className}>
       {children}
     </Tag>
   );
