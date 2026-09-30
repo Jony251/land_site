@@ -2,3 +2,19 @@
   display: inline-block;
   will-change: transform;
 }
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-item {
+  flex: none;
+  padding-inline-end: 0.5em;
+}
