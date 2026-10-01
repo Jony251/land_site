@@ -1,0 +1,25 @@
+.magnetic {
+  display: inline-block;
+  will-change: transform;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-item {
+  display: flex;
+  flex: none;
+}
+
+.marquee-segment {
+  flex: none;
+  padding-inline-end: 0.5em;
+}

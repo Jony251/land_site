@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import useI18n from '../i18n/useI18n'
+import RevealText from '../motion/RevealText'
+import Magnetic from '../motion/Magnetic'
 import projects from './in_Work/projectsData'
 import catGif from '../assets/cat.gif'
 import './Home.css'
@@ -30,16 +32,18 @@ const Home = () => {
               <img className="home-eyebrow-mark" src={catGif} alt="" aria-hidden="true" />
               {t('home.eyebrow')}
             </span>
-            <h1>
+            <RevealText as="h1">
               {t('home.titleStart')}
               <span className="home-title-accent">{t('home.titleAccent')}</span>
               {t('home.titleEnd')}
-            </h1>
+            </RevealText>
             <p className="hero-subtitle home-hero-subtitle">{t('home.subtitle')}</p>
             <div className="hero-actions">
-              <Link className="btn primary" to="/works">
-                {t('home.ctaWorks')}
-              </Link>
+              <Magnetic>
+                <Link className="btn primary" to="/works">
+                  {t('home.ctaWorks')}
+                </Link>
+              </Magnetic>
               <Link className="btn" to="/contact">
                 {t('home.ctaContact')}
               </Link>

@@ -7,6 +7,7 @@ import './index.css'
 import App from './App.jsx'
 import { LanguageProvider } from './i18n/LanguageProvider.jsx'
 import { AccessibilityProvider } from './a11y/AccessibilityProvider.jsx'
+import SmoothScroll from './motion/SmoothScroll.jsx'
 
 /**
  * Application bootstrap.
@@ -20,7 +21,9 @@ createRoot(document.getElementById('root')).render(
     <AccessibilityProvider>
       <LanguageProvider>
         <BrowserRouter>
-          <App />
+          <SmoothScroll>
+            <App />
+          </SmoothScroll>
         </BrowserRouter>
       </LanguageProvider>
     </AccessibilityProvider>
