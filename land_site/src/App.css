@@ -199,3 +199,24 @@ main {
   font-weight: 500;
 }
 
+
+/* ── Round call-to-action (used with Magnetic) ── */
+.btn-round {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(8rem, 14vw, 11rem);
+  aspect-ratio: 1;
+  padding: 1rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.btn-round:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 6px;
+}

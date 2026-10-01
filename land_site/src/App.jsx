@@ -1,6 +1,6 @@
 import Nav from './Components/Nav/Nav.comp'
 import AccessibilityWidget from './Components/Accessibility/AccessibilityWidget.comp'
-import Footer from './Components/Footer/Footer.comp'
+import ContactFooter from './Components/ContactFooter/ContactFooter.comp'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -30,7 +30,7 @@ const HomeRoute = () => (
  *
  * Output:
  * - Renders navigation and page routing.
- * - Conditionally renders `Footer` (hidden on `/contact`).
+ * - Conditionally renders `ContactFooter` (hidden on `/contact`).
  *
  * Input:
  * - Current location from React Router.
@@ -50,7 +50,7 @@ function App() {
         <Route path="/works/:id" element={<InWork />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      {!isContactRoute && <Footer />}
+      {!isContactRoute && <ContactFooter />}
       <AccessibilityWidget />
     </div>
   );

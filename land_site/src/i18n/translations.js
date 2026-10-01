@@ -182,6 +182,12 @@ export const translations = {
       email: 'Email',
       scroll: 'Or send a message below',
     },
+    footer: {
+      title: "Let's work together",
+      lead: 'Tell me about your project and I’ll get back to you.',
+      cta: 'Write to me',
+      whatsapp: 'WhatsApp',
+    },
   },
   ru: {
     nav: {
@@ -358,6 +364,12 @@ export const translations = {
       email: 'Email',
       scroll: 'Или отправьте сообщение ниже',
     },
+    footer: {
+      title: 'Давайте работать вместе',
+      lead: 'Расскажите о проекте — я отвечу.',
+      cta: 'Написать мне',
+      whatsapp: 'WhatsApp',
+    },
   },
   he: {
     nav: {
@@ -533,6 +545,12 @@ export const translations = {
       whatsapp: 'WhatsApp',
       email: 'אימייל',
       scroll: 'או שלחו הודעה כאן למטה',
+    },
+    footer: {
+      title: 'בואו נעבוד יחד',
+      lead: 'ספרו לי על הפרויקט ואחזור אליכם.',
+      cta: 'כתבו לי',
+      whatsapp: 'WhatsApp',
     },
   },
 };
