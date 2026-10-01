@@ -15,13 +15,11 @@ import './App.css'
  * Home route wrapper.
  *
  * Output:
- * - Renders the landing page inside the main layout container.
+ * - Renders the landing page inside `<main>`.
  */
 const HomeRoute = () => (
   <main className="landing-route">
-    <section id="home" className="app-section">
-      <Home />
-    </section>
+    <Home />
   </main>
 )
 
