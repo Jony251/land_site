@@ -22,6 +22,7 @@ Landing page (SPA) built with React + Vite.
 - Local dev:
   - `npm ci`
   - `npm run dev`
+  - `npm test` (Vitest unit tests)
 - Preview production build locally:
   - `npm run build`
   - `npm run preview`
