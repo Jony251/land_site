@@ -8,13 +8,14 @@ import App from './App.jsx'
 import { LanguageProvider } from './i18n/LanguageProvider.jsx'
 import { AccessibilityProvider } from './a11y/AccessibilityProvider.jsx'
 import SmoothScroll from './motion/SmoothScroll.jsx'
+import { PageTransitionProvider } from './motion/PageTransition.jsx'
 
 /**
  * Application bootstrap.
  *
  * Output:
  * - Mounts the React app into `#root`.
- * - Wraps the app with providers (a11y, i18n) and React Router.
+ * - Wraps the app with providers (a11y, i18n, router, smooth scroll, page transitions).
  */
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,7 +23,9 @@ createRoot(document.getElementById('root')).render(
       <LanguageProvider>
         <BrowserRouter>
           <SmoothScroll>
-            <App />
+            <PageTransitionProvider>
+              <App />
+            </PageTransitionProvider>
           </SmoothScroll>
         </BrowserRouter>
       </LanguageProvider>

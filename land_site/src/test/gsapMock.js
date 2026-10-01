@@ -8,6 +8,7 @@ import { useGSAP } from '@gsap/react'
 export const gsap = {
   from: vi.fn(),
   to: vi.fn(),
+  set: vi.fn(),
   fromTo: vi.fn(() => ({ timeScale: vi.fn() })),
   quickTo: vi.fn(() => vi.fn()),
   ticker: { add: vi.fn(), remove: vi.fn(), lagSmoothing: vi.fn() },
