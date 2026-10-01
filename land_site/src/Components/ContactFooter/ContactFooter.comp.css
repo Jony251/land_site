@@ -1,7 +1,7 @@
 .contact-footer {
   position: relative;
   overflow: hidden;
-  padding-block: clamp(4rem, 10vw, 8rem) 2rem;
+  padding-block: clamp(4rem, 10vw, 8rem) calc(1.5rem + clamp(56px, 7vw, 96px) + 1rem);
 }
 
 .contact-footer-inner {

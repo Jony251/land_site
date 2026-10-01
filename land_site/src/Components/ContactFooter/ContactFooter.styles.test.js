@@ -39,3 +39,48 @@ describe('waving cat motion', () => {
     expect(reduced.some((r) => r.decls.get('animation') === 'none')).toBe(true)
   })
 })
+
+// The cat is absolutely positioned at the bottom-right. In RTL the copyright line
+// starts on the right, so the footer must reserve room for the whole cat below it:
+// bottom padding = cat bottom offset + cat height (square image: height = width) + gap.
+describe('footer leaves room for the cat', () => {
+  // Split a CSS value on top-level spaces (not inside parentheses).
+  const topLevelParts = (value) => {
+    const parts = []
+    let depth = 0
+    let cur = ''
+    for (const ch of value) {
+      if (ch === '(') depth += 1
+      if (ch === ')') depth -= 1
+      if (ch === ' ' && depth === 0) {
+        if (cur) parts.push(cur)
+        cur = ''
+      } else cur += ch
+    }
+    if (cur) parts.push(cur)
+    return parts
+  }
+
+  it('bottom padding includes the cat offset and the cat size', () => {
+    const catWidth = declFor(rules, CAT, 'width', { topLevelOnly: true })
+    const catBottom = declFor(rules, CAT, 'inset-block-end', { topLevelOnly: true })
+    expect(catWidth).toBeTruthy()
+    expect(catBottom).toBeTruthy()
+
+    const padding = declFor(rules, '.contact-footer', 'padding-block', { topLevelOnly: true })
+    const parts = topLevelParts(String(padding))
+    expect(parts).toHaveLength(2)
+    const end = parts[1]
+    expect(end).toMatch(/^calc\(/)
+    expect(end).toContain(catWidth)
+    expect(end).toContain(catBottom)
+  })
+
+  it('no other rule shrinks the footer bottom padding', () => {
+    for (const r of rulesFor(rules, '.contact-footer')) {
+      for (const prop of ['padding', 'padding-bottom', 'padding-block-end']) {
+        expect(r.decls.has(prop)).toBe(false)
+      }
+    }
+  })
+})

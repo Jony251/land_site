@@ -222,8 +222,9 @@ main {
 }
 
 .btn-round:focus-visible {
-  outline: 3px solid currentColor;
-  outline-offset: 6px;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #000;
 }
 
 html[data-high-contrast="true"] .btn-round {
