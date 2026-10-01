@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import TransitionLink from '../../motion/TransitionLink';
 import useI18n from '../../i18n/useI18n';
+import NotFound from '../NotFound';
 import projects from './projectsData';
 import './InWork.css';
 
@@ -13,7 +14,7 @@ import './InWork.css';
  * Output:
  * - Renders project details (title/description/tech stack), external links (live site or GitHub),
  *   image gallery, and prev/next navigation.
- * - If no project matches `id`, renders a "Project not found" fallback.
+ * - If no project matches `id`, renders the 404 page (`NotFound`).
  */
 const InWork = () => {
   const { id } = useParams();
@@ -21,23 +22,7 @@ const InWork = () => {
 
   const project = projects.find((p) => p.id === id);
 
-  if (!project) {
-    return (
-      <main className="inwork-route">
-        <div className="inwork-layout">
-          <div className="inwork-main" style={{ padding: '3rem' }}>
-            <h2>Project not found</h2>
-            <TransitionLink to="/works" className="inwork-back" label={t('nav.works')} style={{ marginTop: '1rem' }}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5" /><path d="M12 19l-7-7 7-7" />
-              </svg>
-              Back to Works
-            </TransitionLink>
-          </div>
-        </div>
-      </main>
-    );
-  }
+  if (!project) return <NotFound />;
 
   const currentIndex = projects.findIndex((p) => p.id === id);
   const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;

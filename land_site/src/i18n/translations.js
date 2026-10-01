@@ -188,6 +188,11 @@ export const translations = {
       cta: 'Write to me',
       whatsapp: 'WhatsApp',
     },
+    notFound: {
+      title: 'This page wandered off',
+      body: 'The link may be old — or the cat moved it.',
+      cta: 'Back home',
+    },
   },
   ru: {
     nav: {
@@ -370,6 +375,11 @@ export const translations = {
       cta: 'Написать мне',
       whatsapp: 'WhatsApp',
     },
+    notFound: {
+      title: 'Эта страница куда-то ушла',
+      body: 'Возможно, ссылка устарела — или кот её утащил.',
+      cta: 'На главную',
+    },
   },
   he: {
     nav: {
@@ -551,6 +561,11 @@ export const translations = {
       lead: 'ספרו לי על הפרויקט ואחזור אליכם.',
       cta: 'כתבו לי',
       whatsapp: 'WhatsApp',
+    },
+    notFound: {
+      title: 'הדף הזה הלך לאיבוד',
+      body: 'אולי הקישור ישן — או שהחתול הזיז אותו.',
+      cta: 'חזרה לדף הבית',
     },
   },
 };

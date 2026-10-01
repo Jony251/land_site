@@ -237,4 +237,5 @@ html[data-high-contrast="true"] .btn-round {
 
 html.menu-open {
   overflow: hidden;
+  background: var(--ink);
 }

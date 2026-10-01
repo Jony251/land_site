@@ -7,6 +7,7 @@ import Services from './pages/Services'
 import Works from './pages/Works'
 import InWork from './pages/in_Work/InWork'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
 import './App.css'
@@ -47,6 +48,7 @@ function App() {
         <Route path="/works" element={<Works />} />
         <Route path="/works/:id" element={<InWork />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {!isContactRoute && <ContactFooter />}
       <AccessibilityWidget />

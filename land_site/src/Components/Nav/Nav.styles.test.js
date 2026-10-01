@@ -80,3 +80,15 @@ describe('scroll lock without layout shift', () => {
     expect(declFor(appRules, 'html', 'scrollbar-gutter', { topLevelOnly: true })).toBe('stable')
   })
 })
+
+// scrollbar-gutter: stable keeps a ~15px strip beside the open full-screen menu; it shows the
+// root background, so the root must paint ink while the menu is open (not a paper strip).
+describe('open menu root', () => {
+  it('locks scrolling on the root', () => {
+    expect(declFor(appRules, 'html.menu-open', 'overflow', { topLevelOnly: true })).toBe('hidden')
+  })
+
+  it('paints the root ink so the reserved gutter matches the menu', () => {
+    expect(declFor(appRules, 'html.menu-open', 'background', { topLevelOnly: true })).toBe('var(--ink)')
+  })
+})

@@ -1,0 +1,29 @@
+.notfound-route {
+  min-height: 80vh;
+  display: grid;
+  align-items: center;
+  padding-block: clamp(7rem, 14vw, 10rem) clamp(4rem, 10vw, 8rem);
+}
+
+.notfound {
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+}
+
+.notfound-cat {
+  width: clamp(80px, 12vw, 140px);
+  height: auto;
+}
+
+.notfound-title {
+  margin: 0;
+  font-size: clamp(2.75rem, 8vw, 7rem);
+}
+
+.notfound-body {
+  max-width: 40ch;
+  margin: 0;
+  font-size: 1.2rem;
+  opacity: 0.75;
+}
