@@ -65,7 +65,8 @@
 .contact-footer-cat {
   position: absolute;
   inset-block-end: 1.5rem;
-  inset-inline-end: 1.5rem;
+  /* Physical `right` on purpose: the accessibility widget button is fixed at the physical left. */
+  right: 1.5rem;
   width: clamp(56px, 7vw, 96px);
   height: auto;
   transform-origin: 70% 90%;
@@ -83,4 +84,8 @@
   .contact-footer-cat {
     animation: none;
   }
+}
+
+html[data-reduce-motion="true"] .contact-footer-cat {
+  animation: none;
 }

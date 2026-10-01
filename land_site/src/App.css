@@ -192,6 +192,11 @@ main {
   color: var(--ink);
 }
 
+.section-ink .page-content,
+.section-paper .page-content {
+  color: inherit;
+}
+
 .display {
   font-size: clamp(3rem, 9vw, 10rem);
   line-height: 0.92;
@@ -219,4 +224,8 @@ main {
 .btn-round:focus-visible {
   outline: 3px solid currentColor;
   outline-offset: 6px;
+}
+
+html[data-high-contrast="true"] .btn-round {
+  color: #000;
 }
