@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import TransitionLink from '../motion/TransitionLink'
 import useI18n from '../i18n/useI18n'
 import { OWNER_NAME } from '../config/owner'
 import RevealText from '../motion/RevealText'
@@ -38,9 +38,9 @@ const Home = () => {
             {t('home.titleEnd')}
           </RevealText>
           <Magnetic>
-            <Link className="btn-round" to="/contact">
+            <TransitionLink className="btn-round" to="/contact" label={t('nav.contact')}>
               {t('home.ctaContact')}
-            </Link>
+            </TransitionLink>
           </Magnetic>
         </div>
       </section>
@@ -51,9 +51,9 @@ const Home = () => {
           <div className="home-intro-copy">
             <p className="home-intro-name">{name}</p>
             <p className="home-intro-text">{t('home.intro')}</p>
-            <Link className="home-intro-link" to="/about">
+            <TransitionLink className="home-intro-link" to="/about" label={t('nav.about')}>
               {t('home.introCta')}
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </section>
@@ -64,9 +64,9 @@ const Home = () => {
             {t('home.selectedTitle')}
           </h2>
           <HoverPreviewList items={selected} />
-          <Link className="btn home-work-more" to="/works">
+          <TransitionLink className="btn home-work-more" to="/works" label={t('nav.works')}>
             {t('home.ctaWorks')}
-          </Link>
+          </TransitionLink>
         </div>
       </section>
 

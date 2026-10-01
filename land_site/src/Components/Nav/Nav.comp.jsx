@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import TransitionLink from '../../motion/TransitionLink'
 import './Nav.comp.css'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.comp'
 import useI18n from '../../i18n/useI18n'
@@ -24,39 +24,39 @@ const Nav = () => {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-shell">
         <div className="nav-logo">
-          <Link to="/" className="logo-link" aria-label="Blue Cat home" onClick={handleNavClick}>
+          <TransitionLink to="/" className="logo-link" aria-label="Blue Cat home" label="Blue Cat" onClick={handleNavClick}>
             <span className="logo-mark" aria-hidden="true">
               <img className="logo-img" src="/logo_NO_font.png" alt="" />
             </span>
             <span className="logo-text">Blue Cat</span>
-          </Link>
+          </TransitionLink>
         </div>
 
         <div className="nav-spacer" aria-hidden="true" />
 
         <ul className={`nav-links ${mobileOpen ? 'open' : ''}`}>
           <li>
-            <Link className="nav-link" to="/works" onClick={handleNavClick}>
+            <TransitionLink className="nav-link" to="/works" label={t('nav.works')} onClick={handleNavClick}>
               {t('nav.works')}
-            </Link>
+            </TransitionLink>
           </li>
 
           <li>
-            <Link className="nav-link" to="/services" onClick={handleNavClick}>
+            <TransitionLink className="nav-link" to="/services" label={t('nav.services')} onClick={handleNavClick}>
               {t('nav.services')}
-            </Link>
+            </TransitionLink>
           </li>
 
           <li>
-            <Link className="nav-link" to="/about" onClick={handleNavClick}>
+            <TransitionLink className="nav-link" to="/about" label={t('nav.about')} onClick={handleNavClick}>
               {t('nav.about')}
-            </Link>
+            </TransitionLink>
           </li>
 
           <li>
-            <Link className="nav-link" to="/contact" onClick={handleNavClick}>
+            <TransitionLink className="nav-link" to="/contact" label={t('nav.contact')} onClick={handleNavClick}>
               {t('nav.contact')}
-            </Link>
+            </TransitionLink>
           </li>
         </ul>
 

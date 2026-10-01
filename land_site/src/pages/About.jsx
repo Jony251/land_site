@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import TransitionLink from '../motion/TransitionLink';
 import useI18n from '../i18n/useI18n';
 import './About.css';
 import TechStrip from '../Components/TechStrip/TechStrip.comp';
@@ -15,7 +15,7 @@ const About = () => {
           <p>{t('about.skills')}</p>
           <p>{t('about.approach')}</p>
           <p>{t('about.range')}</p>
-          <Link className="about-cta" to="/contact">{t('about.cta')}</Link>
+          <TransitionLink className="about-cta" to="/contact" label={t('nav.contact')}>{t('about.cta')}</TransitionLink>
         </div>
 
         <TechStrip />

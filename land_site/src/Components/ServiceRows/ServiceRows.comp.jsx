@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import TransitionLink from '../../motion/TransitionLink';
 import useI18n from '../../i18n/useI18n';
 import './ServiceRows.comp.css';
 
@@ -34,9 +34,9 @@ const ServiceRows = ({ withLinks = false }) => {
         return (
           <li key={key} className="service-rows-item">
             {withLinks ? (
-              <Link className="service-rows-row" to="/services">
+              <TransitionLink className="service-rows-row" to="/services" label={t('nav.services')}>
                 {body}
-              </Link>
+              </TransitionLink>
             ) : (
               <div className="service-rows-row">{body}</div>
             )}

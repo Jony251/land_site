@@ -1,4 +1,5 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import TransitionLink from '../../motion/TransitionLink';
 import useI18n from '../../i18n/useI18n';
 import projects from './projectsData';
 import './InWork.css';
@@ -26,12 +27,12 @@ const InWork = () => {
         <div className="inwork-layout">
           <div className="inwork-main" style={{ padding: '3rem' }}>
             <h2>Project not found</h2>
-            <Link to="/works" className="inwork-back" style={{ marginTop: '1rem' }}>
+            <TransitionLink to="/works" className="inwork-back" label={t('nav.works')} style={{ marginTop: '1rem' }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 12H5" /><path d="M12 19l-7-7 7-7" />
               </svg>
               Back to Works
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </main>
@@ -50,9 +51,9 @@ const InWork = () => {
       <div className="inwork-layout">
         {/* Left Sidebar */}
         <aside className="inwork-sidebar">
-          <Link to="/works" className="inwork-sidebar-link">
+          <TransitionLink to="/works" className="inwork-sidebar-link" label={t('nav.works')}>
             All Works
-          </Link>
+          </TransitionLink>
           <div className="inwork-sidebar-divider" />
           <span className="inwork-sidebar-link active">
             {categoryLabel}
@@ -171,21 +172,21 @@ const InWork = () => {
           {/* Prev / Next navigation */}
           <nav className="inwork-nav">
             {prevProject ? (
-              <Link to={`/works/${prevProject.id}`} className="inwork-nav-link">
+              <TransitionLink to={`/works/${prevProject.id}`} className="inwork-nav-link" label={t(prevProject.titleKey)}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M19 12H5" /><path d="M12 19l-7-7 7-7" />
                 </svg>
                 {t(prevProject.titleKey)}
-              </Link>
+              </TransitionLink>
             ) : <span />}
 
             {nextProject ? (
-              <Link to={`/works/${nextProject.id}`} className="inwork-nav-link">
+              <TransitionLink to={`/works/${nextProject.id}`} className="inwork-nav-link" label={t(nextProject.titleKey)}>
                 {t(nextProject.titleKey)}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
                 </svg>
-              </Link>
+              </TransitionLink>
             ) : <span />}
           </nav>
         </div>

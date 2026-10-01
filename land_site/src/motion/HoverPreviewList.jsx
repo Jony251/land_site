@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import TransitionLink from './TransitionLink';
 import { gsap, useGSAP } from './gsap';
 import useMotionAllowed from './useMotionAllowed';
 import './motion.css';
@@ -59,7 +59,7 @@ const HoverPreviewList = ({ items, className = '' }) => {
       >
         {items.map((item) => (
           <li key={item.id} className="hpl-row" onMouseEnter={() => setActiveId(item.id)}>
-            <Link className="hpl-link" to={item.href}>
+            <TransitionLink className="hpl-link" to={item.href} label={item.title}>
               {!previewEnabled && !failed.has(item.id) && (
                 <img
                   className="hpl-thumb"
@@ -71,7 +71,7 @@ const HoverPreviewList = ({ items, className = '' }) => {
               )}
               <span className="hpl-title">{item.title}</span>
               <span className="hpl-meta">{item.meta}</span>
-            </Link>
+            </TransitionLink>
           </li>
         ))}
       </ul>

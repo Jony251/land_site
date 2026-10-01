@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import TransitionLink from '../../motion/TransitionLink';
 import { CONTACT_EMAIL, WHATSAPP_URL } from '../../config/contact';
 import { MASCOT_IMAGE, OWNER_NAME } from '../../config/owner';
 import useI18n from '../../i18n/useI18n';
@@ -28,9 +28,9 @@ const ContactFooter = () => {
         <p className="contact-footer-lead">{t('footer.lead')}</p>
         <div className="contact-footer-actions">
           <Magnetic>
-            <Link className="btn-round" to="/contact">
+            <TransitionLink className="btn-round" to="/contact" label={t('nav.contact')}>
               {t('footer.cta')}
-            </Link>
+            </TransitionLink>
           </Magnetic>
           <ul className="contact-footer-links">
             {CONTACT_EMAIL && (
