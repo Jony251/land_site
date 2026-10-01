@@ -1,27 +1,32 @@
-/* ── Centralized Colors, Shadows & Radius ── */
+/* ── Centralized Colors, Shadows, Radius & Type ── */
 
 :root {
+  /* Palette */
+  --ink: #141517;
+  --paper: #F4F3F0;
+  --cat-gold: #F5A623;
+
   /* Backgrounds */
-  --bg: #f7f7f5;
+  --bg: var(--paper);
   --surface: #ffffff;
   --surface-2: #fbfbfa;
 
   /* Text */
-  --text: #0f172a;
-  --muted: rgba(15, 23, 42, 0.72);
-  --text-muted: rgba(15, 23, 42, 0.72);
+  --text: var(--ink);
+  --muted: rgba(20, 21, 23, 0.68);
+  --text-muted: rgba(20, 21, 23, 0.68);
 
   /* Borders */
-  --border: rgba(15, 23, 42, 0.10);
+  --border: rgba(20, 21, 23, 0.12);
 
   /* Shadows */
-  --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.06);
-  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 18px 52px rgba(15, 23, 42, 0.12);
+  --shadow-sm: 0 6px 18px rgba(20, 21, 23, 0.06);
+  --shadow: 0 10px 30px rgba(20, 21, 23, 0.08);
+  --shadow-lg: 0 18px 52px rgba(20, 21, 23, 0.12);
 
   /* Accent / Brand */
-  --accent: #7aa2ff;
-  --accent-2: #7aa2ff;
+  --accent: #3D5AFE;
+  --accent-2: var(--accent);
   --primary: var(--accent);
 
   /* Status */
@@ -31,6 +36,9 @@
   /* Radius */
   --radius: 14px;
   --radius-sm: 12px;
+
+  /* Type */
+  --font-sans: 'Inter Variable', 'Heebo Variable', system-ui, sans-serif;
 }
 
 /* ── High Contrast Override ── */

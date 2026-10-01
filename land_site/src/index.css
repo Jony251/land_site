@@ -1,7 +1,7 @@
 @import './pages/colors.css';
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
   font-weight: 400;
   --font-scale: 1;
@@ -20,10 +20,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-size: calc(16px * var(--font-scale));
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 html[data-font-scale="1.0"] { --font-scale: 1; }
