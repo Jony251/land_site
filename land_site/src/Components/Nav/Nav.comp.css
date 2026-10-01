@@ -96,8 +96,13 @@
 }
 
 .nav-menu-button:focus-visible {
-  outline: 3px solid var(--paper);
-  outline-offset: 4px;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #000;
+}
+
+html[data-high-contrast="true"] .nav-menu-button span {
+  background: #000;
 }
 
 .navbar--collapsed .nav-menu-button,
@@ -136,6 +141,17 @@
 .site-menu-link:hover,
 .site-menu-link:focus-visible {
   color: var(--accent);
+}
+
+.site-menu .lang-switch {
+  justify-self: start;
+  background: transparent;
+  border-color: color-mix(in srgb, var(--paper) 30%, transparent);
+}
+
+.site-menu .lang-btn.active {
+  background: var(--paper);
+  color: var(--ink);
 }
 
 @media (max-width: 768px) {
