@@ -14,6 +14,9 @@ export const translations = {
       works: 'Works',
       services: 'Services',
       contact: 'Contact',
+      menu: 'Menu',
+      close: 'Close menu',
+      aria: 'Main',
     },
     home: {
       marquee: 'Blue Cat — Web Studio —',
@@ -193,6 +196,9 @@ export const translations = {
       works: 'Работы',
       services: 'Услуги',
       contact: 'Контакты',
+      menu: 'Меню',
+      close: 'Закрыть меню',
+      aria: 'Основная навигация',
     },
     home: {
       marquee: 'Blue Cat — веб-студия —',
@@ -372,6 +378,9 @@ export const translations = {
       works: 'עבודות',
       services: 'שירותים',
       contact: 'צור קשר',
+      menu: 'תפריט',
+      close: 'סגירת התפריט',
+      aria: 'ניווט ראשי',
     },
     home: {
       marquee: 'Blue Cat — סטודיו לאתרים —',

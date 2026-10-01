@@ -230,3 +230,7 @@ main {
 html[data-high-contrast="true"] .btn-round {
   color: #000;
 }
+
+html.menu-open {
+  overflow: hidden;
+}
