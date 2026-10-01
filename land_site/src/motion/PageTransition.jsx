@@ -32,6 +32,7 @@ export const PageTransitionProvider = ({ children }) => {
   const curtainRef = useRef(null);
   const busyRef = useRef(false);
   const lastKeyRef = useRef(null);
+  const curtainInRef = useRef(null);
   const [label, setLabel] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
@@ -50,20 +51,35 @@ export const PageTransitionProvider = ({ children }) => {
     gsap.to(curtainRef.current, { ...CURTAIN_OUT, onComplete: hide });
   });
 
+  const cover = contextSafe(() => {
+    gsap.set(curtainRef.current, { yPercent: 0, visibility: 'visible' });
+  });
+
   const start = contextSafe((to, nextLabel = '') => {
     if (busyRef.current || to === location.pathname) return;
     busyRef.current = true;
     setLabel(nextLabel);
-    gsap.fromTo(
+    // Navigates only if still the current curtain-in: a location change from elsewhere cancels it.
+    const tween = gsap.fromTo(
       curtainRef.current,
       { yPercent: 100, visibility: 'visible' },
-      { ...CURTAIN_IN, onComplete: () => navigate(to) }
+      {
+        ...CURTAIN_IN,
+        onComplete: () => {
+          if (curtainInRef.current === tween) navigate(to);
+        },
+      }
     );
+    curtainInRef.current = tween;
   });
 
   useEffect(() => {
     if (lastKeyRef.current === location.key) return;
     lastKeyRef.current = location.key;
+    // A location change from elsewhere (Back, plain link) cancels a pending curtain-in so it
+    // never navigates late. Not gated on isActive(): a tween is inactive before its first frame.
+    curtainInRef.current?.kill();
+    curtainInRef.current = null;
     focusHeading();
 
     if (busyRef.current) {
@@ -73,7 +89,7 @@ export const PageTransitionProvider = ({ children }) => {
     }
     if (motionAllowed && navigationType === 'POP') {
       busyRef.current = true;
-      gsap.set(curtainRef.current, { yPercent: 0, visibility: 'visible' });
+      cover();
       curtainOut();
     }
     // Runs only when the location changes; motion state is read at that moment.

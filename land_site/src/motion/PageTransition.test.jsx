@@ -1,12 +1,14 @@
 import { StrictMode } from 'react'
 import { describe, expect, it, vi } from 'vitest'
-import { act, fireEvent, screen } from '@testing-library/react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { act, fireEvent, render, screen } from '@testing-library/react'
+import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import { PageTransitionProvider } from './PageTransition'
 import TransitionLink from './TransitionLink'
 import { gsap } from './gsap'
 import { mockMatchMedia } from '../test/matchMedia'
 import { renderWithProviders } from '../test/renderWithProviders'
+import { AccessibilityProvider } from '../a11y/AccessibilityProvider'
+import { LanguageProvider } from '../i18n/LanguageProvider'
 
 vi.mock('./gsap', () => import('../test/gsapMock'))
 
@@ -172,5 +174,50 @@ describe('PageTransition + TransitionLink', () => {
     expect(curtains[0]).toHaveAttribute('aria-hidden', 'true')
     expect(curtains[0].querySelector('img')).toHaveAttribute('alt', '')
     expect(curtains[0].querySelector('.curtain-label')).toHaveTextContent('')
+  })
+
+  // Fix round 1: a curtain-in that is still running when the location changes some other way
+  // (here: Back pressed mid-transition) must be killed, and its late onComplete must not
+  // send the user forward to the link's target.
+  it('cancels a running curtain-in when Back is pressed mid-transition', () => {
+    const tween = { timeScale: vi.fn(), isActive: vi.fn(() => true), kill: vi.fn() }
+    gsap.fromTo.mockReturnValueOnce(tween)
+    render(
+      <AccessibilityProvider>
+        <LanguageProvider>
+          <MemoryRouter initialEntries={['/about', '/']} initialIndex={1}>
+            <PageTransitionProvider>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <main>
+                      <h1>Home page</h1>
+                      <TransitionLink to="/works" label="Works">
+                        Go to works
+                      </TransitionLink>
+                      <BackButton />
+                    </main>
+                  }
+                />
+                <Route path="/about" element={<main><h1>About page</h1></main>} />
+                <Route path="/works" element={<main><h1>Works page</h1></main>} />
+              </Routes>
+            </PageTransitionProvider>
+          </MemoryRouter>
+        </LanguageProvider>
+      </AccessibilityProvider>
+    )
+
+    fireEvent.click(goLink())
+    const [, , to] = lastCall(gsap.fromTo)
+    fireEvent.click(screen.getByRole('button', { name: 'Back' }))
+
+    expect(screen.getByRole('heading', { name: 'About page' })).toHaveFocus()
+    expect(tween.kill).toHaveBeenCalled()
+
+    act(() => to.onComplete())
+    expect(screen.getByRole('heading', { name: 'About page' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Works page' })).not.toBeInTheDocument()
   })
 })
