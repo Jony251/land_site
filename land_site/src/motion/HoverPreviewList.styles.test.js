@@ -32,3 +32,19 @@ describe('hover-preview rows on narrow screens', () => {
     expect(declFor(rules, '.hpl-title', 'hyphens', { topLevelOnly: true })).toBe('auto')
   })
 })
+
+// Round 2: next to an `auto` meta column ("Web App / Система") the title column was only
+// 93–226px on phones, so `overflow-wrap: anywhere` cut words mid-word ("Busine|ss").
+// On phones the meta drops under the title: one full-width column.
+describe('hover-preview rows on phones', () => {
+  const PHONE = /^@media\s*\(\s*max-width:\s*480px\s*\)$/i
+
+  it('stacks the meta under the title in a single column at max-width 480px', () => {
+    const phoneRules = rules.filter(
+      (r) => r.selectors.includes('.hpl-link') && r.media.length === 1 && PHONE.test(r.media[0])
+    )
+    const values = phoneRules.map((r) => r.decls.get('grid-template-columns')).filter(Boolean)
+    expect(values.length).toBeGreaterThan(0)
+    expect(values.at(-1)).toMatch(/^minmax\(0,\s*1fr\)$/)
+  })
+})

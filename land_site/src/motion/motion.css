@@ -109,6 +109,13 @@
   transform: translate(-50%, -50%);
 }
 
+/* Phones: meta drops under the title so the title gets the full row width. */
+@media (max-width: 480px) {
+  .hpl-link {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ── Page transition curtain ── */
 .curtain {
   position: fixed;
