@@ -45,6 +45,7 @@ export const translations = {
     works: {
       title: 'Our works',
       body: 'A curated selection of projects we’ve delivered — from clean landing pages to full web experiences.',
+      filtersAria: 'Filter projects',
       filters: {
         all: 'All',
         flagship: 'Systems',
@@ -232,6 +233,7 @@ export const translations = {
     works: {
       title: 'Наши работы',
       body: 'Подборка проектов, которые мы уже реализовали — от лендингов до полноценных веб‑решений.',
+      filtersAria: 'Фильтр проектов',
       filters: {
         all: 'Все',
         flagship: 'Системы',
@@ -419,6 +421,7 @@ export const translations = {
     works: {
       title: 'העבודות שלנו',
       body: 'מבחר פרויקטים שביצענו — מדפי נחיתה נקיים ועד חוויות ווב מלאות.',
+      filtersAria: 'סינון פרויקטים',
       filters: {
         all: 'הכל',
         flagship: 'מערכות',
