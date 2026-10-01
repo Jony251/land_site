@@ -38,7 +38,7 @@
 
 .hpl-link {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
   gap: 0.75rem 2rem;
   padding-block: clamp(1.25rem, 3vw, 2.5rem);
@@ -52,6 +52,9 @@
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1;
+  overflow-wrap: anywhere;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .hpl-meta {
