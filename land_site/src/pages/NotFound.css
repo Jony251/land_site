@@ -18,6 +18,9 @@
 
 .notfound-title {
   margin: 0;
+}
+
+.notfound-route .notfound-title {
   font-size: clamp(2.75rem, 8vw, 7rem);
 }
 

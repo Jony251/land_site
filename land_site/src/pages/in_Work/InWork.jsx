@@ -85,12 +85,12 @@ const InWork = () => {
               <dd className="case-links">
                 {project.siteUrl && (
                   <a href={project.siteUrl} target="_blank" rel="noopener noreferrer">
-                    {t('works.case.live')} ↗
+                    {t('works.case.live')} <span aria-hidden="true">↗</span>
                   </a>
                 )}
                 {project.github && (
                   <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    {t('works.case.github')} ↗
+                    {t('works.case.github')} <span aria-hidden="true">↗</span>
                   </a>
                 )}
               </dd>

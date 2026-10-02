@@ -184,3 +184,30 @@ describe('InWork (case study) — contract details', () => {
     expect(screen.getByRole('link', { name: translations.ru.works.case.back })).toHaveAttribute('href', '/works')
   })
 })
+
+// Fix round 1 (reviewer-vesemir on fdf575f).
+describe('InWork (case study) — fix round 1', () => {
+  it.each([
+    ['en', 'live', (p) => p.siteUrl && !p.github, 'siteUrl'],
+    ['en', 'github', (p) => p.github && !p.siteUrl, 'github'],
+    ['he', 'live', (p) => p.siteUrl && !p.github, 'siteUrl'],
+    ['he', 'github', (p) => p.github && !p.siteUrl, 'github'],
+  ])('%s: the %s link is named exactly by its label; the arrow is decorative', (lang, key, pick, field) => {
+    const project = projects.find(pick)
+    renderCaseIn(lang, project.id)
+    const label = translations[lang].works.case[key]
+    const link = screen.getByRole('link', { name: label })
+    expect(link).toHaveAttribute('href', project[field])
+    expect(link).toHaveTextContent('↗')
+    const hidden = [...link.querySelectorAll('[aria-hidden="true"]')]
+    expect(hidden.map((el) => el.textContent.trim())).toContain('↗')
+  })
+
+  it('breaks the long Russian "learning" title with a soft hyphen (U+00AD)', () => {
+    const project = projects.find((p) => p.id === 'learning')
+    const title = titleIn('ru', project)
+    expect(title).toBe('Образо\u00ADвательная платформа')
+    renderCaseIn('ru', project.id)
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe(title)
+  })
+})

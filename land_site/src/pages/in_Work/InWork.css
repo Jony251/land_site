@@ -4,7 +4,7 @@
 
 .case-hero {
   width: 100%;
-  height: clamp(320px, 70vh, 760px);
+  height: clamp(220px, min(70vh, 62vw), 760px);
   overflow: hidden;
   background: var(--ink);
 }
@@ -21,6 +21,11 @@
   padding-block: clamp(3rem, 8vw, 6rem);
 }
 
+.case-content > *,
+.case-next > * {
+  min-width: 0;
+}
+
 .case-back {
   color: inherit;
   font-weight: 500;
@@ -29,7 +34,12 @@
 
 .case-title {
   margin: 0;
-  font-size: clamp(2.75rem, 8vw, 8rem);
+}
+
+.case-route .case-title {
+  font-size: clamp(2.25rem, 8vw, 8rem);
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .case-lead {
@@ -138,16 +148,27 @@
   font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.8;
+  opacity: 1;
 }
 
-.case-next-title {
-  font-size: clamp(2.5rem, 7vw, 7rem);
+.case-route .case-next-title {
+  font-size: clamp(2rem, 7vw, 7rem);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+html[data-high-contrast="true"] .case-next {
+  color: #000;
 }
 
 .case-next:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: -6px;
+}
+
+:lang(he) .case-label,
+:lang(he) .case-next-label {
+  letter-spacing: 0;
 }
 
 @media (max-width: 640px) {
