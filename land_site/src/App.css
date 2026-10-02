@@ -152,31 +152,6 @@ main {
   width: 100%;
 }
 
-.contact-route {
-  min-height: calc(100vh - 80px);
-  width: 100%;
-  padding-top: 80px;
-  background-color: var(--bg);
-}
-
-.works-route {
-  width: 100%;
-  padding-top: 80px;
-  background-color: var(--bg);
-}
-
-.about-route {
-  width: 100%;
-  padding-top: 80px;
-  background-color: var(--bg);
-}
-
-.services-route {
-  width: 100%;
-  padding-top: 80px;
-  background-color: var(--bg);
-}
-
 .page-content {
   color: var(--text);
   max-width: 1200px;

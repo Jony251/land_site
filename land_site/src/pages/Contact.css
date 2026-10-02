@@ -1,0 +1,13 @@
+.contact-route {
+  padding-block: clamp(7rem, 14vw, 10rem) clamp(4rem, 10vw, 8rem);
+}
+
+.contact-title {
+  margin: 0 0 1.25rem;
+}
+
+.contact-lead {
+  max-width: 45ch;
+  margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
