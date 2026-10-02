@@ -22,7 +22,7 @@ const About = () => {
     <main className="about-route section-paper">
       <div className="page-content about-page">
         <div className="about-head">
-          <OwnerPhoto alt={name} className="about-photo" />
+          <OwnerPhoto alt={name} className="about-photo" loading="eager" />
           <div>
             <p className="about-name">{name}</p>
             <RevealText as="h1" className="display about-title">

@@ -21,6 +21,11 @@ describe('About', () => {
     expect(screen.getByRole('link', { name: translations.en.about.cta })).toHaveAttribute('href', '/contact')
   })
 
+  it('loads the owner photo eagerly: it is above the fold and the LCP candidate', () => {
+    renderWithProviders(<About />)
+    expect(screen.getByRole('img', { name: 'Eugeny' })).toHaveAttribute('loading', 'eager')
+  })
+
   it('uses the Hebrew name in Hebrew', () => {
     localStorage.setItem('bc_lang', 'he')
     renderWithProviders(<About />)

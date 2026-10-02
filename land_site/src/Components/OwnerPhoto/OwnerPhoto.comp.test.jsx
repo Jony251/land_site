@@ -28,4 +28,21 @@ describe('OwnerPhoto', () => {
     render(<OwnerPhoto alt="x" className="about-photo" />)
     expect(screen.getByRole('img')).toHaveClass('owner-photo', 'about-photo')
   })
+
+  it('loads lazily by default (below-the-fold uses)', () => {
+    render(<OwnerPhoto alt="x" />)
+    expect(screen.getByRole('img')).toHaveAttribute('loading', 'lazy')
+  })
+
+  it('loads eagerly when asked (above-the-fold portrait)', () => {
+    render(<OwnerPhoto alt="x" loading="eager" />)
+    expect(screen.getByRole('img')).toHaveAttribute('loading', 'eager')
+  })
+
+  it('keeps the requested loading mode after falling back to the mascot', () => {
+    render(<OwnerPhoto alt="x" loading="eager" />)
+    fireEvent.error(screen.getByRole('img'))
+    expect(screen.getByRole('img')).toHaveAttribute('src', MASCOT_IMAGE)
+    expect(screen.getByRole('img')).toHaveAttribute('loading', 'eager')
+  })
 })
