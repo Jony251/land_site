@@ -42,3 +42,38 @@ describe('copy contracts', () => {
     expect(translations.he.finalCta.aria).toBe('כתבו לי')
   })
 })
+
+// Hebrew copy addresses the visitor in the plural ("צרו", "שלחו", "נסו"), never the masculine singular.
+describe('Hebrew addresses the visitor in the plural', () => {
+  const he = translations.he
+  const strings = (node, prefix = '') =>
+    Object.entries(node).flatMap(([key, value]) =>
+      value && typeof value === 'object' ? strings(value, `${prefix}${key}.`) : [[`${prefix}${key}`, value]],
+    )
+  const SINGULAR_IMPERATIVE = /(^|[\s"״(])(שלח|נסה|הוסף|הזמן|קבל|צור|כתוב|ספר|בחר|השאר|לחץ)(?=[\s,.!?—:]|$)/
+
+  it('no masculine-singular imperatives anywhere in he', () => {
+    const offenders = strings(he)
+      .filter(([, text]) => SINGULAR_IMPERATIVE.test(String(text)))
+      .map(([key]) => key)
+    expect(offenders).toEqual([])
+  })
+
+  it('nav.contact matches the page title: "צרו קשר"', () => {
+    expect(he.nav.contact).toBe('צרו קשר')
+    expect(he.nav.contact).toBe(he.contact.title)
+  })
+
+  it('contact form: "שליחה", "נסו שוב", "הוסיפו"', () => {
+    expect(he.contact.form.send).toBe('שליחה')
+    expect(he.contact.form.error).toBe('שליחת ההודעה נכשלה. נסו שוב.')
+    expect(he.contact.form.notConfigured).toBe('שירות המייל לא מוגדר עדיין. הוסיפו מפתחות EmailJS לקובץ .env.')
+    expect(he.contact.form.hint).toBe('כדי להפעיל שליחת מייל, הוסיפו מפתחות EmailJS לקובץ .env.')
+  })
+
+  it('finalCta.lead speaks in the plural throughout', () => {
+    expect(he.finalCta.lead).toBe(
+      'יש שאלה, צריכים הצעת מחיר או רוצים לדבר על הפרויקט? שלחו הודעה — אחזור אליכם במהירות ואעזור לבחור את הפתרון המתאים.',
+    )
+  })
+})

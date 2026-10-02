@@ -22,6 +22,12 @@
   transform: translateY(-2px);
 }
 
+html[data-high-contrast="true"] .a11y-fab {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
 .a11y-panel {
   position: absolute;
   left: 0;

@@ -171,6 +171,19 @@ main {
   color: var(--ink);
 }
 
+html[data-high-contrast="true"] .section-paper {
+  --text: #000;
+  --muted: rgba(0, 0, 0, 0.84);
+  --border: rgba(0, 0, 0, 0.4);
+  --surface: rgba(0, 0, 0, 0.06);
+  --surface-2: rgba(0, 0, 0, 0.1);
+}
+
+html[data-high-contrast="true"] .section-paper a:not(.btn):not(.btn-round):not(.case-next) {
+  color: #000;
+  text-decoration: underline;
+}
+
 .section-ink .page-content,
 .section-paper .page-content {
   color: inherit;
