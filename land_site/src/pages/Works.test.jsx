@@ -106,7 +106,7 @@ describe('Works', () => {
     expect(within(filters).getByRole('button', { name: /מערכות/ })).toBeInTheDocument()
     expect(within(filters).getByRole('button', { name: /אתרים לעסקים/ })).toBeInTheDocument()
     expect(within(filters).getByRole('button', { name: /פרויקטים מהירים/ })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('העבודות שלנו')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/^עבודות$/)
   })
 })
 
