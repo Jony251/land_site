@@ -128,7 +128,7 @@
 
 @media (max-width: 920px) {
   .contact-section-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .contact-section-subtitle {
