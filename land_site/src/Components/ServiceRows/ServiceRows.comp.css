@@ -42,6 +42,7 @@ a.service-rows-row:focus-visible {
 .service-rows-text {
   display: grid;
   gap: 0.5rem;
+  min-width: 0;
 }
 
 .service-rows-title {
@@ -49,6 +50,8 @@ a.service-rows-row:focus-visible {
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.05;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .service-rows-desc {
