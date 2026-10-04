@@ -11,7 +11,7 @@ describe('Home', () => {
     renderWithProviders(<Home />)
     expect(screen.getAllByText('Blue Cat — Web Studio —').length).toBeGreaterThanOrEqual(1)
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'I build sites people trust — and systems businesses run on.'
+      'Websites and systems — from idea to launch.'
     )
     expect(screen.getByRole('link', { name: 'Start a project' })).toHaveAttribute('href', '/contact')
   })
@@ -46,5 +46,12 @@ describe('Home', () => {
     renderWithProviders(<Home />)
     expect(screen.getByRole('img', { name: 'יבגני' })).toBeInTheDocument()
     expect(screen.getByRole('region', { name: 'מה אני בונה' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('אתרים ומערכות — מהרעיון ועד ההשקה.')
+  })
+
+  it('speaks Russian', () => {
+    localStorage.setItem('bc_lang', 'ru')
+    renderWithProviders(<Home />)
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Сайты и системы — от идеи до запуска.')
   })
 })
