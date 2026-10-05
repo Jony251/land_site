@@ -2,7 +2,7 @@
 
 # Blue Cat — bluecat.cc
 
-**Personal portfolio and freelance site of Evgeny Nemchenko, full-stack developer.**
+**Personal portfolio and freelance site of Evgeny Levitan, full-stack developer.**
 A motion-driven, trilingual (EN / RU / HE with full RTL) React site, built test-first and shipped by CI.
 
 [**Live site → bluecat.cc**](https://bluecat.cc) ·
